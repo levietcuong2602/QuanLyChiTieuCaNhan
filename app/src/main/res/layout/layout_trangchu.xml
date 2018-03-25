@@ -1,32 +1,46 @@
-<android.support.v4.widget.DrawerLayout
-    android:id="@+id/drawer_layout"
+<android.support.v4.widget.DrawerLayout android:id="@+id/drawer_layout"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <LinearLayout
-        android:id="@+id/content_layout"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolBarTrangChu"
-            android:layout_gravity="bottom"
+            android:layout_alignParentTop="true"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/bgToolbar"
             >
-            <Button
-                android:text="Quản lý tài khoản"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
         </android.support.v7.widget.Toolbar>
 
+        <LinearLayout
+            android:id="@+id/content_layout"
+            android:layout_below="@+id/toolBarTrangChu"
+            android:layout_above="@+id/bottom_navigation"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </LinearLayout>
+        </LinearLayout>
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/bgToolbar"
+            app:menu="@menu/menu_bottom_navigation">
+
+        </android.support.design.widget.BottomNavigationView>
+
+    </RelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/navigationView"

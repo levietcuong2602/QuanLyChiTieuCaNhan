@@ -92,4 +92,12 @@ public class DB_Manager {
 
         return database.insert("TaiKhoan", null, values);
     }
+
+    public static long updatePasswordAccount(Activity activity, Account account){
+        SQLiteDatabase database = DB_Manager.initDatabases(activity, "Accounts.sqlite");
+        ContentValues values = new ContentValues();
+        values.put("username", account.getUsername());
+        values.put("password", account.getPassword());
+        return database.update("TaiKhoan", values, "username=?", new String[]{account.getUsername()});
+    }
 }

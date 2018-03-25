@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/itemGhiChep"
+        android:title="Ghi Chép"
+        android:icon="@drawable/ic_action_ghichep"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/itemTaiKhoan"
+        android:title="Tài khoản"
+        android:icon="@drawable/ic_action_taikhoan"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/itemLimit"
+        android:title="Hạn mức chi"
+        android:icon="@drawable/ic_action_limitbuy"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/itemBaoCao"
+        android:title="Báo cáo"
+        android:icon="@drawable/ic_action_baocao"
+        app:showAsAction="ifRoom"/>
+</menu>

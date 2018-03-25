@@ -32,6 +32,7 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
     NavigationView navigationView;
     TextView textName;
     FragmentManager manager;
+    public static Account accountDangNhap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,8 +65,8 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
         View headerLayout = navigationView.inflateHeaderView(R.layout.layout_header_profile);
         textName = headerLayout.findViewById(R.id.tvName);
 
-        Account account = (Account) getIntent().getSerializableExtra("account");
-        textName.setText("Xin chào: "+account.getUsername());
+        accountDangNhap = (Account) getIntent().getSerializableExtra("account");
+        textName.setText("Xin chào: "+accountDangNhap.getUsername());
 
         manager = getSupportFragmentManager();
 
@@ -81,12 +82,13 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
                 Fragment_DoiTenTaiKhoan fragmentDoiTenTK = new Fragment_DoiTenTaiKhoan();
                 transDoiTenTK.replace(R.id.content_layout, fragmentDoiTenTK);
                 transDoiTenTK.commit();
+
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.itemDoiMatKhau:
                 FragmentTransaction transaction = manager.beginTransaction();
 
-                Fragment_DoiMatKhau fragmentDoiMK = new Fragment_DoiMatKhau();
+                Fragment fragmentDoiMK = new Fragment_DoiMatKhau();
                 transaction.replace(R.id.content_layout, fragmentDoiMK);
                 transaction.commit();
 
@@ -95,9 +97,10 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
             case R.id.itemDoiAvata:
                 FragmentTransaction transDoiAvata = manager.beginTransaction();
 
-                Fragment_DoiAvata fragmentDoiAvata = new Fragment_DoiAvata();
+                Fragment fragmentDoiAvata = new Fragment_DoiAvata();
                 transDoiAvata.replace(R.id.content_layout, fragmentDoiAvata);
                 transDoiAvata.commit();
+
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.itemDangXuat:

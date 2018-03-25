@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.lv.vietcuong.project2.View.DangNhap.Fragment.Fragment_DangKy;
 import com.lv.vietcuong.project2.View.DangNhap.Fragment.Fragment_DangNhap;
+import com.lv.vietcuong.project2.View.DangNhap.Profile.Fragment_DoiMatKhau;
 
 /**
  * Created by Administor on 3/22/2018.
@@ -21,6 +22,7 @@ public class ViewPagerAdapterDangNhap extends FragmentPagerAdapter{
         switch (position){
             case 0: Fragment frgDangNhap = new Fragment_DangNhap(); return frgDangNhap;
             case 1: Fragment frgDangKy = new Fragment_DangKy(); return frgDangKy;
+
         }
         return null;
     }

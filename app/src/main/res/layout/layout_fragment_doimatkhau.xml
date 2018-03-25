@@ -12,6 +12,7 @@
         android:layout_height="wrap_content" />
 
     <TextView
+        android:id="@+id/tvUsername"
         android:textSize="22sp"
         android:text="Username: "
         android:layout_width="match_parent"
@@ -25,6 +26,7 @@
         android:layout_margin="10dp">
 
         <EditText
+            android:id="@+id/edOldPass"
             android:hint="Mật khẩu cũ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -37,7 +39,7 @@
         android:layout_margin="10dp">
 
         <EditText
-
+            android:id="@+id/edNewPass"
             android:hint="Nhập mật khẩu mới"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -50,7 +52,7 @@
         android:layout_margin="10dp">
 
         <EditText
-
+            android:id="@+id/edReNewPass"
             android:hint="Nhập lại mật khẩu mới"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
