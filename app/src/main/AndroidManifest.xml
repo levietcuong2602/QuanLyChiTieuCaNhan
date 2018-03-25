@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".View.DangNhap.DangNhapActivity"
-            android:label="Đăng nhập/Đăng ký?">
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

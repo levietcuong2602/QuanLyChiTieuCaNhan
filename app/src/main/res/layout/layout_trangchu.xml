@@ -6,8 +6,10 @@
 
 
     <LinearLayout
+        android:id="@+id/content_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolBarTrangChu"
@@ -32,7 +34,6 @@
         android:layout_gravity="left"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:headerLayout="@layout/layout_header_profile"
         app:menu="@menu/menu_header_profile">
 
     </android.support.design.widget.NavigationView>

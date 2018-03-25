@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/itemDoiAvata"
-        android:title="Đổi Avata "/>
+        android:title="Cập nhật ảnh đại diện"/>
 
     <item android:id="@+id/itemDoiMatKhau"
         android:title="Đổi mật khẩu"/>
 
-    <item android:id="@+id/itemDoiTaiKhoan"
+    <item android:id="@+id/itemDoiTenTaiKhoan"
         android:title="Đổi tên tài khoản"/>
 
     <item android:id="@+id/itemDangXuat"
