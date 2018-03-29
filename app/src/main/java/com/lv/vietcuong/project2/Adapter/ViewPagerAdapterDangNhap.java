@@ -4,9 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.lv.vietcuong.project2.View.DangNhap.Fragment.Fragment_DangKy;
-import com.lv.vietcuong.project2.View.DangNhap.Fragment.Fragment_DangNhap;
-import com.lv.vietcuong.project2.View.DangNhap.Profile.Fragment_DoiMatKhau;
+import com.lv.vietcuong.project2.View.Fragment_Login_Logout.Fragment_DangKy;
+import com.lv.vietcuong.project2.View.Fragment_Login_Logout.Fragment_DangNhap;
 
 /**
  * Created by Administor on 3/22/2018.

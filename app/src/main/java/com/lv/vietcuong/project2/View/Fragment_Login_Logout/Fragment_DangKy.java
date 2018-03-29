@@ -1,9 +1,8 @@
-package com.lv.vietcuong.project2.View.DangNhap.Fragment;
+package com.lv.vietcuong.project2.View.Fragment_Login_Logout;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

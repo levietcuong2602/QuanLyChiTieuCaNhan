@@ -60,7 +60,7 @@ public class DB_Manager {
         ArrayList<Account> dsTaiKhoan = new ArrayList<>();
 
         String SQLQuery = "SELECT * FROM TaiKhoan;";
-        SQLiteDatabase database = DB_Manager.initDatabases(activity, "Accounts.sqlite");
+        SQLiteDatabase database = initDatabases(activity, "Accounts.sqlite");
         if (database != null){
             Log.d("DB", "Copy database thành công");
         }else {

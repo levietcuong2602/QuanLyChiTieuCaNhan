@@ -2,6 +2,7 @@ package com.lv.vietcuong.project2;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,53 +13,105 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Model.Account;
+import com.lv.vietcuong.project2.View.GhiChep.GhiChepActivity;
+import com.lv.vietcuong.project2.View.HanMucChi.HanMucChiActivity;
+import com.lv.vietcuong.project2.View.Profile.Fragment_DoiAvata;
+import com.lv.vietcuong.project2.View.Profile.Fragment_DoiMatKhau;
+import com.lv.vietcuong.project2.View.Profile.Fragment_DoiTenTaiKhoan;
+import com.lv.vietcuong.project2.View.ViTien.TaiKhoanActivity;
 import com.lv.vietcuong.project2.View.DangNhap.DangNhapActivity;
-import com.lv.vietcuong.project2.View.DangNhap.Profile.Fragment_DoiAvata;
-import com.lv.vietcuong.project2.View.DangNhap.Profile.Fragment_DoiMatKhau;
-import com.lv.vietcuong.project2.View.DangNhap.Profile.Fragment_DoiTenTaiKhoan;
 
-public class Layout_TrangChu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Layout_TrangChu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     TextView textName;
     FragmentManager manager;
+    BottomNavigationView bottomNavigationView;
+
     public static Account accountDangNhap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_trangchu);
 
-        toolbar = findViewById(R.id.toolBarTrangChu);
+//        toolbar = findViewById(R.id.toolBarTrangChu);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         setHeaderNavigation();
+//        setSupportActionBar(toolbar);
 
-        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(Layout_TrangChu.this, drawerLayout, R.string.open, R.string.close);
+//        drawerToggle.syncState();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(Layout_TrangChu.this, drawerLayout, R.string.open, R.string.close);
-        drawerToggle.syncState();
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                drawerLayout.openDrawer(GravityCompat.START);
+//            }
+//        });
+        navigationView.setNavigationItemSelectedListener(this);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                drawerLayout.openDrawer(GravityCompat.START);
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                switch (id){
+                    case R.id.itemBaoCao:
+
+                        item.setChecked(true);
+                        break;
+                    case R.id.itemGhiChep:
+                        FragmentTransaction transGhiChep = manager.beginTransaction();
+                        GhiChepActivity ghiChep= new GhiChepActivity();
+                        transGhiChep.replace(R.id.content_layout, ghiChep);
+                        transGhiChep.commit();
+
+                        item.setChecked(true);
+
+                        Toast.makeText(Layout_TrangChu.this, "Ghi chép", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.itemLimit:
+
+                        FragmentTransaction transHanMucChi = manager.beginTransaction();
+                        HanMucChiActivity hanMucChi= new HanMucChiActivity();
+                        transHanMucChi.replace(R.id.content_layout, hanMucChi);
+                        transHanMucChi.commit();
+
+                        item.setChecked(true);
+                        break;
+                    case R.id.itemSetting:
+                        drawerLayout.openDrawer(GravityCompat.START);
+                        item.setChecked(true);
+                        break;
+                    case R.id.itemTaiKhoan:
+                        FragmentTransaction transTaiKhoan = manager.beginTransaction();
+                        TaiKhoanActivity taiKhoanActivity = new TaiKhoanActivity();
+                        transTaiKhoan.replace(R.id.content_layout, taiKhoanActivity);
+                        transTaiKhoan.commit();
+
+                        item.setChecked(true);
+                        break;
+                }
+                return false;
             }
         });
 
-        navigationView.setNavigationItemSelectedListener(this);
+        manager = getSupportFragmentManager();
+        FragmentTransaction transGhiChep = manager.beginTransaction();
+        GhiChepActivity ghiChep= new GhiChepActivity();
+        transGhiChep.replace(R.id.content_layout, ghiChep);
+        transGhiChep.commit();
     }
 
     private void setHeaderNavigation() {
@@ -67,9 +120,6 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
 
         accountDangNhap = (Account) getIntent().getSerializableExtra("account");
         textName.setText("Xin chào: "+accountDangNhap.getUsername());
-
-        manager = getSupportFragmentManager();
-
     }
 
     @Override

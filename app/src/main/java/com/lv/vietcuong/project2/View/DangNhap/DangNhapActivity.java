@@ -1,23 +1,13 @@
 package com.lv.vietcuong.project2.View.DangNhap;
 
-import android.content.ContentValues;
-import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Adapter.ViewPagerAdapterDangNhap;
-import com.lv.vietcuong.project2.Databases.DB_Manager;
-import com.lv.vietcuong.project2.Layout_TrangChu;
 import com.lv.vietcuong.project2.R;
 
 /**

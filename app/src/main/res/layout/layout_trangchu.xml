@@ -10,23 +10,13 @@
         android:layout_height="match_parent"
         >
 
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolBarTrangChu"
-            android:layout_alignParentTop="true"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/bgToolbar"
-            >
-        </android.support.v7.widget.Toolbar>
-
         <LinearLayout
             android:id="@+id/content_layout"
-            android:layout_below="@+id/toolBarTrangChu"
             android:layout_above="@+id/bottom_navigation"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            >
 
         </LinearLayout>
 
@@ -35,10 +25,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/bgToolbar"
-            app:menu="@menu/menu_bottom_navigation">
+            android:background="@color/colorWhite"
+            app:menu="@menu/menu_bottom_navigation"
+            >
 
         </android.support.design.widget.BottomNavigationView>
+
+        <android.support.v7.widget.Toolbar
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.Toolbar>
 
     </RelativeLayout>
 

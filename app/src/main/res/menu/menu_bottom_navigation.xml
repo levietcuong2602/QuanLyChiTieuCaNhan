@@ -21,4 +21,9 @@
         android:title="Báo cáo"
         android:icon="@drawable/ic_action_baocao"
         app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/itemSetting"
+        android:title="Khác"
+        android:icon="@drawable/ic_action_setting"
+        app:showAsAction="ifRoom"/>
 </menu>
