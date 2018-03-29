@@ -21,6 +21,7 @@
 
         <activity android:name=".Layout_TrangChu"
             android:label=""></activity>
+        <activity android:name=".View.GhiChep.DaGhiActivity"/>
     </application>
 
 </manifest>

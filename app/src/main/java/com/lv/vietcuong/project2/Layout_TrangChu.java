@@ -73,7 +73,7 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
                         break;
                     case R.id.itemGhiChep:
                         FragmentTransaction transGhiChep = manager.beginTransaction();
-                        GhiChepActivity ghiChep= new GhiChepActivity();
+                        GhiChepActivity ghiChep = new GhiChepActivity();
                         transGhiChep.replace(R.id.content_layout, ghiChep);
                         transGhiChep.commit();
 
@@ -109,7 +109,7 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
 
         manager = getSupportFragmentManager();
         FragmentTransaction transGhiChep = manager.beginTransaction();
-        GhiChepActivity ghiChep= new GhiChepActivity();
+        GhiChepActivity ghiChep = new GhiChepActivity();
         transGhiChep.replace(R.id.content_layout, ghiChep);
         transGhiChep.commit();
     }
