@@ -27,7 +27,6 @@ public class HanMucChiActivity extends Fragment implements View.OnClickListener 
     ListView listView;
     ArrayList<HanMucChi> arrayHanMucChi;
     Button btnThemHangMucChi;
-    Button btnDialog;
 
     @Nullable
     @Override
@@ -35,7 +34,6 @@ public class HanMucChiActivity extends Fragment implements View.OnClickListener 
 
         View view = inflater.inflate(R.layout.layout_hanmucchi, container, false);
         listView = view.findViewById(R.id.listViewHanMucChi);
-        btnThemHangMucChi = view.findViewById(R.id.btnThemHanMucChi);
 
         arrayHanMucChi = new ArrayList<>();
         arrayHanMucChi.add(new HanMucChi("Tiền ăn", 500000));
@@ -46,13 +44,6 @@ public class HanMucChiActivity extends Fragment implements View.OnClickListener 
 
         btnThemHangMucChi.setOnClickListener(this);
 
-        btnDialog = view.findViewById(R.id.btnDialog);
-        btnDialog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                
-            }
-        });
 
         return view;
     }
