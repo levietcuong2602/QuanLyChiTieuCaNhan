@@ -34,10 +34,6 @@ public class HanMucChiActivity extends Fragment implements View.OnClickListener 
 
         View view = inflater.inflate(R.layout.layout_hanmucchi, container, false);
         listView = view.findViewById(R.id.listViewHanMucChi);
-<<<<<<< HEAD
-=======
- //       btnThemHangMucChi = view.findViewById(R.id.btnThemHanMucChi);
->>>>>>> 6f5c324ba867e932edc8efbbe9f1b9664781410d
 
         arrayHanMucChi = new ArrayList<>();
         arrayHanMucChi.add(new HanMucChi("Tiền ăn", 500000));
