@@ -1,8 +1,24 @@
 package com.lv.vietcuong.project2.View.GhiChep;
 
+import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.lv.vietcuong.project2.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class Util {
     public static void replace(int id, Fragment fragment, FragmentActivity activity){
@@ -10,5 +26,116 @@ public class Util {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(id, fragment);
         fragmentTransaction.commit();
+    }
+
+    public static void showDialogTaikhoan(Context context, TextView textView, int idListView){
+        final Dialog dialog = new Dialog(context);
+        dialog.setTitle("Tài khoản");
+        dialog.setContentView(R.layout.dialog_taikhoan);
+        dialog.setCancelable(false);
+        setListViewTaikhoan(dialog,textView,context,idListView);
+
+        dialog.show();
+    }
+
+    public static void setListViewTaikhoan(final Dialog dialog, final TextView textView, Context context,int idListView){
+        ListView lv;
+        final String[] taikhoan = {"0506515615","65105320840","560184065123","60840615316","41605131566","6040686161"};
+
+        lv = (ListView) dialog.findViewById(idListView);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(context,android.R.layout.simple_list_item_1,taikhoan);
+        lv.setAdapter(arrayAdapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                textView.setText("");
+                dialog.dismiss();
+            }
+        });
+    }
+
+    public static void setListViewMucChi(final Dialog dialog, final TextView textView, Context context, int idListView){
+        ListView lv;
+        String[] mucchi = {"0506515615","65105320840","560184065123","60840615316","41605131566","6040686161"};
+
+        lv = (ListView) dialog.findViewById(idListView);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(context,android.R.layout.simple_list_item_1,mucchi);
+        lv.setAdapter(arrayAdapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                textView.setText("");
+                dialog.dismiss();
+            }
+        });
+    }
+
+    public static void showDialogMucchi(Context context,TextView textView,int idListView){
+        final Dialog dialog = new Dialog(context);
+        dialog.setTitle("Mục chi");
+        dialog.setContentView(R.layout.dialog_mucchi);
+        dialog.setCancelable(false);
+        setListViewMucChi(dialog,textView,context,idListView);
+
+        dialog.show();
+    }
+
+    public static void getDefaultInfor(Calendar cal, TextView textView) {
+        //lấy ngày hiện tại của hệ thống
+        cal = Calendar.getInstance();
+        SimpleDateFormat dft = null;
+        //Định dạng ngày / tháng /năm
+        dft = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        String strDate = dft.format(cal.getTime());
+        //hiển thị lên giao diện
+        textView.setText(strDate);
+    }
+
+    public static void showDatePickerDialog(final TextView textView, Activity activity) {
+        DatePickerDialog.OnDateSetListener callback = new DatePickerDialog.OnDateSetListener() {
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                //Mỗi lần thay đổi ngày tháng năm thì cập nhật lại TextView Date
+                textView.setText((dayOfMonth) +"/"+(monthOfYear+1)+"/"+year);
+                //Lưu vết lại biến ngày hoàn thành
+                // cal.set(year, monthOfYear, dayOfMonth);
+                // dateFinish = cal.getTime();
+            }
+        };
+        //các lệnh dưới này xử lý ngày giờ trong DatePickerDialog
+        //sẽ giống với trên TextView khi mở nó lên
+        String s = textView.getText()+"";
+        String strArrtmp[] = s.split("/");
+        int ngay = Integer.parseInt(strArrtmp[0]);
+        int thang = Integer.parseInt(strArrtmp[1])-1;
+        int nam = Integer.parseInt(strArrtmp[2]);
+        DatePickerDialog pic = new DatePickerDialog(activity, callback, nam, thang, ngay);
+        pic.setTitle("Chọn ngày chi tiêu");
+        pic.show();
+    }
+
+    public static void setListViewMucThu(final Dialog dialog, final TextView textView, Context context, int idListView){
+        ListView lv;
+        String[] mucthu = {"0506515615","65105320840","560184065123","60840615316","41605131566","6040686161"};
+
+        lv = (ListView) dialog.findViewById(idListView);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(context,android.R.layout.simple_list_item_1,mucthu);
+        lv.setAdapter(arrayAdapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                textView.setText("");
+                dialog.dismiss();
+            }
+        });
+    }
+
+    public static void showDialogMucthu(Context context,TextView textView,int idListView){
+        final Dialog dialog = new Dialog(context);
+        dialog.setTitle("Mục thu");
+        dialog.setContentView(R.layout.dialog_mucthu);
+        dialog.setCancelable(false);
+        setListViewMucThu(dialog,textView,context,idListView);
+
+        dialog.show();
     }
 }

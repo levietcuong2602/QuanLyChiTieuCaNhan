@@ -9,7 +9,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/edt_sotien"
+            android:id="@+id/edt_sotien_4"
             android:layout_width="295dp"
             android:layout_height="wrap_content"
             android:hint="Nhập số tiền"
@@ -34,7 +34,7 @@
 
         <TextView
             android:layout_weight="4"
-            android:id="@+id/tv_mucchi"
+            android:id="@+id/tv_mucchi_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -43,7 +43,7 @@
 
         <Button
             android:layout_weight="1"
-            android:id="@+id/btn_mucchi"
+            android:id="@+id/btn_mucchi_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mục chi >"
@@ -52,7 +52,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/edt_diengiai"
+        android:id="@+id/edt_diengiai_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Diễn giải" />
@@ -69,7 +69,7 @@
 
         <TextView
             android:layout_weight="4"
-            android:id="@+id/tv_tutaikhoan"
+            android:id="@+id/tv_tutaikhoan_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="abcxyz"
@@ -77,7 +77,7 @@
 
         <Button
             android:layout_weight="1"
-            android:id="@+id/btn_tutaikhoan"
+            android:id="@+id/btn_tutaikhoan_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Từ tài khoản >"
@@ -97,7 +97,7 @@
 
         <TextView
             android:layout_weight="4"
-            android:id="@+id/tv_ngay"
+            android:id="@+id/tv_ngay_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -106,7 +106,7 @@
 
         <Button
             android:layout_weight="1"
-            android:id="@+id/btn_ngay"
+            android:id="@+id/btn_ngay_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
@@ -115,22 +115,34 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/edt_chi_cho_ai"
+        android:id="@+id/edt_chi_cho_ai_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Chi cho ai.." />
 
     <EditText
-        android:id="@+id/edt_sukien"
+        android:id="@+id/edt_sukien_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Sự kiện..." />
 
-    <Button
-        android:id="@+id/btn_ghi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_gravity="center"
-        android:text="GHI" />
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_capnhat_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Cập nhật" />
+        <Button
+            android:id="@+id/btn_xoa_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Xoá" />
+    </LinearLayout>
 
 </LinearLayout>

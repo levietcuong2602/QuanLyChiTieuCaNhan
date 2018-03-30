@@ -55,7 +55,7 @@ public class Fragment_DoiMatKhau extends Fragment implements View.OnClickListene
                 Toast.makeText(getActivity(), "Mật khẩu mới không hợp lệ.", Toast.LENGTH_SHORT).show();
             }else {
                 Account account = new Account();
-                account.setUsername(Layout_TrangChu.accountDangNhap.getUsername());
+//                account.setUsername(Layout_TrangChu.accountDangNhap.getUsername());
                 account.setPassword(newPass);
 
                 long result = DB_Manager.updatePasswordAccount(getActivity(), account);

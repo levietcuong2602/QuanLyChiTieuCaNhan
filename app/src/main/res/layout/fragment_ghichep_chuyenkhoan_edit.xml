@@ -3,59 +3,24 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/edt_sotien"
-            android:layout_width="295dp"
-            android:layout_height="wrap_content"
-            android:hint="Nhập số tiền"
-            android:inputType="number" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đồng"
-            android:textSize="25sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <EditText
+            android:inputType="number"
+            android:id="@+id/edt_sotien_6"
+            android:layout_width="295dp"
+            android:layout_height="wrap_content"
+            android:hint="Nhập số tiền" />
         <TextView
-            android:layout_weight="1"
+            android:textSize="25sp"
+            android:text="Đồng"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mục chi" />
-
-        <TextView
-            android:layout_weight="4"
-            android:id="@+id/tv_mucchi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:text="abcxyz"
-            android:textColor="#FF0000" />
-
-        <Button
-            android:layout_weight="1"
-            android:id="@+id/btn_mucchi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mục chi >"
-            android:textSize="15sp" />
-
+            android:layout_height="wrap_content" />
     </LinearLayout>
-
-    <EditText
-        android:id="@+id/edt_diengiai"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Diễn giải" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,7 +34,8 @@
 
         <TextView
             android:layout_weight="4"
-            android:id="@+id/tv_tutaikhoan"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/tv_tutaikhoan_6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="abcxyz"
@@ -77,14 +43,14 @@
 
         <Button
             android:layout_weight="1"
-            android:id="@+id/btn_tutaikhoan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/btn_tutaikhoan_6"
             android:text="Từ tài khoản >"
-            android:textSize="15sp" />
+            android:layout_marginLeft="40dp"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -93,44 +59,75 @@
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ngày chi:" />
+            android:text="Vào tài khoản:" />
 
         <TextView
             android:layout_weight="4"
-            android:id="@+id/tv_ngay"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/tv_vaotaikhoan_6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="abcxyz"
+            android:textColor="#FF0000" />
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/btn_vaotaikhoan_6"
+            android:text="Vào tài khoản >"
             android:layout_marginLeft="30dp"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <EditText
+        android:id="@+id/edt_diengiai_6"
+        android:hint="Diễn giải"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngày chuyển:" />
+
+        <TextView
+            android:layout_weight="4"
+            android:id="@+id/tv_ngay_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="dd/mm/yyyy"
             android:textColor="#FF0000" />
 
         <Button
             android:layout_weight="1"
-            android:id="@+id/btn_ngay"
+            android:id="@+id/btn_ngay_6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
             android:text="Ngày" />
 
     </LinearLayout>
-
-    <EditText
-        android:id="@+id/edt_chi_cho_ai"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Chi cho ai.." />
-
-    <EditText
-        android:id="@+id/edt_sukien"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Sự kiện..." />
-
-    <Button
-        android:id="@+id/btn_ghi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_gravity="center"
-        android:text="GHI" />
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_capnhat_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Cập nhật" />
+        <Button
+            android:id="@+id/btn_xoa_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Xoá" />
+    </LinearLayout>
 
 </LinearLayout>
