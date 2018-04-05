@@ -1,6 +1,7 @@
 package com.lv.vietcuong.project2.View.HanMucChi;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -28,6 +29,20 @@ public class Fragment_NgayKetThuc extends Fragment implements View.OnClickListen
     ArrayList<String> arrayList;
     TextView textViewNgayKT;
     Button btnBack, btnSave;
+
+    OnFragmentManager fragmentManager;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        if (context instanceof OnFragmentManager){
+            fragmentManager = (OnFragmentManager) context;
+        }else{
+            new RuntimeException("Error: Fragment ngày kết thúc");
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -92,6 +107,7 @@ public class Fragment_NgayKetThuc extends Fragment implements View.OnClickListen
                 getActivity().getSupportFragmentManager().popBackStack();
                 break;
             case R.id.btnSave:
+                fragmentManager.onSendDataToFragmentAddHanMuc(textViewNgayKT.getText().toString());
                 break;
         }
     }

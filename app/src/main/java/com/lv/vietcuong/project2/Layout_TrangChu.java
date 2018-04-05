@@ -20,7 +20,9 @@ import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Model.Account;
 import com.lv.vietcuong.project2.View.GhiChep.GhiChepActivity;
+import com.lv.vietcuong.project2.View.HanMucChi.Fragment_ThemHanMucChi;
 import com.lv.vietcuong.project2.View.HanMucChi.HanMucChiActivity;
+import com.lv.vietcuong.project2.View.HanMucChi.OnFragmentManager;
 import com.lv.vietcuong.project2.View.HangMucThuChi.HangMucThuChiActivity;
 import com.lv.vietcuong.project2.View.Profile.Fragment_DoiAvata;
 import com.lv.vietcuong.project2.View.Profile.Fragment_DoiMatKhau;
@@ -28,7 +30,7 @@ import com.lv.vietcuong.project2.View.Profile.Fragment_DoiTenTaiKhoan;
 import com.lv.vietcuong.project2.View.ViTien.TaiKhoanActivity;
 import com.lv.vietcuong.project2.View.DangNhap.DangNhapActivity;
 
-public class Layout_TrangChu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class Layout_TrangChu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnFragmentManager{
 
 //    Toolbar toolbar;
     DrawerLayout drawerLayout;
@@ -169,6 +171,17 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
         }
+
         return false;
+    }
+
+    @Override
+    public void onSendDataToFragmentAddHanMuc(String data) {
+        //gửi dữ liệu cho fragment thêm hạn mức chi
+        Bundle bundle = new Bundle();
+        bundle.putString("NgayKetThuc", data);
+
+        Fragment_ThemHanMucChi themHanMucChi = new Fragment_ThemHanMucChi();
+        themHanMucChi.setArguments(bundle);
     }
 }

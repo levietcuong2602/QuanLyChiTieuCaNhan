@@ -2,8 +2,6 @@ package com.lv.vietcuong.project2.View.HanMucChi;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,22 +11,15 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
-import com.lv.vietcuong.project2.Adapter.ListViTienAdapter;
 import com.lv.vietcuong.project2.Databases.DB_HanMucChi;
 import com.lv.vietcuong.project2.Model.HanMucChi;
-import com.lv.vietcuong.project2.Model.Wallet;
 import com.lv.vietcuong.project2.R;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -39,6 +30,8 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
     Button btnSaveHanMucChi, btnCancelHangMucChi, btnLuuHanMucChi;
     EditText edtTenHanMuc, edtSoHanMuc;
     Button btnHangMucChi, btnTaiKhoan, btnLapLai, btnNgayBatDau, btnNgayKetThuc;
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,6 +49,22 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
         btnHangMucChi.setOnClickListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        
+        getDataNgayKetThuc();
+    }
+
+    private void getDataNgayKetThuc() {
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            String ngayKT = bundle.getString("NgayKetThuc");
+            btnNgayKetThuc.setText(ngayKT);
+            Toast.makeText(getActivity(), ""+ngayKT, Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void initWidget(View view){
@@ -100,7 +109,7 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
     }
 
     private void showHangMucChi() {
-
+        //danh sách hạng mục thu/chi
     }
 
     private void showOptionNgayKetThuc() {
