@@ -34,7 +34,8 @@
         <android.support.v7.widget.Toolbar
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_toolbar_linetop">
 
         </android.support.v7.widget.Toolbar>
 

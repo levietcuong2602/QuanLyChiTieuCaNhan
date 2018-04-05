@@ -1,0 +1,49 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.v7.widget.Toolbar
+        android:background="@color/bgToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_gravity="left"
+            android:background="@drawable/ic_action_left"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:textColor="@color/colorWhite"
+            android:text="Ngày kết thức"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:background="@color/bgToolbar"
+            android:layout_gravity="right"
+            android:textColor="@color/colorWhite"
+            android:text="lưu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <ListView
+        android:id="@+id/listViewNgayKetThuc"
+        android:choiceMode="multipleChoice"
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+    </ListView>
+    
+    <TextView
+        android:id="@+id/textViewNgayKT"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
+
+</LinearLayout>

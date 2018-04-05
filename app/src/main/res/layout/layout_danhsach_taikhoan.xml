@@ -1,14 +1,17 @@
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorWhite">
     <ListView
-        android:layout_below="@+id/toolBarTaiKhoan"
         android:id="@+id/listViTien"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/content_bottom_tongtien"
         android:layout_width="match_parent"
-        android:layout_height="240dp">
+        android:layout_height="wrap_content">
     </ListView>
     <RelativeLayout
-        android:background="@color/colorWhite"
+        android:id="@+id/content_bottom_tongtien"
+        android:background="@color/colorGray"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >

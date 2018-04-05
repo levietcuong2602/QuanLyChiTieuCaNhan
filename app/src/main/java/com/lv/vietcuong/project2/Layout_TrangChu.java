@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.lv.vietcuong.project2.Model.Account;
 import com.lv.vietcuong.project2.View.GhiChep.GhiChepActivity;
 import com.lv.vietcuong.project2.View.HanMucChi.HanMucChiActivity;
+import com.lv.vietcuong.project2.View.HangMucThuChi.HangMucThuChiActivity;
 import com.lv.vietcuong.project2.View.Profile.Fragment_DoiAvata;
 import com.lv.vietcuong.project2.View.Profile.Fragment_DoiMatKhau;
 import com.lv.vietcuong.project2.View.Profile.Fragment_DoiTenTaiKhoan;
@@ -29,7 +30,7 @@ import com.lv.vietcuong.project2.View.DangNhap.DangNhapActivity;
 
 public class Layout_TrangChu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    Toolbar toolbar;
+//    Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     TextView textName;
@@ -53,7 +54,7 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(Layout_TrangChu.this, drawerLayout, R.string.open, R.string.close);
 //        drawerToggle.syncState();
-
+//
 //        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 //
 //            @Override
@@ -82,13 +83,13 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
                         Toast.makeText(Layout_TrangChu.this, "Ghi chép", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.itemLimit:
-
                         FragmentTransaction transHanMucChi = manager.beginTransaction();
                         HanMucChiActivity hanMucChi= new HanMucChiActivity();
                         transHanMucChi.replace(R.id.content_layout, hanMucChi);
                         transHanMucChi.commit();
 
                         item.setChecked(true);
+                        Toast.makeText(Layout_TrangChu.this, "Hạn mức chi", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.itemSetting:
                         drawerLayout.openDrawer(GravityCompat.START);
@@ -108,10 +109,10 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
         });
 
         manager = getSupportFragmentManager();
-        FragmentTransaction transGhiChep = manager.beginTransaction();
-        GhiChepActivity ghiChep = new GhiChepActivity();
-        transGhiChep.replace(R.id.content_layout, ghiChep);
-        transGhiChep.commit();
+//        FragmentTransaction transGhiChep = manager.beginTransaction();
+//        GhiChepActivity ghiChep = new GhiChepActivity();
+//        transGhiChep.replace(R.id.content_layout, ghiChep);
+//        transGhiChep.commit();
     }
 
     private void setHeaderNavigation() {
@@ -156,6 +157,16 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
             case R.id.itemDangXuat:
                 Intent intent = new Intent(Layout_TrangChu.this, DangNhapActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.itemHangMucThuChi:
+                FragmentTransaction transHangMuc = manager.beginTransaction();
+
+                Fragment hangMuc = new HangMucThuChiActivity();
+                transHangMuc.replace(R.id.content_layout, hangMuc);
+                transHangMuc.addToBackStack("themhangmuc");
+                transHangMuc.commit();
+
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
         }
         return false;
