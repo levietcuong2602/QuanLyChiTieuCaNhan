@@ -45,7 +45,7 @@ public class ListAdapterChonViTien extends ArrayAdapter {
         holder = (ViewHolder) convertView.getTag();
 
         ViTien wallet = dsWallet.get(position);
-        holder.textView.setText(wallet.getNameWallet());
+        holder.textView.setText(wallet.getTenViTien());
         holder.textView.setChecked(true);
 
 

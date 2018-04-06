@@ -24,38 +24,36 @@ public class Fragment_DanhSachTaiKhoan extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_danhsach_taikhoan, container, false);
-        listTaiKhoan = view.findViewById(R.id.listViTien);
-        textViewTongTien = view.findViewById(R.id.textViewTong);
 
-        dsViTien = createDanhSachViTien();
-        ListViTienAdapter adapter = new ListViTienAdapter(getActivity(), R.layout.item_list_vitien, dsViTien);
-        adapter.notifyDataSetChanged();
-        listTaiKhoan.setAdapter(adapter);
+        initView(view);
+        initListViewDanhSachViTien(view);
 
         setTexViewTongTien();
 
         return view;
     }
 
+    public void initView(View view){
+        listTaiKhoan = view.findViewById(R.id.listViTien);
+        textViewTongTien = view.findViewById(R.id.textViewTong);
+    }
+
+
+    private void initListViewDanhSachViTien(View view) {
+        dsViTien = SQLWallet.getAllWallet(getActivity());
+        ListViTienAdapter adapter = new ListViTienAdapter(getActivity(), R.layout.item_list_vitien, dsViTien);
+        adapter.notifyDataSetChanged();
+        listTaiKhoan.setAdapter(adapter);
+    }
+
     private void setTexViewTongTien() {
         int tong = 0;
         for(int i = 0; i < dsViTien.size(); i++){
             ViTien wallet = dsViTien.get(i);
-            tong += wallet.getBalance();
+            tong += wallet.getSoDu();
         }
 
         textViewTongTien.setText(tong+"");
-    }
-
-    private ArrayList<ViTien> createDanhSachViTien() {
-        ArrayList<ViTien> dsViTien = SQLWallet.getAllWallet(getActivity());
-
-//        ArrayList dsViTien = new ArrayList();
-//        dsViTien.add(new ViTien("Ví tiền 2", 100000));
-//        dsViTien.add(new ViTien("Ví tiền 3", 500000));
-//        dsViTien.add(new ViTien("Ví tiền 4", 100000));
-
-        return dsViTien;
     }
 
 }

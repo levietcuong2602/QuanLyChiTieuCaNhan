@@ -37,9 +37,9 @@ public class SQLWallet {
                     String username = cursor.getString(5);
 
                     wallet.setIdViTien(id);
-                    wallet.setNameWallet(nameWallet);
+                    wallet.setTenViTien(nameWallet);
                     wallet.setLoaiVi(loaiViTien);
-                    wallet.setBalance(balance);
+                    wallet.setSoDu(balance);
                     wallet.setGhiChu(ghiChu);
                     wallet.setUsername(username);
 

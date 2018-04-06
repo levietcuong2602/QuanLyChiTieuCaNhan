@@ -6,29 +6,28 @@ package com.lv.vietcuong.project2.Model;
 
 public class ViTien {
     private int idViTien;
-    private String nameWallet;
+    private String tenViTien;
     private String loaiVi;
-    private int balance;
+    private int soDu;
     private String ghiChu;
     private String username;
 
     public ViTien() {
     }
 
-    public String getNameWallet() {
-        return nameWallet;
+    public String getTenViTien() {
+        return tenViTien;
     }
 
-    public void setNameWallet(String nameWallet) {
-        this.nameWallet = nameWallet;
+    public void setTenViTien(String tenViTien) {
+        this.tenViTien = tenViTien;
+    }
+    public int getSoDu() {
+        return soDu;
     }
 
-    public int getBalance() {
-        return balance;
-    }
-
-    public void setBalance(int balance) {
-        this.balance = balance;
+    public void setSoDu(int soDu) {
+        this.soDu = soDu;
     }
 
     public String getLoaiVi() {

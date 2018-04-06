@@ -97,8 +97,8 @@ public class Fragment_ThemTaiKhoan extends Fragment implements View.OnClickListe
         }else {
             ViTien wallet = new ViTien();
 
-            wallet.setNameWallet(name);
-            wallet.setBalance(Integer.parseInt(balance));
+            wallet.setTenViTien(name);
+            wallet.setSoDu(Integer.parseInt(balance));
             wallet.setLoaiVi("ViTien");
             wallet.setGhiChu(ghiChu);
 
@@ -119,9 +119,9 @@ public class Fragment_ThemTaiKhoan extends Fragment implements View.OnClickListe
     private long addWalletDataBase(ViTien wallet) {
         SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(getActivity());
         ContentValues values = new ContentValues();
-        values.put("tenViTien", wallet.getNameWallet());
+        values.put("tenViTien", wallet.getTenViTien());
         values.put("loaiViTien", wallet.getLoaiVi());
-        values.put("soDu", wallet.getBalance());
+        values.put("soDu", wallet.getSoDu());
         values.put("ghiChu", wallet.getGhiChu());
         values.put("username", wallet.getUsername());
 

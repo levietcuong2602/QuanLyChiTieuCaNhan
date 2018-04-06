@@ -53,8 +53,8 @@ public class ListViTienAdapter extends ArrayAdapter {
 
         ViTien viTien = arrayWallet.get(position);
 
-        viewHolder.textViewSoTien.setText(viTien.getBalance()+"");
-        viewHolder.textViewNameWallet.setText(viTien.getNameWallet());
+        viewHolder.textViewSoTien.setText(viTien.getSoDu()+"");
+        viewHolder.textViewNameWallet.setText(viTien.getTenViTien());
 
         return convertView;
     }
