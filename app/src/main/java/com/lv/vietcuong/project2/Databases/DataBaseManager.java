@@ -8,18 +8,18 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
-public class DataBase_Manager {
+public class DataBaseManager {
     private static final String DB_NAME="QuanLyChiTieuCaNhan.sqlite";
     public static SQLiteDatabase initDataBaseQlyThuChi(Activity activity){
         String fileURL = activity.getApplicationInfo().dataDir+"/databases/"+DB_NAME;
-        String folderURL = activity.getApplicationInfo().dataDir+"/databases/";
+        String folderURL = activity.getApplicationInfo().dataDir+"/databases";
         File file = new File(fileURL);
 
         try {
             if (!file.exists()) {
                 //tạo mới folder
                 File folder = new File(folderURL);
-                if (folder.exists()) {
+                if (!folder.exists()) {
                     folder.mkdir();
                 }
                 file.createNewFile();
@@ -29,9 +29,9 @@ public class DataBase_Manager {
                 FileOutputStream fileOutput = new FileOutputStream(file);
 
                 int length;
-                byte[]bufer = new byte[1024];
-                while((length = fileAsset.read()) > 0){
-                    fileOutput.write(length);
+                byte[]buff = new byte[1024];
+                while((length = fileAsset.read(buff)) > 0){
+                    fileOutput.write(buff, 0, length);
                 }
                 fileOutput.flush();
                 fileOutput.close();

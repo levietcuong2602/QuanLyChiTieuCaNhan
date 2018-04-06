@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.lv.vietcuong.project2.Adapter.ListViTienAdapter;
+import com.lv.vietcuong.project2.Databases.SQLWallet;
 import com.lv.vietcuong.project2.Model.Wallet;
 import com.lv.vietcuong.project2.R;
 
@@ -47,13 +48,13 @@ public class Fragment_DanhSachTaiKhoan extends Fragment {
         textViewTongTien.setText(tong+"");
     }
 
-    private ArrayList createDanhSachViTien() {
-        ArrayList dsViTien = new ArrayList();
+    private ArrayList<Wallet> createDanhSachViTien() {
+        ArrayList<Wallet> dsViTien = SQLWallet.getAllWallet(getActivity());
 
-        dsViTien.add(new Wallet("Ví tiền 1", 500000));
-        dsViTien.add(new Wallet("Ví tiền 2", 100000));
-        dsViTien.add(new Wallet("Ví tiền 3", 500000));
-        dsViTien.add(new Wallet("Ví tiền 4", 100000));
+//        ArrayList dsViTien = new ArrayList();
+//        dsViTien.add(new Wallet("Ví tiền 2", 100000));
+//        dsViTien.add(new Wallet("Ví tiền 3", 500000));
+//        dsViTien.add(new Wallet("Ví tiền 4", 100000));
 
         return dsViTien;
     }

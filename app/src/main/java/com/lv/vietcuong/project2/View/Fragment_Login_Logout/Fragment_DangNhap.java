@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.lv.vietcuong.project2.Databases.DB_Manager;
 import com.lv.vietcuong.project2.Layout_TrangChu;
 import com.lv.vietcuong.project2.Model.Account;
 import com.lv.vietcuong.project2.R;
@@ -26,7 +25,6 @@ public class Fragment_DangNhap extends Fragment implements View.OnClickListener{
     Button btnDangNhap;
     EditText edtTaiKhoan, edtMatKhau;
     ArrayList<Account> dsAccount;
-    DB_Manager db_manager;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -44,7 +42,7 @@ public class Fragment_DangNhap extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        dsAccount = db_manager.getAllAcount(getActivity());
+//        dsAccount = db_manager.getAllAcount(getActivity());
 
         String username = edtTaiKhoan.getText().toString();
         String password = edtMatKhau.getText().toString();

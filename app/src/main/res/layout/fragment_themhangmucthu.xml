@@ -26,6 +26,7 @@
             android:layout_height="wrap_content" />
 
         <Button
+            android:id="@+id/btnLuu"
             android:background="@color/bgToolbar"
             android:layout_gravity="right"
             android:textColor="@color/colorWhite"

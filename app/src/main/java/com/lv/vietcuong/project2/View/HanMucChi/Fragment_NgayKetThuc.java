@@ -1,5 +1,6 @@
 package com.lv.vietcuong.project2.View.HanMucChi;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -31,13 +32,23 @@ public class Fragment_NgayKetThuc extends Fragment implements View.OnClickListen
     Button btnBack, btnSave;
 
     OnFragmentManager fragmentManager;
+//
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//
+//        if (context instanceof OnFragmentManager){
+//            fragmentManager = (OnFragmentManager) context;
+//        }else{
+//            new RuntimeException("Error: Fragment ngày kết thúc");
+//        }
+//    }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        if (context instanceof OnFragmentManager){
-            fragmentManager = (OnFragmentManager) context;
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (activity instanceof OnFragmentManager){
+            fragmentManager = (OnFragmentManager) activity;
         }else{
             new RuntimeException("Error: Fragment ngày kết thúc");
         }

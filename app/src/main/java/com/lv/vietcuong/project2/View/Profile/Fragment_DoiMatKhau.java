@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lv.vietcuong.project2.Databases.DB_Manager;
 import com.lv.vietcuong.project2.Layout_TrangChu;
 import com.lv.vietcuong.project2.Model.Account;
 import com.lv.vietcuong.project2.R;
@@ -58,7 +57,8 @@ public class Fragment_DoiMatKhau extends Fragment implements View.OnClickListene
                 account.setUsername(Layout_TrangChu.accountDangNhap.getUsername());
                 account.setPassword(newPass);
 
-                long result = DB_Manager.updatePasswordAccount(getActivity(), account);
+//                long result = DB_Manager.updatePasswordAccount(getActivity(), account);
+                int result = 1;
                 if (result > 0){
                     edOldPass.setText("");
                     edNewPass.setText("");

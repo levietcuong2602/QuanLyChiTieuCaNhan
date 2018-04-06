@@ -122,7 +122,9 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
         textName = headerLayout.findViewById(R.id.tvName);
 
         accountDangNhap = (Account) getIntent().getSerializableExtra("account");
-        textName.setText("Xin chào: "+accountDangNhap.getUsername());
+        if (accountDangNhap != null) {
+            textName.setText("Xin chào: " + accountDangNhap.getUsername());
+        }
     }
 
     @Override
@@ -183,5 +185,9 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
 
         Fragment_ThemHanMucChi themHanMucChi = new Fragment_ThemHanMucChi();
         themHanMucChi.setArguments(bundle);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.content_layout, themHanMucChi);
+        transaction.commit();
     }
 }

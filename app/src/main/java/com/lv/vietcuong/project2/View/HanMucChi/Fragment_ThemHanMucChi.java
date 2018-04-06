@@ -48,14 +48,9 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
         btnNgayKetThuc.setOnClickListener(this);
         btnHangMucChi.setOnClickListener(this);
 
-        return view;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        
         getDataNgayKetThuc();
+
+        return view;
     }
 
     private void getDataNgayKetThuc() {
@@ -63,8 +58,11 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
         if (bundle != null) {
             String ngayKT = bundle.getString("NgayKetThuc");
             btnNgayKetThuc.setText(ngayKT);
-            Toast.makeText(getActivity(), ""+ngayKT, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), ""+ngayKT, Toast.LENGTH_SHORT).show();
         }
+//        else {
+//            Toast.makeText(getContext(), "null", Toast.LENGTH_SHORT).show();
+//        }
     }
 
     public void initWidget(View view){

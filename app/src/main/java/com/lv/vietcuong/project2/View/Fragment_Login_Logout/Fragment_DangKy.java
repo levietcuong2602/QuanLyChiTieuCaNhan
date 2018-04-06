@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.lv.vietcuong.project2.Databases.DB_Manager;
 import com.lv.vietcuong.project2.Model.Account;
 import com.lv.vietcuong.project2.R;
 
@@ -52,7 +51,8 @@ public class Fragment_DangKy extends Fragment implements View.OnClickListener {
                 account.setUsername(user);
                 account.setPassword(pass);
 
-                long result = DB_Manager.addAccount(getActivity(), account);
+//                long result = DB_Manager.addAccount(getActivity(), account);
+                int result = 1;
                 if (result > 0){
                     setEmptyEditText();
                     Toast.makeText(getActivity(), "Đăng kí tài khoản thành công", Toast.LENGTH_SHORT).show();

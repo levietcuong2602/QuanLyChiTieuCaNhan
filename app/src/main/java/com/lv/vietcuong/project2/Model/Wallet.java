@@ -5,16 +5,12 @@ package com.lv.vietcuong.project2.Model;
  */
 
 public class Wallet {
+    private int idViTien;
     private String nameWallet;
     private String loaiVi;
-    private double balance;
+    private int balance;
     private String ghiChu;
     private String username;
-
-    public Wallet(String nameWallet, double balance) {
-        this.nameWallet = nameWallet;
-        this.balance = balance;
-    }
 
     public Wallet() {
     }
@@ -27,11 +23,11 @@ public class Wallet {
         this.nameWallet = nameWallet;
     }
 
-    public double getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(int balance) {
         this.balance = balance;
     }
 
@@ -57,6 +53,14 @@ public class Wallet {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getIdViTien() {
+        return idViTien;
+    }
+
+    public void setIdViTien(int idViTien) {
+        this.idViTien = idViTien;
     }
 
     @Override
