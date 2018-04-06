@@ -7,18 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Adapter.ListAdapterChonViTien;
-import com.lv.vietcuong.project2.Adapter.ListViTienAdapter;
-import com.lv.vietcuong.project2.Databases.DataBaseManager;
 import com.lv.vietcuong.project2.Databases.SQLWallet;
-import com.lv.vietcuong.project2.Model.Wallet;
+import com.lv.vietcuong.project2.Model.ViTien;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
@@ -36,7 +31,7 @@ public class Fragment_ChonTaiKhoan extends Fragment implements View.OnClickListe
 
         listView = view.findViewById(R.id.dsTaiKhoan);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        ArrayList<Wallet> dsViTien = SQLWallet.getAllWallet(getActivity());
+        ArrayList<ViTien> dsViTien = SQLWallet.getAllWallet(getActivity());
 
         ListAdapterChonViTien adapter = new ListAdapterChonViTien(getContext(), R.layout.item_chon_dstaikhoan, dsViTien);
         listView.setAdapter(adapter);

@@ -8,9 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
-import android.widget.TextView;
 
-import com.lv.vietcuong.project2.Model.Wallet;
+import com.lv.vietcuong.project2.Model.ViTien;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
@@ -18,9 +17,9 @@ import java.util.ArrayList;
 public class ListAdapterChonViTien extends ArrayAdapter {
     Context context;
     int resource;
-    ArrayList<Wallet> dsWallet;
+    ArrayList<ViTien> dsWallet;
 
-    public ListAdapterChonViTien(@NonNull Context context, int resource, @NonNull ArrayList<Wallet> objects) {
+    public ListAdapterChonViTien(@NonNull Context context, int resource, @NonNull ArrayList<ViTien> objects) {
         super(context, resource, objects);
         this.context = context;
         this.resource = resource;
@@ -45,7 +44,7 @@ public class ListAdapterChonViTien extends ArrayAdapter {
 
         holder = (ViewHolder) convertView.getTag();
 
-        Wallet wallet = dsWallet.get(position);
+        ViTien wallet = dsWallet.get(position);
         holder.textView.setText(wallet.getNameWallet());
         holder.textView.setChecked(true);
 

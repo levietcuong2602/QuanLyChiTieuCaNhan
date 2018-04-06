@@ -4,7 +4,7 @@ package com.lv.vietcuong.project2.Model;
  * Created by Administor on 3/26/2018.
  */
 
-public class Wallet {
+public class ViTien {
     private int idViTien;
     private String nameWallet;
     private String loaiVi;
@@ -12,7 +12,7 @@ public class Wallet {
     private String ghiChu;
     private String username;
 
-    public Wallet() {
+    public ViTien() {
     }
 
     public String getNameWallet() {

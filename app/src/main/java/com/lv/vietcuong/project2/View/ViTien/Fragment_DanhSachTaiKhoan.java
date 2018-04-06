@@ -6,20 +6,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.lv.vietcuong.project2.Adapter.ListViTienAdapter;
 import com.lv.vietcuong.project2.Databases.SQLWallet;
-import com.lv.vietcuong.project2.Model.Wallet;
+import com.lv.vietcuong.project2.Model.ViTien;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
 
 public class Fragment_DanhSachTaiKhoan extends Fragment {
     ListView listTaiKhoan;
-    ArrayList<Wallet> dsViTien;
+    ArrayList<ViTien> dsViTien;
     TextView textViewTongTien;
     @Nullable
     @Override
@@ -41,20 +40,20 @@ public class Fragment_DanhSachTaiKhoan extends Fragment {
     private void setTexViewTongTien() {
         int tong = 0;
         for(int i = 0; i < dsViTien.size(); i++){
-            Wallet wallet = dsViTien.get(i);
+            ViTien wallet = dsViTien.get(i);
             tong += wallet.getBalance();
         }
 
         textViewTongTien.setText(tong+"");
     }
 
-    private ArrayList<Wallet> createDanhSachViTien() {
-        ArrayList<Wallet> dsViTien = SQLWallet.getAllWallet(getActivity());
+    private ArrayList<ViTien> createDanhSachViTien() {
+        ArrayList<ViTien> dsViTien = SQLWallet.getAllWallet(getActivity());
 
 //        ArrayList dsViTien = new ArrayList();
-//        dsViTien.add(new Wallet("Ví tiền 2", 100000));
-//        dsViTien.add(new Wallet("Ví tiền 3", 500000));
-//        dsViTien.add(new Wallet("Ví tiền 4", 100000));
+//        dsViTien.add(new ViTien("Ví tiền 2", 100000));
+//        dsViTien.add(new ViTien("Ví tiền 3", 500000));
+//        dsViTien.add(new ViTien("Ví tiền 4", 100000));
 
         return dsViTien;
     }

@@ -1,19 +1,12 @@
 package com.lv.vietcuong.project2.Databases;
 
 import android.app.Activity;
-import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.lv.vietcuong.project2.Model.Account;
-import com.lv.vietcuong.project2.Model.Wallet;
+import com.lv.vietcuong.project2.Model.ViTien;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -23,8 +16,8 @@ import java.util.ArrayList;
 public class SQLWallet {
     private static final String TABLE_NAME = "ViTien";
 
-    public static ArrayList<Wallet> getAllWallet(Activity activity){
-        ArrayList<Wallet> dsWallet = new ArrayList<>();
+    public static ArrayList<ViTien> getAllWallet(Activity activity){
+        ArrayList<ViTien> dsWallet = new ArrayList<>();
 
         String SQLQuery = "SELECT * FROM ViTien";
         SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(activity);
@@ -34,7 +27,7 @@ public class SQLWallet {
             Cursor cursor = database.rawQuery(SQLQuery, null);
             if (cursor.moveToFirst()) {
                 do {
-                    Wallet wallet = new Wallet();
+                    ViTien wallet = new ViTien();
 
                     int id = cursor.getInt(0);
                     String nameWallet = cursor.getString(1);
