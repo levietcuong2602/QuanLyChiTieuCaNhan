@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Layout_TrangChu;
-import com.lv.vietcuong.project2.Model.Account;
+import com.lv.vietcuong.project2.Model.TaiKhoan;
 import com.lv.vietcuong.project2.R;
 
 /**
@@ -37,7 +37,7 @@ public class Fragment_DoiMatKhau extends Fragment implements View.OnClickListene
         btnSavePass.setOnClickListener(this);
 
 
-        tvUserName.setText(tvUserName.getText()+Layout_TrangChu.accountDangNhap.getUsername());
+        tvUserName.setText(tvUserName.getText()+Layout_TrangChu.taiKhoanDangNhap.getUsername());
         return view;
     }
 
@@ -53,11 +53,11 @@ public class Fragment_DoiMatKhau extends Fragment implements View.OnClickListene
             if(newPass.length()<=4 || !newPass.equals(reNewPass) || oldPass.equals(newPass)){
                 Toast.makeText(getActivity(), "Mật khẩu mới không hợp lệ.", Toast.LENGTH_SHORT).show();
             }else {
-                Account account = new Account();
-                account.setUsername(Layout_TrangChu.accountDangNhap.getUsername());
-                account.setPassword(newPass);
+                TaiKhoan taiKhoan = new TaiKhoan();
+                taiKhoan.setUsername(Layout_TrangChu.taiKhoanDangNhap.getUsername());
+                taiKhoan.setPassword(newPass);
 
-//                long result = DB_Manager.updatePasswordAccount(getActivity(), account);
+//                long result = DB_Manager.updatePasswordAccount(getActivity(), taiKhoan);
                 int result = 1;
                 if (result > 0){
                     edOldPass.setText("");

@@ -3,20 +3,24 @@ package com.lv.vietcuong.project2.View.ViTien;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Adapter.ListViTienAdapter;
 import com.lv.vietcuong.project2.Databases.SQLWallet;
+import com.lv.vietcuong.project2.Model.GhiChep;
 import com.lv.vietcuong.project2.Model.ViTien;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
 
-public class Fragment_DanhSachTaiKhoan extends Fragment {
+public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.OnItemClickListener {
     ListView listTaiKhoan;
     ArrayList<ViTien> dsViTien;
     TextView textViewTongTien;
@@ -44,6 +48,8 @@ public class Fragment_DanhSachTaiKhoan extends Fragment {
         ListViTienAdapter adapter = new ListViTienAdapter(getActivity(), R.layout.item_list_vitien, dsViTien);
         adapter.notifyDataSetChanged();
         listTaiKhoan.setAdapter(adapter);
+
+        listTaiKhoan.setOnItemClickListener(this);
     }
 
     private void setTexViewTongTien() {
@@ -56,4 +62,14 @@ public class Fragment_DanhSachTaiKhoan extends Fragment {
         textViewTongTien.setText(tong+"");
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        ViTien viTien = (ViTien) adapterView.getItemAtPosition(i);
+
+        Fragment_ThongTinViTien thongTinViTien = new Fragment_ThongTinViTien();
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.content_layout, thongTinViTien);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 }

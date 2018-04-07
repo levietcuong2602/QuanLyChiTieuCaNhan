@@ -11,24 +11,26 @@
         android:background="@color/bgToolbar"
         >
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolBarDangNhap"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/bgToolbar"
+            app:titleTextColor="@color/colorWhite">
+
+        </android.support.v7.widget.Toolbar>
+
         <android.support.design.widget.TabLayout
             android:id="@+id/tabDangNhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabTextAppearance="@style/capfale"
             app:tabTextColor="@color/colorGray"
-            app:tabSelectedTextColor="@color/colorWhite">
+            app:tabSelectedTextColor="@color/colorWhite"
+            android:background="@color/colorGrayBorder">
 
         </android.support.design.widget.TabLayout>
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolBarDangNhap"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorGray"
-            app:titleTextColor="@color/colorWhite">
-
-        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 

@@ -9,16 +9,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lv.vietcuong.project2.Model.Account;
+import com.lv.vietcuong.project2.Model.TaiKhoan;
 import com.lv.vietcuong.project2.View.GhiChep.GhiChepActivity;
 import com.lv.vietcuong.project2.View.HanMucChi.Fragment_ThemHanMucChi;
 import com.lv.vietcuong.project2.View.HanMucChi.HanMucChiActivity;
@@ -39,7 +37,7 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
     FragmentManager manager;
     BottomNavigationView bottomNavigationView;
 
-    public static Account accountDangNhap;
+    public static TaiKhoan taiKhoanDangNhap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,9 +119,9 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
         View headerLayout = navigationView.inflateHeaderView(R.layout.layout_header_profile);
         textName = headerLayout.findViewById(R.id.tvName);
 
-        accountDangNhap = (Account) getIntent().getSerializableExtra("account");
-        if (accountDangNhap != null) {
-            textName.setText("Xin chào: " + accountDangNhap.getUsername());
+        taiKhoanDangNhap = (TaiKhoan) getIntent().getSerializableExtra("account");
+        if (taiKhoanDangNhap != null) {
+            textName.setText("Xin chào: " + taiKhoanDangNhap.getUsername());
         }
     }
 

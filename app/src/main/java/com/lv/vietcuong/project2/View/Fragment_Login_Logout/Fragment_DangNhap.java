@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.lv.vietcuong.project2.Databases.SQLTaiKhoan;
 import com.lv.vietcuong.project2.Layout_TrangChu;
-import com.lv.vietcuong.project2.Model.Account;
+import com.lv.vietcuong.project2.Model.TaiKhoan;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ import java.util.ArrayList;
 public class Fragment_DangNhap extends Fragment implements View.OnClickListener{
     Button btnDangNhap;
     EditText edtTaiKhoan, edtMatKhau;
-    ArrayList<Account> dsAccount;
+    ArrayList<TaiKhoan> dsTaiKhoan;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -42,19 +44,20 @@ public class Fragment_DangNhap extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-//        dsAccount = db_manager.getAllAcount(getActivity());
+        dsTaiKhoan = SQLTaiKhoan.getAllTaiKhoan(getActivity());
 
         String username = edtTaiKhoan.getText().toString();
         String password = edtMatKhau.getText().toString();
-
         boolean check = false;
+
         if(!username.equals("") && !password.equals("")){
-            for(Account account:dsAccount){
-                if (username.equals(account.getUsername()) && password.equals(account.getPassword())){
+            for(TaiKhoan taiKhoan : dsTaiKhoan){
+
+                if (username.equals(taiKhoan.getUsername()) && password.equals(taiKhoan.getPassword())){
                     check = true;
 
                     Intent intent = new Intent(getActivity(), Layout_TrangChu.class);
-                    intent.putExtra("account",account);
+                    intent.putExtra("taiKhoan", taiKhoan);
                     startActivity(intent);
 
                     getActivity().finish();
@@ -67,8 +70,5 @@ public class Fragment_DangNhap extends Fragment implements View.OnClickListener{
         }else{
             Toast.makeText(getActivity(), "Bạn cần nhập đầy đủ các trường", Toast.LENGTH_SHORT).show();
         }
-
-
-
     }
 }

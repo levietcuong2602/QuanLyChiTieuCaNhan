@@ -30,39 +30,19 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
     Button btnSaveHanMucChi, btnCancelHangMucChi, btnLuuHanMucChi;
     EditText edtTenHanMuc, edtSoHanMuc;
     Button btnHangMucChi, btnTaiKhoan, btnLapLai, btnNgayBatDau, btnNgayKetThuc;
-
+    static String ngayKetThuc = "";
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_themhanmucchi, container, false);
-
         initWidget(view);
-
-        btnCancelHangMucChi.setOnClickListener(this);
-        btnSaveHanMucChi.setOnClickListener(this);
-        btnLuuHanMucChi.setOnClickListener(this);
-        btnLapLai.setOnClickListener(this);
-        btnTaiKhoan.setOnClickListener(this);
-        btnNgayBatDau.setOnClickListener(this);
-        btnNgayKetThuc.setOnClickListener(this);
-        btnHangMucChi.setOnClickListener(this);
-
         getDataNgayKetThuc();
-
         return view;
     }
 
     private void getDataNgayKetThuc() {
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            String ngayKT = bundle.getString("NgayKetThuc");
-            btnNgayKetThuc.setText(ngayKT);
-            Toast.makeText(getContext(), ""+ngayKT, Toast.LENGTH_SHORT).show();
-        }
-//        else {
-//            Toast.makeText(getContext(), "null", Toast.LENGTH_SHORT).show();
-//        }
+        btnNgayKetThuc.setText(ngayKetThuc);
     }
 
     public void initWidget(View view){
@@ -76,6 +56,15 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
         btnLapLai = view.findViewById(R.id.btnLapLai);
         btnNgayBatDau = view.findViewById(R.id.btnNgayBatDau);
         btnNgayKetThuc = view.findViewById(R.id.btnNgayKetThuc);
+
+        btnCancelHangMucChi.setOnClickListener(this);
+        btnSaveHanMucChi.setOnClickListener(this);
+        btnLuuHanMucChi.setOnClickListener(this);
+        btnLapLai.setOnClickListener(this);
+        btnTaiKhoan.setOnClickListener(this);
+        btnNgayBatDau.setOnClickListener(this);
+        btnNgayKetThuc.setOnClickListener(this);
+        btnHangMucChi.setOnClickListener(this);
     }
 
     @Override
