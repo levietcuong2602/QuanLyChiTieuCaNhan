@@ -10,13 +10,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.lv.vietcuong.project2.Adapter.ListLimitAdapter;
+import com.lv.vietcuong.project2.Adapter.AdapterHanMucChi;
+import com.lv.vietcuong.project2.Databases.SQLHanMucChi;
 import com.lv.vietcuong.project2.Model.HanMucChi;
 import com.lv.vietcuong.project2.R;
 
@@ -86,10 +85,8 @@ public class HanMucChiActivity extends Fragment implements View.OnClickListener 
 
     private void createListViewHanMuc(View view) {
         listView = view.findViewById(R.id.listViewHanMucChi);
-        arrayHanMucChi = new ArrayList<>();
-        arrayHanMucChi.add(new HanMucChi("Tiền ăn", 500000));
-        arrayHanMucChi.add(new HanMucChi("Tiền tiêu vặt", 600000));
-        ListLimitAdapter adapter = new ListLimitAdapter(getContext(), R.layout.item_list_hanmucchi, arrayHanMucChi);
+        arrayHanMucChi = SQLHanMucChi.getAllHanMucChi(getActivity());
+        AdapterHanMucChi adapter = new AdapterHanMucChi(getContext(), R.layout.item_list_hanmucchi, arrayHanMucChi);
         adapter.notifyDataSetChanged();
         listView.setAdapter(adapter);
     }

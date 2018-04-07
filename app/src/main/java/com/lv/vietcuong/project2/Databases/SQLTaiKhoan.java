@@ -23,7 +23,7 @@ public class SQLTaiKhoan {
 
                     taiKhoan.setUsername(cursor.getString(0));
                     taiKhoan.setPassword(cursor.getString(1));
-                    taiKhoan.setHoTen(cursor.getString(2)+"");
+                    taiKhoan.setHoTen(cursor.getString(2));
                     taiKhoan.setIdGiaDinh(cursor.getInt(3));
                     taiKhoan.setLoaiTaiKhoan(cursor.getString(4));
 

@@ -18,12 +18,13 @@ import java.util.ArrayList;
  * Created by Administor on 3/26/2018.
  */
 
-public class ListLimitAdapter extends ArrayAdapter<HanMucChi>{
+public class AdapterHanMucChi extends ArrayAdapter<HanMucChi>{
 
     private Context context;
     private int resource;
     private ArrayList<HanMucChi> arrayHanMucChi;
-    public ListLimitAdapter(@NonNull Context context, int resource, @NonNull ArrayList<HanMucChi> objects) {
+
+    public AdapterHanMucChi(@NonNull Context context, int resource, @NonNull ArrayList<HanMucChi> objects) {
         super(context, resource, objects);
         this.context = context;
         this.resource = resource;
@@ -50,8 +51,8 @@ public class ListLimitAdapter extends ArrayAdapter<HanMucChi>{
         HanMucChi hanMucChi = arrayHanMucChi.get(position);
 
         viewHolder = (ViewHolder) convertView.getTag();
-        viewHolder.textViewTenHanMucChi.setText(hanMucChi.getName());
-        viewHolder.textViewSoHanMucChi.setText(hanMucChi.getLimit()+"");
+        viewHolder.textViewTenHanMucChi.setText(hanMucChi.getTenHanMucChi());
+        viewHolder.textViewSoHanMucChi.setText(hanMucChi.getSoTien()+"");
 
         return convertView;
     }

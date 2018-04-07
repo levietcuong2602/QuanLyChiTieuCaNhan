@@ -16,11 +16,14 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.lv.vietcuong.project2.Databases.DB_HanMucChi;
+import com.lv.vietcuong.project2.Databases.SQLHanMucChi;
 import com.lv.vietcuong.project2.Model.HanMucChi;
 import com.lv.vietcuong.project2.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Administor on 3/26/2018.
@@ -166,6 +169,10 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
     private void saveHangMucChi() {
         String name = edtTenHanMuc.getText().toString();
         String soHanMuc = edtSoHanMuc.getText().toString();
+        int soTienHanMuc = Integer.parseInt(edtSoHanMuc.getText().toString());
+        String ngayBdau = btnNgayBatDau.getText().toString();
+        String ngayKT = ngayKetThuc;
+        String lapLai = btnLapLai.getText().toString();
 
         if (name.equals("") || soHanMuc.equals("")){
             Toast.makeText(getActivity(), "Bạn cần nhập đầy đủ các trường", Toast.LENGTH_SHORT).show();
@@ -173,8 +180,16 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
             if (!soHanMuc.matches("[0-9]+")){
                 Toast.makeText(getActivity(), "Số hạn mức không hợp lệ", Toast.LENGTH_SHORT).show();
             }else {
-                HanMucChi hanMucChi =  new HanMucChi(name, Double.valueOf(soHanMuc));
-                long result = DB_HanMucChi.addHanMucChi(getActivity(), hanMucChi);
+                HanMucChi hanMucChi =  new HanMucChi();
+
+                hanMucChi.setSoTien(soTienHanMuc);
+                hanMucChi.setTenHanMucChi(name);
+                hanMucChi.setLapLai(lapLai);
+                hanMucChi.setNgayBatDau(ngayBdau);
+                hanMucChi.setNgayKetThuc(ngayKT);
+                hanMucChi.setSoTien(soTienHanMuc);
+
+                long result = SQLHanMucChi.addHanMucChi(getActivity(), hanMucChi);
                 if(result > 0){
                     edtTenHanMuc.setText("");
                     edtSoHanMuc.setText("");

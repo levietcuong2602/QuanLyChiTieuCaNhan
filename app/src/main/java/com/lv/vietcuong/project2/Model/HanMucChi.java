@@ -1,34 +1,65 @@
 package com.lv.vietcuong.project2.Model;
 
+import java.util.Date;
+
 /**
  * Created by Administor on 3/26/2018.
  */
 
 public class HanMucChi {
-    private String name;
-    private double limit;
+   private int idHanMucChi;
+   private String tenHanMucChi;
+   private String lapLai;
+   private String ngayBatDau;
+   private String ngayKetThuc;
+   private int soTien;
 
-    public String getName() {
-        return name;
+
+    public int getSoTien() {
+        return soTien;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSoTien(int soTien) {
+        this.soTien = soTien;
     }
 
-    public double getLimit() {
-        return limit;
+    public int getIdHanMucChi() {
+        return idHanMucChi;
     }
 
-    public void setLimit(double limit) {
-        this.limit = limit;
+    public void setIdHanMucChi(int idHanMucChi) {
+        this.idHanMucChi = idHanMucChi;
     }
 
-    public HanMucChi(String name, double limit) {
-        this.name = name;
-        this.limit = limit;
+    public String getTenHanMucChi() {
+        return tenHanMucChi;
     }
 
-    public HanMucChi() {
+    public void setTenHanMucChi(String tenHanMucChi) {
+        this.tenHanMucChi = tenHanMucChi;
+    }
+
+    public String getLapLai() {
+        return lapLai;
+    }
+
+    public void setLapLai(String lapLai) {
+        this.lapLai = lapLai;
+    }
+
+    public String getNgayBatDau() {
+        return ngayBatDau;
+    }
+
+    public void setNgayBatDau(String ngayBatDau) {
+        this.ngayBatDau = ngayBatDau;
+    }
+
+    public String getNgayKetThuc() {
+        return ngayKetThuc;
+    }
+
+    public void setNgayKetThuc(String ngayKetThuc) {
+        this.ngayKetThuc = ngayKetThuc;
     }
 }
