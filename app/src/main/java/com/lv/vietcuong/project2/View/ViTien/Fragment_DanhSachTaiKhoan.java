@@ -10,11 +10,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Adapter.ListViTienAdapter;
 import com.lv.vietcuong.project2.Databases.SQLWallet;
-import com.lv.vietcuong.project2.Model.GhiChep;
 import com.lv.vietcuong.project2.Model.ViTien;
 import com.lv.vietcuong.project2.R;
 
@@ -66,7 +64,12 @@ public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.O
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         ViTien viTien = (ViTien) adapterView.getItemAtPosition(i);
 
-        Fragment_ThongTinViTien thongTinViTien = new Fragment_ThongTinViTien();
+        Fragment_ThongTinGhiChepViTien thongTinViTien = new Fragment_ThongTinGhiChepViTien();
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("ViTien", viTien);
+        thongTinViTien.setArguments(bundle);
+
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.content_layout, thongTinViTien);
         transaction.addToBackStack(null);

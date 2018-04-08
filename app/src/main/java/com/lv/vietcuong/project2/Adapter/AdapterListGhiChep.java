@@ -15,12 +15,12 @@ import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
 
-public class AdapterThongTinViTien extends ArrayAdapter<GhiChep> {
+public class AdapterListGhiChep extends ArrayAdapter<GhiChep> {
     private Context context;
     private int resource;
     private ArrayList<GhiChep> dsGhiChep;
 
-    public AdapterThongTinViTien(@NonNull Context context, int resource, @NonNull ArrayList<GhiChep> objects) {
+    public AdapterListGhiChep(@NonNull Context context, int resource, @NonNull ArrayList<GhiChep> objects) {
         super(context, resource, objects);
         this.context = context;
         this.resource = resource;
@@ -43,9 +43,9 @@ public class AdapterThongTinViTien extends ArrayAdapter<GhiChep> {
 
             viewHolder.imgage = convertView.findViewById(R.id.ImageView);
             viewHolder.tvLoaiGhiChep = convertView.findViewById(R.id.tvLoaiGhiChep);
-            viewHolder.tvTenHangMuc = convertView.findViewById(R.id.tvTenHangMuc);
-            viewHolder.tvSoTien = convertView.findViewById(R.id.tvSoTienGhiChep);
-            viewHolder.tvSoTienConLai = convertView.findViewById(R.id.tvSoTienConLai);
+            viewHolder.tvTenHangMuc = convertView.findViewById(R.id.ten_hang_muc);
+            viewHolder.tvSoTien = convertView.findViewById(R.id.so_tien_ghi_chep);
+            viewHolder.tvSoTienConLai = convertView.findViewById(R.id.so_tien_con_lai);
             viewHolder.tvNgay = convertView.findViewById(R.id.tvNgayGhiChep);
 
             convertView.setTag(viewHolder);
@@ -56,8 +56,9 @@ public class AdapterThongTinViTien extends ArrayAdapter<GhiChep> {
 
         viewHolder.tvNgay.setText(ghiChep.getNgay());
         viewHolder.tvLoaiGhiChep.setText(ghiChep.getLoaiGhiChep());
-//        viewHolder.tvSoTienConLai.setText();
-        viewHolder.tvTenHangMuc.setText(ghiChep.getSoTien());
+        viewHolder.tvSoTienConLai.setText("");
+        viewHolder.tvTenHangMuc.setText(ghiChep.getIdHangMuc()+"");
+        viewHolder.tvSoTien.setText(ghiChep.getSoTien()+"");
 
 
         return convertView;

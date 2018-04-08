@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Administor on 3/26/2018.
@@ -62,6 +63,7 @@ public class SQLHanMucChi {
         values.put("lapLai", hanMucChi.getLapLai());
         values.put("ngayBatDau", hanMucChi.getNgayKetThuc().toString());
         values.put("soTien", hanMucChi.getSoTien());
+
         return database.insert("HanMucChi", null, values);
     }
 

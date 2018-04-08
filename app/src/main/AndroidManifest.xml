@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".View.DangNhap.DangNhapActivity"
+        <activity android:name=".Layout_TrangChu"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,9 +19,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Layout_TrangChu"
-            android:label=""></activity>
-        <activity android:name=".View.GhiChep.DaGhiActivity"/>
+        <!--<activity android:name=".Layout_TrangChu"-->
+            <!--android:label=""></activity>-->
+        <!--<activity android:name=".View.GhiChep.DaGhiActivity"/>-->
     </application>
 
 </manifest>

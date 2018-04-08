@@ -1,10 +1,12 @@
 package com.lv.vietcuong.project2.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by Administor on 3/26/2018.
  */
 
-public class ViTien {
+public class ViTien implements Serializable{
     private int idViTien;
     private String tenViTien;
     private String loaiVi;

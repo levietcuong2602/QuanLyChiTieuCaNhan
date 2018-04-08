@@ -109,10 +109,10 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
         });
 
         manager = getSupportFragmentManager();
-//        FragmentTransaction transGhiChep = manager.beginTransaction();
-//        GhiChepActivity ghiChep = new GhiChepActivity();
-//        transGhiChep.replace(R.id.content_layout, ghiChep);
-//        transGhiChep.commit();
+        FragmentTransaction transGhiChep = manager.beginTransaction();
+        GhiChepActivity ghiChep = new GhiChepActivity();
+        transGhiChep.replace(R.id.content_layout, ghiChep);
+        transGhiChep.commit();
     }
 
     private void setHeaderNavigation() {
@@ -180,7 +180,6 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
         //gửi dữ liệu cho fragment thêm hạn mức chi
         Bundle bundle = new Bundle();
         bundle.putString("NgayKetThuc", data);
-
         Fragment_ThemHanMucChi themHanMucChi = new Fragment_ThemHanMucChi();
         themHanMucChi.setArguments(bundle);
 
