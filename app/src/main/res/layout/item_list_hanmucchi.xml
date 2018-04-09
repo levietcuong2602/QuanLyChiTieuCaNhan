@@ -4,52 +4,51 @@
 
     <TextView
         android:id="@+id/textViewTenHanMucChi"
-        android:textSize="22sp"
+        android:layout_marginLeft="5dp"
         android:text="Tiền tiêu vặt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/textViewSoHanMucChi"
-        android:textSize="22sp"
         android:text="500.000"
+        android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/idD"
         android:gravity="left"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="10dp"/>
 
     <TextView
         android:id="@+id/idD"
-        android:textSize="22sp"
-        android:text="Đ"
+        android:text="đ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/textView1"
-        android:textSize="18sp"
         android:text="Đã chi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textViewTenHanMucChi"/>
+        android:layout_below="@+id/textViewTenHanMucChi"
+        android:layout_marginLeft="5dp"/>
 
     <TextView
         android:id="@+id/textView2"
-        android:textSize="18sp"
         android:text="Còn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewSoHanMucChi"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="30dp"/>
+        android:layout_marginRight="40dp"/>
 
     <TextView
         android:id="@+id/textViewDaChi"
-        android:textSize="22sp"
+        android:layout_marginLeft="5dp"
         android:text="150.000 đ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,12 +56,20 @@
 
     <TextView
         android:id="@+id/textViewConLai"
-        android:textSize="22sp"
-        android:text="350.000 đ"
+        android:text="350.000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
+        android:layout_alignRight="@+id/idD2"
+        android:layout_marginRight="10dp"/>
+
+    <TextView
+        android:id="@+id/idD2"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="30dp"/>
+        android:text="đ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

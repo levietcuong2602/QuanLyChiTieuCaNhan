@@ -34,8 +34,8 @@ public class Fragment_ThongTinGhiChepViTien extends Fragment implements View.OnC
         View view = inflater.inflate(R.layout.fragment_thongtinvitien, container,false);
 
         initView(view);
-        initListViewGhiChep();
         getViTien();
+        initListViewGhiChep();
 
         return view;
     }
@@ -49,9 +49,12 @@ public class Fragment_ThongTinGhiChepViTien extends Fragment implements View.OnC
     }
 
     private void initListViewGhiChep() {
-//        ArrayList<GhiChep> dsGhiChep = SQLGhiChep.getAllGhiChep(getActivity());
-        ArrayList<GhiChep> dsGhiChep = new ArrayList<>();
-        dsGhiChep.add(new GhiChep());
+        ArrayList<GhiChep> dsGhiChep = null;
+        if (viTien != null) {
+            dsGhiChep = SQLGhiChep.getGhiChepViTien(getActivity(), viTien.getIdViTien() + "");
+        }else {
+            dsGhiChep = new ArrayList<>();
+        }
 
         if (dsGhiChep.size() == 0){
             tvNotData.setVisibility(View.VISIBLE);

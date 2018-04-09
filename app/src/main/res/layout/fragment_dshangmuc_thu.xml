@@ -6,7 +6,12 @@
     <ExpandableListView
         android:id="@+id/expandedHangMucThu"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:visibility="gone">
     </ExpandableListView>
+
+    <ListView
+        android:id="@+id/lvHangMucThu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
 </LinearLayout>

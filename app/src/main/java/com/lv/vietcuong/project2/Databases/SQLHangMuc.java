@@ -15,13 +15,14 @@ public class SQLHangMuc {
     public static ArrayList<HangMuc> getAllHangMuc(Activity activity, String loaiHangMuc) {
         ArrayList<HangMuc> dsHangMuc = new ArrayList<>();
         SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(activity);
-        String SQLQuery = "SELECT * FROM HangMuc WHERE loaiHangMuc = " + loaiHangMuc;
+        String SQLQuery = "SELECT * FROM HangMuc WHERE loaiHangMuc = " + "'"+loaiHangMuc +"'";
 
         if (db != null) {
             Cursor cursor = db.rawQuery(SQLQuery, null);
-            while (cursor.moveToFirst()) {
+            if (cursor.moveToFirst()) {
                 do {
                     HangMuc hangMuc = new HangMuc();
+
                     hangMuc.setIdHangMuc(cursor.getInt(0));
                     hangMuc.setTenHangMuc(cursor.getString(1));
                     hangMuc.setDienDai(cursor.getString(2));
@@ -45,8 +46,13 @@ public class SQLHangMuc {
         values.put("tenHangMuc", hangMuc.getTenHangMuc());
         values.put("dienDai", hangMuc.getDienDai());
         values.put("icon", hangMuc.getIcon());
-        values.put("loaiHangMuc", hangMuc.getIcon());
+        values.put("loaiHangMuc", hangMuc.getLoaiHangMuc());
 
         return db.insert("HangMuc", null, values);
+    }
+
+    public static long deleteHangMuc(Activity activity, int idHangMuc){
+        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(activity);
+        return db.delete("HangMuc", "idHangMuc=?", new String[]{idHangMuc+""});
     }
 }

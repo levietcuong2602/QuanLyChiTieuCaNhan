@@ -3,6 +3,9 @@ package com.lv.vietcuong.project2.Databases;
 import android.app.Activity;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.app.FragmentActivity;
+
+import com.lv.vietcuong.project2.Model.TaiKhoan;
 
 import java.io.File;
 import java.io.FileOutputStream;

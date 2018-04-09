@@ -24,7 +24,7 @@ import com.lv.vietcuong.project2.View.HanMucChi.OnFragmentManager;
 import com.lv.vietcuong.project2.View.HangMucThuChi.HangMucThuChiActivity;
 import com.lv.vietcuong.project2.View.Profile.Fragment_DoiAvata;
 import com.lv.vietcuong.project2.View.Profile.Fragment_DoiMatKhau;
-import com.lv.vietcuong.project2.View.Profile.Fragment_DoiTenTaiKhoan;
+import com.lv.vietcuong.project2.View.Profile.Fragment_CapNhatThongTin;
 import com.lv.vietcuong.project2.View.ViTien.TaiKhoanActivity;
 import com.lv.vietcuong.project2.View.DangNhap.DangNhapActivity;
 
@@ -108,11 +108,17 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
             }
         });
 
+        //vào thẳng màn hình ghi chép
         manager = getSupportFragmentManager();
-        FragmentTransaction transGhiChep = manager.beginTransaction();
-        GhiChepActivity ghiChep = new GhiChepActivity();
-        transGhiChep.replace(R.id.content_layout, ghiChep);
-        transGhiChep.commit();
+//        FragmentTransaction transGhiChep = manager.beginTransaction();
+//        GhiChepActivity ghiChep = new GhiChepActivity();
+//        transGhiChep.replace(R.id.content_layout, ghiChep);
+//        transGhiChep.commit();
+
+        FragmentTransaction trans = manager.beginTransaction();
+        TaiKhoanActivity taiKhoanActivity = new TaiKhoanActivity();
+        trans.replace(R.id.content_layout, taiKhoanActivity);
+        trans.commit();
     }
 
     private void setHeaderNavigation() {
@@ -129,10 +135,10 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         switch (id){
-            case R.id.itemDoiTenTaiKhoan:
+            case R.id.itemCapNhatThongTin:
                 FragmentTransaction transDoiTenTK = manager.beginTransaction();
 
-                Fragment_DoiTenTaiKhoan fragmentDoiTenTK = new Fragment_DoiTenTaiKhoan();
+                Fragment_CapNhatThongTin fragmentDoiTenTK = new Fragment_CapNhatThongTin();
                 transDoiTenTK.replace(R.id.content_layout, fragmentDoiTenTK);
                 transDoiTenTK.commit();
 

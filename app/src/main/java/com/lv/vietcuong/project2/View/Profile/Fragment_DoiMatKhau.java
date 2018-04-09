@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lv.vietcuong.project2.Databases.DataBaseManager;
+import com.lv.vietcuong.project2.Databases.SQLTaiKhoan;
 import com.lv.vietcuong.project2.Layout_TrangChu;
 import com.lv.vietcuong.project2.Model.TaiKhoan;
 import com.lv.vietcuong.project2.R;
@@ -23,11 +25,16 @@ public class Fragment_DoiMatKhau extends Fragment implements View.OnClickListene
     EditText edOldPass, edNewPass, edReNewPass;
     TextView tvUserName;
     Button btnSavePass;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_fragment_doimatkhau, container, false);
+        initView(view);
+        return view;
+    }
 
+    public void initView(View view){
         edOldPass = view.findViewById(R.id.edOldPass);
         edNewPass = view.findViewById(R.id.edNewPass);
         edReNewPass = view.findViewById(R.id.edReNewPass);
@@ -36,9 +43,9 @@ public class Fragment_DoiMatKhau extends Fragment implements View.OnClickListene
 
         btnSavePass.setOnClickListener(this);
 
-
-        tvUserName.setText(tvUserName.getText()+Layout_TrangChu.taiKhoanDangNhap.getUsername());
-        return view;
+        if (Layout_TrangChu.taiKhoanDangNhap != null) {
+            tvUserName.setText(Layout_TrangChu.taiKhoanDangNhap.getUsername());
+        }
     }
 
     @Override
@@ -57,8 +64,8 @@ public class Fragment_DoiMatKhau extends Fragment implements View.OnClickListene
                 taiKhoan.setUsername(Layout_TrangChu.taiKhoanDangNhap.getUsername());
                 taiKhoan.setPassword(newPass);
 
-//                long result = DB_Manager.updatePasswordAccount(getActivity(), taiKhoan);
-                int result = 1;
+                long result = SQLTaiKhoan.updatedAccount(getActivity(), taiKhoan);
+//                int result = 1;
                 if (result > 0){
                     edOldPass.setText("");
                     edNewPass.setText("");

@@ -27,7 +27,7 @@
             app:tabTextAppearance="@style/capfale"
             app:tabTextColor="@color/colorGray"
             app:tabSelectedTextColor="@color/colorWhite"
-            android:background="@color/colorGrayBorder">
+            >
 
         </android.support.design.widget.TabLayout>
 

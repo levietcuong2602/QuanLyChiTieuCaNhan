@@ -4,15 +4,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     
     <ImageView
-        android:layout_marginLeft="10dp"
+        android:layout_margin="10dp"
         android:id="@+id/ImageView"
         android:src="@drawable/ic_action_account"
-        android:layout_width="50dp"
-        android:layout_height="50dp" />
-    
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
     <TextView
         android:id="@+id/tvLoaiGhiChep"
-        android:layout_marginLeft="20dp"
+        android:layout_margin="5dp"
         android:text="Chi:"
         android:textColor="@color/colorBlack"
         android:layout_toRightOf="@+id/ImageView"
@@ -23,12 +23,12 @@
         android:textColor="@color/colorBlack"
         android:layout_toRightOf="@+id/tvLoaiGhiChep"
         android:text="Học hành"
-        android:layout_marginLeft="10dp"
+        android:layout_margin="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/so_tien_ghi_chep"
-        android:layout_marginRight="10dp"
+        android:layout_margin="5dp"
         android:text="100.000"
         android:textColor="@color/colorBlack"
         android:layout_toLeftOf="@+id/tvD"
@@ -40,7 +40,7 @@
         android:textColor="@color/colorBlack"
         android:layout_alignParentRight="true"
         android:text="Đ"
-        android:layout_marginRight="10dp"
+        android:layout_margin="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

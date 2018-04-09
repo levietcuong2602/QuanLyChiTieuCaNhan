@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.app.FragmentActivity;
 
 import com.lv.vietcuong.project2.Model.TaiKhoan;
 
@@ -46,5 +47,14 @@ public class SQLTaiKhoan {
         values.put("loaiTaiKhoan", taiKhoan.getLoaiTaiKhoan());
 
         return db.insert("TaiKhoan", null, values);
+    }
+
+    public static long updatedAccount(FragmentActivity activity, TaiKhoan taiKhoan) {
+        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(activity);
+        ContentValues value = new ContentValues();
+        value.put("password", taiKhoan.getPassword());
+        value.put("hoten", taiKhoan.getHoTen());
+
+        return db.update("TaiKhoan", value, "username=?", new String[]{taiKhoan.getUsername()});
     }
 }

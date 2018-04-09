@@ -10,18 +10,20 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Adapter.ListViTienAdapter;
-import com.lv.vietcuong.project2.Databases.SQLWallet;
+import com.lv.vietcuong.project2.Databases.SQLViTien;
 import com.lv.vietcuong.project2.Model.ViTien;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
 
-public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.OnItemClickListener {
+public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     ListView listTaiKhoan;
     ArrayList<ViTien> dsViTien;
     TextView textViewTongTien;
+    ListViTienAdapter adapter;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -42,12 +44,13 @@ public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.O
 
 
     private void initListViewDanhSachViTien(View view) {
-        dsViTien = SQLWallet.getAllWallet(getActivity());
-        ListViTienAdapter adapter = new ListViTienAdapter(getActivity(), R.layout.item_list_vitien, dsViTien);
+        dsViTien = SQLViTien.getAllViTien(getActivity());
+        adapter = new ListViTienAdapter(getActivity(), R.layout.item_list_vitien, dsViTien);
         adapter.notifyDataSetChanged();
         listTaiKhoan.setAdapter(adapter);
 
         listTaiKhoan.setOnItemClickListener(this);
+        listTaiKhoan.setOnItemLongClickListener(this);
     }
 
     private void setTexViewTongTien() {
@@ -74,5 +77,35 @@ public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.O
         transaction.replace(R.id.content_layout, thongTinViTien);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+        ViTien viTien = (ViTien) adapterView.getItemAtPosition(i);
+        long result = SQLViTien.deleteViTien(getActivity(), viTien.getIdViTien());
+
+        if (result > 0){
+            Toast.makeText(getContext(), "delete ví tiền thành công", Toast.LENGTH_SHORT).show();
+
+            dsViTien.clear();
+            dsViTien.addAll(SQLViTien.getAllViTien(getActivity()));
+            adapter.notifyDataSetChanged();
+            setAdapter();
+        }else {
+            Toast.makeText(getContext(), "delete ví tiền không thành công", Toast.LENGTH_SHORT).show();
+        }
+        return false;
+    }
+
+    public void setAdapter(){
+        if (adapter == null){
+            adapter = new ListViTienAdapter(getActivity(), R.layout.item_list_vitien, dsViTien);
+            adapter.notifyDataSetChanged();
+            listTaiKhoan.setAdapter(adapter);
+        }else {
+            adapter.notifyDataSetChanged();
+            listTaiKhoan.setSelection(adapter.getCount()-1);
+        }
     }
 }

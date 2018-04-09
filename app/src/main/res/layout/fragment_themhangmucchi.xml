@@ -77,20 +77,23 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/custom_multitext_bottom">
             <TextView
-
-                android:text="Diễn dải"
+                android:text="Diễn giải"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_span="2"
                 android:layout_weight="1"/>
 
-            <Button android:drawableRight="@drawable/ic_action_right"
+            <Button
+                android:id="@+id/btnDienGiai"
+                android:drawableRight="@drawable/ic_action_right"
                 android:background="@drawable/custom_button_right"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </TableRow>
 
-        <TableRow android:layout_marginTop="20dp">
+        <TableRow android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <Button
                 android:id="@+id/idButtonSave"
                 android:text="Lưu"
