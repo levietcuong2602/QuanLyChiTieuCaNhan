@@ -11,6 +11,7 @@
         android:background="@color/bgToolbar">
 
         <Button
+            android:id="@+id/btnHuySaveHanMucChi"
             android:layout_gravity="left"
             android:textColor="@color/colorWhite"
             android:text="Hủy"
@@ -26,6 +27,7 @@
             android:layout_height="wrap_content" />
 
         <Button
+            android:id="@+id/btnLuuHanMucChi"
             android:layout_gravity="right"
             android:textColor="@color/colorWhite"
             android:text="Lưu"
@@ -89,6 +91,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:layout_gravity="center_vertical"
                     android:paddingTop="1dp"
                     android:paddingBottom="1dp"
                     android:paddingLeft="10dp"
@@ -121,7 +124,7 @@
                     android:layout_height="wrap_content"/>
 
                 <Button
-
+                    android:id="@+id/btnHangMucChi"
                     android:text="Tất cả"
                     android:gravity="right|center"
                     android:background="@drawable/custom_button_right"
@@ -147,6 +150,7 @@
                     android:layout_height="wrap_content"/>
 
                 <Button
+                    android:id="@+id/btnTaiKhoan"
                     android:text="Tất cả"
                     android:gravity="right|center"
                     android:background="@drawable/custom_button_right"
@@ -171,6 +175,7 @@
                     android:layout_height="wrap_content"/>
 
                 <Button
+                    android:id="@+id/btnLapLai"
                     android:text="Hàng tháng̉"
                     android:background="@drawable/custom_button_right"
                     android:gravity="right|center"
@@ -194,12 +199,13 @@
                     android:layout_height="wrap_content"/>
 
                 <Button
-                    android:text="01/03/2018"
-                    android:gravity="right|center"
-                    android:background="@drawable/custom_button_right"
+                    android:id="@+id/btnNgayBatDau"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/ic_action_right"/>
+                    android:background="@drawable/custom_button_right"
+                    android:drawableRight="@drawable/ic_action_right"
+                    android:gravity="right|center"
+                    android:text="01/03/2018" />
 
             </TableRow>
 
@@ -217,6 +223,7 @@
                     android:layout_height="wrap_content"/>
 
                 <Button
+                    android:id="@+id/btnNgayKetThuc"
                     android:text="Không xác định̉"
                     android:gravity="right|center"
                     android:background="@drawable/custom_button_right"
@@ -232,23 +239,10 @@
                 android:layout_marginTop="30dp">
 
                 <Button
-                    android:id="@+id/btnSaveHangMucChi"
-                    android:layout_marginRight="10dp"
+                    android:id="@+id/btnSaveHanMucChi"
                     android:layout_weight="1"
-                    android:background="@color/bgLogo"
-                    android:drawableLeft="@drawable/ic_action_limitbuy"
+                    android:background="@color/bgToolbar"
                     android:text="Lưu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-
-                <Button
-                    android:id="@+id/btnHuySaveHangMucChi"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
-                    android:background="@color/bgLogo"
-                    android:drawableLeft="@drawable/ic_action_cancel"
-                    android:text="hủy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     />

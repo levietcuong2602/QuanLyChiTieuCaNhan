@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_icon_hangmuc"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_action_ghichep"/>
+
+        <TextView
+            android:id="@+id/tv_loai_ghi_chep"
+            android:layout_toRightOf="@+id/img_icon_hangmuc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loại ghi chép: "
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_hangmuc"
+            android:layout_toRightOf="@+id/tv_loai_ghi_chep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hạng mục"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_so_tien"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số tiền"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_ngayghichep"
+            android:layout_below="@id/tv_loai_ghi_chep"
+            android:layout_toRightOf="@id/img_icon_hangmuc"
+            android:text="mm/dd/yy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_ten_vi_tien"
+            android:layout_below="@+id/tv_so_tien"
+            android:layout_alignParentRight="true"
+            android:text="Tên ví tiền"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+</RelativeLayout>

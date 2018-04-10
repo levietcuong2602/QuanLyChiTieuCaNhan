@@ -21,16 +21,16 @@ import java.util.ArrayList;
  */
 
 public class DB_Manager {
+    public static final String DATABASE_NAME = "QuanLyChiTieuCaNhan.sqlite";
 
-    public static SQLiteDatabase initDatabases(Activity activity, String dbName){
-            String outFileName = activity.getApplicationInfo().dataDir+"/databases/" + dbName;
+    public static SQLiteDatabase initDatabases(Activity activity){
+            String outFileName = activity.getApplicationInfo().dataDir+"/databases/" + DATABASE_NAME;
             try {
                 File file = new File(outFileName);
-
                 //nếu file không tồn tại tiến hành copy file
                 if(!file.exists()){
 
-                    InputStream inputStream = activity.getAssets().open(dbName);
+                    InputStream inputStream = activity.getAssets().open(DATABASE_NAME);
                     File folder = new File(activity.getApplicationInfo().dataDir+"/databases");
                     if (!folder.exists()){
                         folder.mkdir();
@@ -53,14 +53,14 @@ public class DB_Manager {
                 e.printStackTrace();
             }
 
-        return activity.openOrCreateDatabase(dbName, Context.MODE_PRIVATE, null);
+        return activity.openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE, null);
     }
 
     public static ArrayList<Account> getAllAcount(Activity activity){
         ArrayList<Account> dsTaiKhoan = new ArrayList<>();
 
         String SQLQuery = "SELECT * FROM TaiKhoan;";
-        SQLiteDatabase database = initDatabases(activity, "Accounts.sqlite");
+        SQLiteDatabase database = initDatabases(activity);
         if (database != null){
             Log.d("DB", "Copy database thành công");
         }else {
@@ -84,7 +84,7 @@ public class DB_Manager {
     }
 
     public static long addAccount(Activity activity, Account account){
-        SQLiteDatabase database = DB_Manager.initDatabases(activity, "Accounts.sqlite");
+        SQLiteDatabase database = DB_Manager.initDatabases(activity);
         ContentValues values = new ContentValues();
         values.put("username", account.getUsername());
         values.put("password", account.getPassword());
@@ -94,7 +94,7 @@ public class DB_Manager {
     }
 
     public static long updatePasswordAccount(Activity activity, Account account){
-        SQLiteDatabase database = DB_Manager.initDatabases(activity, "Accounts.sqlite");
+        SQLiteDatabase database = DB_Manager.initDatabases(activity);
         ContentValues values = new ContentValues();
         values.put("username", account.getUsername());
         values.put("password", account.getPassword());

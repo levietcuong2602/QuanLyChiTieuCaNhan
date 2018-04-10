@@ -7,15 +7,19 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:background="@color/bgToolbar"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="40dp">
         <Button
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/custom_buttom"
             android:id="@+id/btn_daghi"
             android:text="Đã ghi"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
         <Spinner
+            android:layout_marginLeft="50dp"
             android:id="@+id/spn_danhmuc"
             android:layout_width="match_parent"
             android:layout_height="match_parent">

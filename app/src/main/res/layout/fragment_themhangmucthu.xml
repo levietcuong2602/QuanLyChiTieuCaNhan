@@ -1,0 +1,100 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorGray">
+
+    <android.support.v7.widget.Toolbar
+        android:background="@color/bgToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <Button
+            android:id="@+id/btnHuy"
+            android:layout_gravity="left"
+            android:background="@color/bgToolbar"
+            android:textColor="@color/colorWhite"
+            android:text="Hủy"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:textColor="@color/colorWhite"
+            android:text="Thêm hạng mục thu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnLuu"
+            android:background="@color/bgToolbar"
+            android:layout_gravity="right"
+            android:textColor="@color/colorWhite"
+            android:text="Lưu"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_multitext_top"
+            android:padding="10dp">
+
+            <EditText
+                android:hint="Tên hạng mục"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/custom_edittext"/>
+
+        </TableRow>
+
+        <TableRow
+            android:background="@drawable/custom_multitext_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView android:text="Hạng mục cha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_span="2"
+                android:layout_weight="1"/>
+
+            <Button android:drawableRight="@drawable/ic_action_right"
+                android:background="@drawable/custom_button_right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_multitext_bottom">
+            <TextView android:text="Diễn dải"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_span="2"
+                android:layout_weight="1"/>
+
+            <Button android:drawableRight="@drawable/ic_action_right"
+                android:background="@drawable/custom_button_right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </TableRow>
+
+        <TableRow android:layout_marginTop="20dp">
+            <Button android:text="Lưu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/bgToolbar"/>
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>

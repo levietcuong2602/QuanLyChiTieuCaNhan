@@ -8,27 +8,39 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:background="@color/bgToolbar"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/btn_back"
-            android:layout_width="64dp"
-            android:layout_height="match_parent"
-            android:text="Back" />
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/custom_buttom"
+            android:text="Back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="100dp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
             android:text="Đã ghi"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/lv_ngay_thu_chi"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/lv_ghichep"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+
+    </LinearLayout>
 
 </LinearLayout>
