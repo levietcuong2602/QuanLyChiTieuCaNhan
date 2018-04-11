@@ -1,6 +1,7 @@
 package com.lv.vietcuong.project2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -35,7 +36,7 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
     NavigationView navigationView;
     TextView textName;
     FragmentManager manager;
-    BottomNavigationView bottomNavigationView;
+    public static BottomNavigationView bottomNavigationView;
 
     public static TaiKhoan taiKhoanDangNhap;
     @Override
@@ -165,6 +166,14 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
             case R.id.itemDangXuat:
                 Intent intent = new Intent(Layout_TrangChu.this, DangNhapActivity.class);
                 startActivity(intent);
+
+                //update information in sharepreferences file xml
+                SharedPreferences sharedPreferences = getSharedPreferences("TaiKhoan", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("username", "");
+                editor.putString("password", "");
+                editor.commit();
+
                 break;
             case R.id.itemHangMucThuChi:
                 FragmentTransaction transHangMuc = manager.beginTransaction();

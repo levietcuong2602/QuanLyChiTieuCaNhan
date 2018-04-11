@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lv.vietcuong.project2.R;
@@ -59,7 +60,7 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
+    public View getGroupView(int i, boolean isExpanded, View view, ViewGroup viewGroup) {
         String titleHeader = (String) getGroup(i);
 
         if (view == null){
@@ -67,8 +68,19 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
             view = layoutInflater.inflate(R.layout.item_header_expandable, null);
         }
 
+        ImageView imgIndicator = view.findViewById(R.id.imIndicator);
+        ImageView imgIconHangMuc = view.findViewById(R.id.imageIconHangMuc);
         TextView textView = view.findViewById(R.id.tvHeader);
+
         textView.setText(titleHeader);
+
+        int childCount = getChildrenCount(i);
+        if (childCount > 0 && isExpanded){
+            imgIndicator.setImageResource(R.drawable.icon_down);
+        }else {
+            imgIndicator.setImageResource(R.drawable.icon_up);
+        }
+
         return view;
     }
 

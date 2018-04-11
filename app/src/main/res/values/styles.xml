@@ -13,4 +13,8 @@
 
     </style>
 
+    <declare-styleable name="PasswordEditText">
+        <attr name="useStrike" format="boolean"/>
+    </declare-styleable>
+
 </resources>

@@ -1,10 +1,17 @@
-<LinearLayout android:layout_width="match_parent"
+<android.support.design.widget.CoordinatorLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/colorGray">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorGray"
+    android:fitsSystemWindows="true">
 
-    <android.support.v7.widget.Toolbar
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
         android:background="@color/bgToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
@@ -36,47 +43,75 @@
 
     </android.support.v7.widget.Toolbar>
 
+    </android.support.design.widget.AppBarLayout>
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:fitsSystemWindows="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <TableRow android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_multitext_top"
-            android:padding="10dp">
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <ImageView
+                android:id="@+id/imgHangMuc"
+                android:src="@drawable/icongallery"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                />
 
             <EditText
                 android:id="@+id/tenHangMucChi"
                 android:hint="Tên hạng mục"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/custom_edittext"/>
+                android:background="@drawable/custom_edittext"
+                android:layout_marginLeft="10dp"/>
 
         </TableRow>
 
         <TableRow
             android:background="@drawable/custom_multitext_bottom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView android:text="Hạng mục cha"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+            <TextView
+                android:paddingLeft="10dp"
+                android:textColor="@color/colorBlack"
+                android:text="Hạng mục cha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_span="2"
                 android:layout_weight="1"/>
 
-            <Button android:drawableRight="@drawable/ic_action_right"
-                android:background="@drawable/custom_button_right"
+            <Button
+                android:drawableRight="@drawable/ic_action_right"
+                android:background="@color/colorWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </TableRow>
 
-        <TableRow android:layout_width="match_parent"
+        <TableRow
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/custom_multitext_bottom">
             <TextView
+                android:paddingLeft="10dp"
+                android:textColor="@color/colorBlack"
                 android:text="Diễn giải"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,7 +121,7 @@
             <Button
                 android:id="@+id/btnDienGiai"
                 android:drawableRight="@drawable/ic_action_right"
-                android:background="@drawable/custom_button_right"
+                android:background="@color/colorWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </TableRow>
@@ -104,5 +139,15 @@
         </TableRow>
     </TableLayout>
 
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/edit"
+        android:layout_marginRight="30dp"
+        app:layout_anchor="@+id/imgHangMuc"
+        app:layout_anchorGravity="bottom|right"
+        app:rippleColor="@color/colorWhite"
+        app:backgroundTint="@color/colorWhite"
+        />
 
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

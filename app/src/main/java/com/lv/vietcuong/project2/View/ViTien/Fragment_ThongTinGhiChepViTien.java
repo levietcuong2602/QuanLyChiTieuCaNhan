@@ -3,6 +3,8 @@ package com.lv.vietcuong.project2.View.ViTien;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +16,11 @@ import android.widget.TextView;
 
 import com.lv.vietcuong.project2.Adapter.AdapterListGhiChep;
 import com.lv.vietcuong.project2.Databases.SQLGhiChep;
+import com.lv.vietcuong.project2.Layout_TrangChu;
 import com.lv.vietcuong.project2.Model.GhiChep;
 import com.lv.vietcuong.project2.Model.ViTien;
 import com.lv.vietcuong.project2.R;
+import com.lv.vietcuong.project2.View.GhiChep.GhiChepActivity;
 
 import java.util.ArrayList;
 
@@ -87,6 +91,14 @@ public class Fragment_ThongTinGhiChepViTien extends Fragment implements View.OnC
                 getActivity().getSupportFragmentManager().popBackStack();
                 break;
             case R.id.btnThemGhiChep:
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                FragmentTransaction transGhiChep = manager.beginTransaction();
+
+                GhiChepActivity ghiChep = new GhiChepActivity();
+                transGhiChep.replace(R.id.content_layout, ghiChep);
+                transGhiChep.commit();
+
+                Layout_TrangChu.bottomNavigationView.setSelectedItemId(R.id.itemGhiChep);
                 break;
         }
     }

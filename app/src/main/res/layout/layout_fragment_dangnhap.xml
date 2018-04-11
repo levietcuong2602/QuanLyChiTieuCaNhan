@@ -1,5 +1,6 @@
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:padding="10dp">
@@ -9,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
 
-        <EditText
+        <com.lv.vietcuong.project2.CustomView.ClearEditText
             android:id="@+id/edTaiKhoan"
             android:hint="Tên tài khoản"
             android:layout_width="match_parent"
@@ -21,12 +22,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
 
-        <EditText
+        <com.lv.vietcuong.project2.CustomView.PasswordEditText
             android:id="@+id/edMatKhau"
             android:hint="Mật khẩu"
-            android:inputType="textPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:useStrike="true"/>
     </android.support.design.widget.TextInputLayout>
 
     <TextView
