@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <TableRow
         android:background="@color/bgToolbar"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -15,11 +15,9 @@
 
         <Button
             android:id="@+id/btn_back"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/custom_buttom"
-            android:text="Back"
+            android:background="@drawable/ic_action_left"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,7 +27,7 @@
             android:textColor="@color/colorWhite"
             android:text="Đã ghi"
             android:textSize="25sp" />
-    </LinearLayout>
+    </TableRow>
 
     <LinearLayout
         android:orientation="horizontal"

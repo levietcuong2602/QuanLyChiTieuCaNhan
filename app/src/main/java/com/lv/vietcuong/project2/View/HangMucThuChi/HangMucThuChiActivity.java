@@ -11,7 +11,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
 import com.lv.vietcuong.project2.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class HangMucThuChiActivity extends Fragment implements View.OnClickListe
     List<String> listHangMucSpinner;
     Spinner spinnerHangMuc;
     Button btnThemHangMuc;
+    static int mode = 0;
 
     @Nullable
     @Override
@@ -45,33 +48,37 @@ public class HangMucThuChiActivity extends Fragment implements View.OnClickListe
         spinnerHangMuc.setAdapter(adapter);
         spinnerHangMuc.setSelection(0);
 
-       spinnerHangMuc.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-           @Override
-           public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-               if (i == 0) {
-                   FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                   Fragment_ListHangMucChi hangMucChi = new Fragment_ListHangMucChi();
-                   transaction.replace(R.id.content_dshangmuc, hangMucChi);
+        spinnerHangMuc.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i == 0) {
+                    mode = 0;
+                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    Fragment_ListHangMucChi hangMucChi = new Fragment_ListHangMucChi();
+                    transaction.replace(R.id.content_dshangmuc, hangMucChi);
 
-                   transaction.commit();
-               }else if (i == 1){
-                   FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                   Fragment_ListHangMucThu hangMucThu = new Fragment_ListHangMucThu();
-                   transaction.replace(R.id.content_dshangmuc, hangMucThu);
+                    transaction.commit();
+                }else if (i == 1){
+                    mode = 1;
 
-                   transaction.commit();
-               }
-           }
+                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    Fragment_ListHangMucThu hangMucThu = new Fragment_ListHangMucThu();
+                    transaction.replace(R.id.content_dshangmuc, hangMucThu);
 
-           @Override
-           public void onNothingSelected(AdapterView<?> adapterView) {
+                    transaction.commit();
+                }
+            }
 
-           }
-       });
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     @Override
     public void onClick(View view) {
+        //thêm hạng mục event button
         int selectSpinner = spinnerHangMuc.getSelectedItemPosition();
         if (selectSpinner == 0){
             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();

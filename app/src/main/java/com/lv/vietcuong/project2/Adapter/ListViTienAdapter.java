@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.lv.vietcuong.project2.Model.Wallet;
+import com.lv.vietcuong.project2.Model.ViTien;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
@@ -22,9 +22,9 @@ import java.util.List;
 public class ListViTienAdapter extends ArrayAdapter {
     private Context context;
     private int resource;
-    private List<Wallet> arrayWallet;
+    private List<ViTien> arrayWallet;
 
-    public ListViTienAdapter(@NonNull Context context, int resource, ArrayList<Wallet> arrayWallet) {
+    public ListViTienAdapter(@NonNull Context context, int resource, ArrayList<ViTien> arrayWallet) {
         super(context, resource, arrayWallet);
         this.context = context;
         this.resource = resource;
@@ -51,9 +51,10 @@ public class ListViTienAdapter extends ArrayAdapter {
 
         viewHolder = (ViewHolder) convertView.getTag();
 
-        Wallet viTien = arrayWallet.get(position);
-        viewHolder.textViewSoTien.setText(viTien.getBalance()+"");
-        viewHolder.textViewNameWallet.setText(viTien.getNameWallet());
+        ViTien viTien = arrayWallet.get(position);
+
+        viewHolder.textViewSoTien.setText(viTien.getSoDu()+"");
+        viewHolder.textViewNameWallet.setText(viTien.getTenViTien());
 
         return convertView;
     }

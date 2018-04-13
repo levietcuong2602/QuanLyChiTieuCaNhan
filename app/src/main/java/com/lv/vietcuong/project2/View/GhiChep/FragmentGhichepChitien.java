@@ -102,7 +102,6 @@ public class FragmentGhichepChitien extends android.support.v4.app.Fragment impl
         dialog = new Dialog(context);
         dialog.setTitle("Mục chi");
         dialog.setContentView(R.layout.dialog_hangmuc);
-//        dialog.setCancelable(false);
 
         setListViewMucChi();
 

@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/itemDoiAvata"
-        android:title="Cập nhật ảnh đại diện"/>
+    <item
+        android:title="Tài khoản">
+        <menu>
+            <item android:id="@+id/itemDoiAvata"
+                android:title="Cập nhật ảnh đại diện"/>
 
-    <item android:id="@+id/itemDoiMatKhau"
-        android:title="Đổi mật khẩu"/>
+            <item android:id="@+id/itemDoiMatKhau"
+                android:title="Đổi mật khẩu"/>
 
-    <item android:id="@+id/itemDoiTenTaiKhoan"
-        android:title="Đổi tên tài khoản"/>
+            <item android:id="@+id/itemCapNhatThongTin"
+                android:title="Cập nhật tài khoản"/>
+        </menu>
+    </item>
+
+    <item android:title="Tiện ích">
+        <menu>
+            <item
+                android:id="@+id/itemHangMucThuChi"
+                android:title="Hạng mục thu/chi"/>
+        </menu>
+    </item>
+
 
     <item android:id="@+id/itemDangXuat"
         android:title="Đăng xuất "/>

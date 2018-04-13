@@ -28,57 +28,13 @@ public class Util {
         fragmentTransaction.commit();
     }
 
-    public static void showDialogTaikhoan(Context context, TextView textView, int idListView){
-        final Dialog dialog = new Dialog(context);
-        dialog.setTitle("Tài khoản");
-        dialog.setContentView(R.layout.dialog_taikhoan);
-        dialog.setCancelable(false);
-        setListViewTaikhoan(dialog,textView,context,idListView);
 
-        dialog.show();
-    }
 
-    public static void setListViewTaikhoan(final Dialog dialog, final TextView textView, Context context,int idListView){
-        ListView lv;
-        final String[] taikhoan = {"0506515615","65105320840","560184065123","60840615316","41605131566","6040686161"};
 
-        lv = (ListView) dialog.findViewById(idListView);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(context,android.R.layout.simple_list_item_1,taikhoan);
-        lv.setAdapter(arrayAdapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                textView.setText("");
-                dialog.dismiss();
-            }
-        });
-    }
 
-    public static void setListViewMucChi(final Dialog dialog, final TextView textView, Context context, int idListView){
-        ListView lv;
-        String[] mucchi = {"0506515615","65105320840","560184065123","60840615316","41605131566","6040686161"};
 
-        lv = (ListView) dialog.findViewById(idListView);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(context,android.R.layout.simple_list_item_1,mucchi);
-        lv.setAdapter(arrayAdapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                textView.setText("");
-                dialog.dismiss();
-            }
-        });
-    }
 
-    public static void showDialogMucchi(Context context,TextView textView,int idListView){
-        final Dialog dialog = new Dialog(context);
-        dialog.setTitle("Mục chi");
-        dialog.setContentView(R.layout.dialog_mucchi);
-        dialog.setCancelable(false);
-        setListViewMucChi(dialog,textView,context,idListView);
 
-        dialog.show();
-    }
 
     public static void getDefaultInfor(Calendar cal, TextView textView) {
         //lấy ngày hiện tại của hệ thống
@@ -113,29 +69,7 @@ public class Util {
         pic.show();
     }
 
-    public static void setListViewMucThu(final Dialog dialog, final TextView textView, Context context, int idListView){
-        ListView lv;
-        String[] mucthu = {"0506515615","65105320840","560184065123","60840615316","41605131566","6040686161"};
 
-        lv = (ListView) dialog.findViewById(idListView);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(context,android.R.layout.simple_list_item_1,mucthu);
-        lv.setAdapter(arrayAdapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                textView.setText("");
-                dialog.dismiss();
-            }
-        });
-    }
 
-    public static void showDialogMucthu(Context context,TextView textView,int idListView){
-        final Dialog dialog = new Dialog(context);
-        dialog.setTitle("Mục thu");
-        dialog.setContentView(R.layout.dialog_mucthu);
-        dialog.setCancelable(false);
-        setListViewMucThu(dialog,textView,context,idListView);
 
-        dialog.show();
-    }
 }

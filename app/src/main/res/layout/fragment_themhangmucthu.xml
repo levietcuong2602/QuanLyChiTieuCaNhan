@@ -47,6 +47,7 @@
             android:padding="10dp">
 
             <EditText
+                android:id="@+id/edtTenHangMucThu"
                 android:hint="Tên hạng mục"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,14 +82,18 @@
                 android:layout_span="2"
                 android:layout_weight="1"/>
 
-            <Button android:drawableRight="@drawable/ic_action_right"
+            <Button
+                android:id="@+id/btnDienGiai"
+                android:drawableRight="@drawable/ic_action_right"
                 android:background="@drawable/custom_button_right"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </TableRow>
 
         <TableRow android:layout_marginTop="20dp">
-            <Button android:text="Lưu"
+            <Button
+                android:id="@+id/idButtonSave"
+                android:text="Lưu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

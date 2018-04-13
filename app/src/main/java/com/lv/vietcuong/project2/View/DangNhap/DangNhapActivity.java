@@ -16,6 +16,7 @@ import com.lv.vietcuong.project2.R;
 
 public class DangNhapActivity extends AppCompatActivity {
 
+
     TabLayout tabDangNhap;
     ViewPager viewPagerDangNhap;
     Toolbar toolbar;
@@ -37,6 +38,7 @@ public class DangNhapActivity extends AppCompatActivity {
         tabDangNhap.setupWithViewPager(viewPagerDangNhap);
 
     }
+
 
 
 }

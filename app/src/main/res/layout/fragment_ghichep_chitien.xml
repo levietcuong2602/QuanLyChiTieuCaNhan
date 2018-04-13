@@ -2,9 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:padding="8dp"
+    android:background="@color/colorGray"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
+    android:layout_height="match_parent">
+
+    <TableRow
+        android:padding="8dp"
+        android:background="@drawable/custom_multitext_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -13,7 +17,7 @@
             android:id="@+id/edt_sotien"
             android:hint="Nhập số tiền"
             android:layout_weight="5"
-            android:background="@drawable/custom_rounded_edittext"
+            android:background="@drawable/custom_edittext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number" />
@@ -25,16 +29,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đồng"
-            android:textSize="25sp" />
-    </LinearLayout>
+            android:textSize="20sp" />
+    </TableRow>
 
-    <LinearLayout
-        android:layout_marginVertical="16dp"
+    <TableRow
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_multitext_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
             android:textSize="20sp"
+            android:paddingLeft="8dp"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,38 +50,48 @@
         <TextView
             android:id="@+id/tv_mucchi"
             android:text="Mục chi"
-            android:textSize="25sp"
+            android:gravity="center"
+            android:textSize="20sp"
             android:layout_weight="4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/bgLogo" />
+            android:textColor="@color/bgToolbar" />
 
         <Button
             android:id="@+id/btn_mucchi"
-            android:text="Mục chi >"
-            android:textColor="@color/colorWhite"
-            android:background="@color/bgToolbar"
-            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_action_right"
+            android:background="@drawable/custom_button_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
            />
 
-    </LinearLayout>
+    </TableRow>
 
-    <EditText
-        android:id="@+id/edt_diengiai"
-        android:background="@drawable/custom_rounded_edittext"
+    <TableRow
+        android:padding="8dp"
+        android:background="@drawable/custom_multitext_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Diễn giải" />
+        android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_marginVertical="16dp"
+        <EditText
+            android:id="@+id/edt_diengiai"
+            android:background="@drawable/custom_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Diễn giải" />
+    </TableRow>
+
+
+    <TableRow
+        android:background="@drawable/custom_multitext_top"
+        android:layout_marginBottom="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
             android:text="Từ tài khoản:"
+            android:paddingLeft="8dp"
             android:textSize="20sp"
             android:layout_weight="1"
             android:layout_width="wrap_content"
@@ -83,8 +100,9 @@
 
         <TextView
             android:id="@+id/tv_tutaikhoan"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:layout_weight="4"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="abcxyz"
@@ -92,22 +110,22 @@
 
         <Button
             android:id="@+id/btn_tutaikhoan"
-            android:text="Từ tài khoản >"
-            android:textColor="@color/colorWhite"
-            android:background="@color/bgToolbar"
-            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_action_right"
+            android:background="@drawable/custom_button_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
              />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
+        android:background="@drawable/custom_multitext_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
             android:text="Ngày chi:"
+            android:paddingLeft="8dp"
             android:textSize="20sp"
             android:layout_weight="1"
             android:layout_width="wrap_content"
@@ -117,37 +135,51 @@
         <TextView
             android:id="@+id/tv_ngay"
             android:layout_weight="4"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="dd/mm/yyyy"
+            android:textSize="20sp"
             android:textColor="@color/bgToolbar" />
 
         <Button
             android:id="@+id/btn_ngay"
-            android:textColor="@color/colorWhite"
-            android:background="@color/bgToolbar"
-            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_action_right"
+            android:background="@drawable/custom_button_right"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ngày" />
+            android:layout_height="wrap_content"/>
 
-    </LinearLayout>
+    </TableRow>
 
-    <EditText
-        android:id="@+id/edt_chi_cho_ai"
-        android:background="@drawable/custom_rounded_edittext"
-        android:layout_marginVertical="16dp"
+    <TableRow
+        android:padding="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_multitext_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Chi cho ai.." />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn_ghi"
-        android:textColor="@color/colorWhite"
-        android:background="@color/bgToolbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Ghi" />
+        <EditText
+            android:id="@+id/edt_chi_cho_ai"
+            android:background="@drawable/custom_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Chi cho ai.." />
+    </TableRow>
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_ghi"
+            android:textColor="@color/colorWhite"
+            android:background="@color/bgToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Ghi" />
+
+    </TableRow>
 
 </LinearLayout>

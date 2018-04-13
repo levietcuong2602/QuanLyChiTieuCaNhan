@@ -3,13 +3,11 @@ package com.lv.vietcuong.project2.View.GhiChep;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +20,7 @@ import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Databases.DataBaseManager;
 import com.lv.vietcuong.project2.Databases.SQLHangMuc;
-import com.lv.vietcuong.project2.Databases.SQLWallet;
+import com.lv.vietcuong.project2.Databases.SQLViTien;
 import com.lv.vietcuong.project2.Model.ChiTien;
 import com.lv.vietcuong.project2.Model.HangMuc;
 import com.lv.vietcuong.project2.Model.ViTien;
@@ -33,7 +31,7 @@ import com.lv.vietcuong.project2.View.GhiChep.adapter.AdapterTaiKhoan;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ActivityEditChitien extends Fragment implements View.OnClickListener{
+public class FragmentEditChitien extends Fragment implements View.OnClickListener{
     private Button btnMucChi, btnTuTaiKhoan, btnNgay, btnCapNhat, btnXoa;
     private EditText edtSoTien, edtDienGiai, edtChiChoAi;
     private TextView tvNgay, tvMucChi, tvTuTaiKhoan;
@@ -44,28 +42,17 @@ public class ActivityEditChitien extends Fragment implements View.OnClickListene
     private int idGhiChep, soTien, idHangMucChi, idViTien;
     private String dienGiai, ngay, chiChoAi;
 
-//    @Override
-//    protected void onCreate(@Nullable Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.fragment_ghichep_chitien_edit);
-//        initWidget();
-//
-//        Intent intent = getIntent();
-//        idGhiChep = intent.getIntExtra("idGhiChep",0);
-//
-//        setData();
-//        setEventClickViews();
-//    }
-
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ghichep_chitien_edit,container,false);
+        initWidget(view);
+
         Bundle bundle = getArguments();
-        if (bundle != null){
-            Toast.makeText(getContext(), bundle.getInt("idGhiChep")+"", Toast.LENGTH_SHORT).show();
-        }
+        idGhiChep = bundle.getInt("idGhiChep");
+        setData();
+        setEventClickViews();
 
         return view;
     }
@@ -218,7 +205,7 @@ public class ActivityEditChitien extends Fragment implements View.OnClickListene
         idViTien = cursor.getInt(2);
 
         edtChiChoAi.setText(chiChoAi);
-        tvTuTaiKhoan.setText(SQLWallet.getTenViTien(getActivity(),idViTien));
+        tvTuTaiKhoan.setText(SQLViTien.getTenViTien(getActivity(),idViTien));
     }
 
     private void updateData(){
@@ -252,7 +239,7 @@ public class ActivityEditChitien extends Fragment implements View.OnClickListene
             db.update("ChiTien",cv2,"idGhiChep = "+idGhiChep,null);
             db.close();
             Toast.makeText(getContext(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
-
+            Util.replace(R.id.content_layout,new FragmentDaGhi(),getActivity());
         }
     }
 
@@ -262,7 +249,6 @@ public class ActivityEditChitien extends Fragment implements View.OnClickListene
         db.delete("ChiTien","idGhiChep = "+idGhiChep,null);
         db.close();
         Toast.makeText(getContext(), "Xoá thành công", Toast.LENGTH_SHORT).show();
-     //   DaGhiActivity.updateListGhiChep(this);
-
+        Util.replace(R.id.content_layout,new FragmentDaGhi(),getActivity());
     }
 }

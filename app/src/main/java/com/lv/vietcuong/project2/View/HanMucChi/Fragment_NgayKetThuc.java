@@ -31,28 +31,6 @@ public class Fragment_NgayKetThuc extends Fragment implements View.OnClickListen
     TextView textViewNgayKT;
     Button btnBack, btnSave;
 
-    OnFragmentManager fragmentManager;
-//
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//
-//        if (context instanceof OnFragmentManager){
-//            fragmentManager = (OnFragmentManager) context;
-//        }else{
-//            new RuntimeException("Error: Fragment ngày kết thúc");
-//        }
-//    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        if (activity instanceof OnFragmentManager){
-            fragmentManager = (OnFragmentManager) activity;
-        }else{
-            new RuntimeException("Error: Fragment ngày kết thúc");
-        }
-    }
 
     @Nullable
     @Override
@@ -84,8 +62,6 @@ public class Fragment_NgayKetThuc extends Fragment implements View.OnClickListen
                             dayKt = day;
 
                             textViewNgayKT.setText(day + "/" + month + "/" + year);
-
-
                         }
                     };
 
@@ -118,7 +94,8 @@ public class Fragment_NgayKetThuc extends Fragment implements View.OnClickListen
                 getActivity().getSupportFragmentManager().popBackStack();
                 break;
             case R.id.btnSave:
-                fragmentManager.onSendDataToFragmentAddHanMuc(textViewNgayKT.getText().toString());
+                Fragment_ThemHanMucChi.ngayKetThuc = textViewNgayKT.getText().toString();
+                getActivity().getSupportFragmentManager().popBackStack();
                 break;
         }
     }

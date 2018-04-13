@@ -6,19 +6,12 @@ import java.io.Serializable;
  * Created by Administor on 3/24/2018.
  */
 
-public class Account implements Serializable{
-    private int id;
+public class TaiKhoan implements Serializable{
     private String username;
     private String password;
-    private int avata;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private String hoTen;
+    private int idGiaDinh;
+    private String loaiTaiKhoan;
 
     public String getUsername() {
         return username;
@@ -36,21 +29,27 @@ public class Account implements Serializable{
         this.password = password;
     }
 
-    public int getAvata() {
-        return avata;
+    public String getHoTen() {
+        return hoTen;
     }
 
-    public void setAvata(int avata) {
-        this.avata = avata;
+    public void setHoTen(String hoTen) {
+        this.hoTen = hoTen;
     }
 
-    public Account() {
+    public int getIdGiaDinh() {
+        return idGiaDinh;
     }
 
-    public Account(int id, String username, String password, int avata) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.avata = avata;
+    public void setIdGiaDinh(int idGiaDinh) {
+        this.idGiaDinh = idGiaDinh;
+    }
+
+    public String getLoaiTaiKhoan() {
+        return loaiTaiKhoan;
+    }
+
+    public void setLoaiTaiKhoan(String loaiTaiKhoan) {
+        this.loaiTaiKhoan = loaiTaiKhoan;
     }
 }

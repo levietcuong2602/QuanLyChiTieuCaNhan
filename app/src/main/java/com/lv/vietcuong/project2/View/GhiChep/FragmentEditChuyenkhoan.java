@@ -3,13 +3,11 @@ package com.lv.vietcuong.project2.View.GhiChep;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Databases.DataBaseManager;
-import com.lv.vietcuong.project2.Databases.SQLHangMuc;
-import com.lv.vietcuong.project2.Databases.SQLWallet;
-import com.lv.vietcuong.project2.Model.ChiTien;
+import com.lv.vietcuong.project2.Databases.SQLViTien;
 import com.lv.vietcuong.project2.Model.ChuyenKhoan;
 import com.lv.vietcuong.project2.Model.ViTien;
 import com.lv.vietcuong.project2.R;
@@ -32,7 +28,7 @@ import com.lv.vietcuong.project2.View.GhiChep.adapter.AdapterTaiKhoan;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ActivityEditChuyenkhoan extends AppCompatActivity implements View.OnClickListener{
+public class FragmentEditChuyenkhoan extends Fragment implements View.OnClickListener{
     private Button btnVaoTaiKhoan, btnTuTaiKhoan, btnNgay, btnCapNhat, btnXoa;
     private EditText edtSoTien, edtDienGiai;
     private TextView tvNgay, tvVaoTaiKhoan, tvTuTaiKhoan;
@@ -43,32 +39,33 @@ public class ActivityEditChuyenkhoan extends AppCompatActivity implements View.O
     private int idGhiChep, soTien, idViTienChi, idViTienThu;
     private String dienGiai, ngay;
 
+    @Nullable
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_ghichep_chuyenkhoan_edit);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_ghichep_chuyenkhoan_edit,container,false);
+        initWidget(view);
 
-        initWidget();
-        Intent intent = getIntent();
-        idGhiChep = intent.getIntExtra("idGhiChep",0);
-
+        Bundle bundle = getArguments();
+        idGhiChep = bundle.getInt("idGhiChep");
         setData();
         setEventClickViews();
+
+        return view;
     }
 
-    public void initWidget(){
-        btnVaoTaiKhoan = (Button) findViewById(R.id.btn_vaotaikhoan_6);
-        btnTuTaiKhoan = (Button) findViewById(R.id.btn_tutaikhoan_6);
-        btnNgay = (Button) findViewById(R.id.btn_ngay_6);
-        btnCapNhat = (Button) findViewById(R.id.btn_capnhat_6);
-        btnXoa = (Button) findViewById(R.id.btn_xoa_6);
+    public void initWidget(View v){
+        btnVaoTaiKhoan = (Button) v.findViewById(R.id.btn_vaotaikhoan_6);
+        btnTuTaiKhoan = (Button) v.findViewById(R.id.btn_tutaikhoan_6);
+        btnNgay = (Button) v.findViewById(R.id.btn_ngay_6);
+        btnCapNhat = (Button) v.findViewById(R.id.btn_capnhat_6);
+        btnXoa = (Button) v.findViewById(R.id.btn_xoa_6);
 
-        edtSoTien = (EditText) findViewById(R.id.edt_sotien_6);
-        edtDienGiai = (EditText) findViewById(R.id.edt_diengiai_6);
+        edtSoTien = (EditText) v.findViewById(R.id.edt_sotien_6);
+        edtDienGiai = (EditText) v.findViewById(R.id.edt_diengiai_6);
 
-        tvNgay = (TextView) findViewById(R.id.tv_ngay_6);
-        tvVaoTaiKhoan = (TextView) findViewById(R.id.tv_vaotaikhoan_6);
-        tvTuTaiKhoan = (TextView) findViewById(R.id.tv_tutaikhoan_6);
+        tvNgay = (TextView) v.findViewById(R.id.tv_ngay_6);
+        tvVaoTaiKhoan = (TextView) v.findViewById(R.id.tv_vaotaikhoan_6);
+        tvTuTaiKhoan = (TextView) v.findViewById(R.id.tv_tutaikhoan_6);
     }
 
     private void setEventClickViews() {
@@ -83,13 +80,13 @@ public class ActivityEditChuyenkhoan extends AppCompatActivity implements View.O
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_vaotaikhoan_6:
-                showDialogTaikhoanThu(this);
+                showDialogTaikhoanThu(getContext());
                 break;
             case R.id.btn_tutaikhoan_6:
-                showDialogTaikhoanChi(this);
+                showDialogTaikhoanChi(getContext());
                 break;
             case R.id.btn_ngay_6:
-                Util.showDatePickerDialog(tvNgay,this);
+                Util.showDatePickerDialog(tvNgay,getActivity());
                 break;
             case R.id.btn_capnhat_6:
                 updateData();
@@ -111,7 +108,7 @@ public class ActivityEditChuyenkhoan extends AppCompatActivity implements View.O
     }
 
     private void setListViewTaikhoanChi(){
-        SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(this);
+        SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(getActivity());
         Cursor cursor = database.rawQuery("select * from ViTien",null);
         final ArrayList<ViTien> dsViTien = new ArrayList<>();
 
@@ -128,7 +125,7 @@ public class ActivityEditChuyenkhoan extends AppCompatActivity implements View.O
         }
 
         listView = (ListView) dialog.findViewById(R.id.lv_taikhoan);
-        AdapterTaiKhoan adapterTaiKhoan = new AdapterTaiKhoan(this,R.layout.item_ds_mucchi,dsViTien);
+        AdapterTaiKhoan adapterTaiKhoan = new AdapterTaiKhoan(getContext(),R.layout.item_ds_mucchi,dsViTien);
         listView.setAdapter(adapterTaiKhoan);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -152,7 +149,7 @@ public class ActivityEditChuyenkhoan extends AppCompatActivity implements View.O
     }
 
     private void setListViewTaikhoanThu(){
-        SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(this);
+        SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(getActivity());
         Cursor cursor = database.rawQuery("select * from ViTien",null);
         final ArrayList<ViTien> dsViTien = new ArrayList<>();
 
@@ -169,7 +166,7 @@ public class ActivityEditChuyenkhoan extends AppCompatActivity implements View.O
         }
 
         listView = (ListView) dialog.findViewById(R.id.lv_taikhoan);
-        AdapterTaiKhoan adapterTaiKhoan = new AdapterTaiKhoan(this,R.layout.item_ds_mucchi,dsViTien);
+        AdapterTaiKhoan adapterTaiKhoan = new AdapterTaiKhoan(getContext(),R.layout.item_ds_mucchi,dsViTien);
         listView.setAdapter(adapterTaiKhoan);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -183,7 +180,7 @@ public class ActivityEditChuyenkhoan extends AppCompatActivity implements View.O
     }
 
     private void setData(){
-        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(this);
+        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(getActivity());
         Cursor cursor = db.rawQuery("select * from GhiChep where idGhiChep = "+idGhiChep,null);
         cursor.moveToFirst();
         soTien = cursor.getInt(1);
@@ -199,14 +196,14 @@ public class ActivityEditChuyenkhoan extends AppCompatActivity implements View.O
         idViTienChi = cursor.getInt(1);
         idViTienThu = cursor.getInt(2);
 
-        tvTuTaiKhoan.setText(SQLWallet.getTenViTien(this,idViTienChi));
-        tvVaoTaiKhoan.setText(SQLWallet.getTenViTien(this,idViTienThu));
+        tvTuTaiKhoan.setText(SQLViTien.getTenViTien(getActivity(),idViTienChi));
+        tvVaoTaiKhoan.setText(SQLViTien.getTenViTien(getActivity(),idViTienThu));
     }
 
     private void updateData(){
         ChuyenKhoan chuyenKhoan = new ChuyenKhoan();
         if (edtSoTien.getText().toString().isEmpty()){
-            Toast.makeText(this, "Số tiền không được để trống", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Số tiền không được để trống", Toast.LENGTH_SHORT).show();
         }else {
             soTien = Integer.parseInt(edtSoTien.getText().toString());
             dienGiai = edtDienGiai.getText().toString();
@@ -218,7 +215,7 @@ public class ActivityEditChuyenkhoan extends AppCompatActivity implements View.O
             chuyenKhoan.setIdViTienChi(idViTienChi);
             chuyenKhoan.setIdViTienThu(idViTienThu);
 
-            SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(this);
+            SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(getActivity());
             ContentValues cv1 = new ContentValues();
             ContentValues cv2 = new ContentValues();
             cv1.put("soTien",chuyenKhoan.getSoTien());
@@ -231,20 +228,18 @@ public class ActivityEditChuyenkhoan extends AppCompatActivity implements View.O
             db.update("GhiChep",cv1,"idGhiChep = "+idGhiChep,null);
             db.update("ChuyenKhoan",cv2,"idGhiChep = "+idGhiChep,null);
             db.close();
-            Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
-     //       DaGhiActivity.updateListGhiChep(this);
-            finish();
+            Toast.makeText(getContext(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+            Util.replace(R.id.content_layout,new FragmentDaGhi(),getActivity());
         }
     }
 
     private void deleteData(){
-        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(this);
+        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(getActivity());
         db.delete("GhiChep","idGhiChep = "+idGhiChep,null);
         db.delete("ChuyenKhoan","idGhiChep = "+idGhiChep,null);
         db.close();
-        Toast.makeText(this, "Xoá thành công", Toast.LENGTH_SHORT).show();
-    //    DaGhiActivity.updateListGhiChep(this);
-        finish();
+        Toast.makeText(getContext(), "Xoá thành công", Toast.LENGTH_SHORT).show();
+        Util.replace(R.id.content_layout,new FragmentDaGhi(),getActivity());
     }
 
 

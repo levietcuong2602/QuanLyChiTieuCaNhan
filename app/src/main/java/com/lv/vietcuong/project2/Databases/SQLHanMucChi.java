@@ -19,61 +19,31 @@ import java.util.ArrayList;
  * Created by Administor on 3/26/2018.
  */
 
-public class DB_HanMucChi {
-    private static final String TABLE_NAME = "HanMuc";
-    private static final String DATABASE_NAME = "HanMucChi.sqlite";
-
-    public static SQLiteDatabase initDatabases(Activity activity){
-        String outFileName = activity.getApplicationInfo().dataDir+"/databases/" + DATABASE_NAME;
-        try {
-            File file = new File(outFileName);
-
-            //nếu file không tồn tại tiến hành copy file
-            if(!file.exists()){
-
-                InputStream inputStream = activity.getAssets().open(DATABASE_NAME);
-                File folder = new File(activity.getApplicationInfo().dataDir+"/databases");
-                if (!folder.exists()){
-                    folder.mkdir();
-                }
-
-                file.createNewFile();
-                FileOutputStream myOutput = new FileOutputStream(file);
-
-                int len;
-                byte buff[] = new byte[1024];
-                while((len = inputStream.read(buff)) > 0){
-                    myOutput.write(buff, 0, len);
-                }
-
-                myOutput.flush();
-                myOutput.close();
-                inputStream.close();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return activity.openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE, null);
-    }
-
+public class SQLHanMucChi {
     public static ArrayList<HanMucChi> getAllHanMucChi(Activity activity){
         ArrayList<HanMucChi> dsWallet = new ArrayList<>();
 
-        String SQLQuery = "SELECT * FROM "+TABLE_NAME;
-        SQLiteDatabase database = initDatabases(activity);
+        String SQLQuery = "SELECT * FROM HanMucChi";
+        SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(activity);
         if (database != null){
             Log.d("DB", "Copy database thành công");
         }else {
             Log.d("DB", "Copy database thất bại");
         }
         Cursor cursor = database.rawQuery(SQLQuery, null);
+
         if(cursor.moveToFirst()){
             do{
-                String name = cursor.getString(1);
-                String balance = cursor.getString(2);
+                HanMucChi hanMucChi = new HanMucChi();
 
-                dsWallet.add(new HanMucChi(name, Double.valueOf(balance)));
+                hanMucChi.setIdHanMucChi(cursor.getInt(0));
+                hanMucChi.setTenHanMucChi(cursor.getString(1));
+                hanMucChi.setLapLai(cursor.getString(2));
+                hanMucChi.setNgayBatDau(cursor.getString(3));
+                hanMucChi.setNgayKetThuc(cursor.getString(4));
+                hanMucChi.setSoTien(cursor.getInt(5));
+
+                dsWallet.add(hanMucChi);
             }while(cursor.moveToNext());
         }
 
@@ -83,11 +53,13 @@ public class DB_HanMucChi {
     }
 
     public static long addHanMucChi(Activity activity, HanMucChi hanMucChi){
-        SQLiteDatabase database = initDatabases(activity);
+        SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(activity);
         ContentValues values = new ContentValues();
-        values.put("name", hanMucChi.getName());
-        values.put("limit", hanMucChi.getLimit()+"");
+        values.put("tenHanMucChi", hanMucChi.getTenHanMucChi());
+        values.put("lapLai", hanMucChi.getLapLai());
+        values.put("ngayBatDau", hanMucChi.getNgayKetThuc().toString());
+        values.put("soTien", hanMucChi.getSoTien());
 
-        return database.insert(TABLE_NAME, null, values);
+        return database.insert("HanMucChi", null, values);
     }
 }

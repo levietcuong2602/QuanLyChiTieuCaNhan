@@ -10,8 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.lv.vietcuong.project2.Databases.DB_Manager;
-import com.lv.vietcuong.project2.Model.Account;
+import com.lv.vietcuong.project2.Databases.SQLTaiKhoan;
+import com.lv.vietcuong.project2.Model.TaiKhoan;
 import com.lv.vietcuong.project2.R;
 
 /**
@@ -42,17 +42,18 @@ public class Fragment_DangKy extends Fragment implements View.OnClickListener {
         String pass = edPassWord.getText().toString();
         String rePass = edRePassword.getText().toString();
 
-        Account tk = new Account();
+        TaiKhoan tk = new TaiKhoan();
         tk.setUsername(user);
         tk.setPassword(pass);
 
         if(checkTaiKhoan(tk)){
             if(rePass.equals(pass)){
-                Account account = new Account();
-                account.setUsername(user);
-                account.setPassword(pass);
+                TaiKhoan taiKhoan = new TaiKhoan();
+                taiKhoan.setUsername(user);
+                taiKhoan.setPassword(pass);
+                taiKhoan.setLoaiTaiKhoan("member");
 
-                long result = DB_Manager.addAccount(getActivity(), account);
+                long result = SQLTaiKhoan.addTaiKhoan(getActivity(), taiKhoan);
                 if (result > 0){
                     setEmptyEditText();
                     Toast.makeText(getActivity(), "Đăng kí tài khoản thành công", Toast.LENGTH_SHORT).show();
@@ -72,19 +73,17 @@ public class Fragment_DangKy extends Fragment implements View.OnClickListener {
         edPassWord.setText("");
     }
 
-    public boolean checkTaiKhoan(Account account){
-        if(account.getUsername().equals("") || account.getPassword().equals("")){
+    public boolean checkTaiKhoan(TaiKhoan taiKhoan){
+        if(taiKhoan.getUsername().equals("") || taiKhoan.getPassword().equals("")){
             Toast.makeText(getActivity(), "Bạn cần nhập đầy đủ các trường", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        if (!(account.getPassword().length() > 4) || !(account.getUsername().length() >= 8) || account.getUsername().indexOf(" ") > 0){
+        if (!(taiKhoan.getPassword().length() > 4) || !(taiKhoan.getUsername().length() >= 8) || taiKhoan.getUsername().indexOf(" ") > 0){
             Toast.makeText(getActivity(), "tk không được chứa khoảng trắng, lớn 4 kí tự, mật khẩu lớn hơn 4 kí tự", Toast.LENGTH_SHORT).show();
             return false;
         }
 
         return true;
     }
-
-
 }

@@ -14,26 +14,39 @@ import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
 
-public class AdapterMucChi extends ArrayAdapter {
+public class AdapterHangMuc extends ArrayAdapter {
     private Context context;
-    private ArrayList<HangMuc> dsHangMucChi;
+    private ArrayList<HangMuc> dsHangMuc;
     private int resource;
 
-    public AdapterMucChi(@NonNull Context context, int resource, ArrayList<HangMuc> objects) {
+    public AdapterHangMuc(@NonNull Context context, int resource, ArrayList<HangMuc> objects) {
         super(context, resource, objects);
         this.context = context;
         this.resource = resource;
-        this.dsHangMucChi = objects;
+        this.dsHangMuc = objects;
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        convertView = LayoutInflater.from(context).inflate(resource, parent, false);
-        TextView tvItemMucChi = convertView.findViewById(R.id.tv_item);
+        ViewHolderHangMuc viewHolderHangMuc;
+        if (convertView == null){
+            viewHolderHangMuc = new ViewHolderHangMuc();
 
-        HangMuc hangMucChi = dsHangMucChi.get(position);
-        tvItemMucChi.setText(hangMucChi.getTenHangMuc());
+            convertView = LayoutInflater.from(context).inflate(resource, parent, false);
+            viewHolderHangMuc.tvItemHangMuc = convertView.findViewById(R.id.tv_item);
+
+            convertView.setTag(viewHolderHangMuc);
+        }
+
+        viewHolderHangMuc = (ViewHolderHangMuc) convertView.getTag();
+        HangMuc hangMuc = dsHangMuc.get(position);
+        viewHolderHangMuc.tvItemHangMuc.setText(hangMuc.getTenHangMuc());
+
         return convertView;
+    }
+
+    class ViewHolderHangMuc{
+        TextView tvItemHangMuc;
     }
 }

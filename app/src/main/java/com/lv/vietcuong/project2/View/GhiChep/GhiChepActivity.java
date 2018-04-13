@@ -1,6 +1,5 @@
 package com.lv.vietcuong.project2.View.GhiChep;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -81,8 +80,7 @@ public class GhiChepActivity extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_daghi:{
-                Intent intent = new Intent(getActivity(), DaGhiActivity.class);
-                startActivity(intent);
+                Util.replace(R.id.content_layout, new FragmentDaGhi(), getActivity());
                 break;
             }
         }

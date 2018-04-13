@@ -1,9 +1,8 @@
-package com.lv.vietcuong.project2.View.HanMucChi;
+package com.lv.vietcuong.project2.View.HangMucThuChi;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,74 +10,84 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
-import com.lv.vietcuong.project2.Databases.DB_HanMucChi;
-import com.lv.vietcuong.project2.Model.HanMucChi;
+import com.lv.vietcuong.project2.Databases.SQLHangMuc;
+import com.lv.vietcuong.project2.Model.HangMuc;
 import com.lv.vietcuong.project2.R;
 
-/**
- * Created by Administor on 3/26/2018.
- */
-
 public class Fragment_ThemHangMucChi extends Fragment implements View.OnClickListener {
-    Button btnSaveHangMucChi, btnCancelHangMucChi;
-    EditText edtTenHanMuc, edtSoHanMuc;
+    Button btnHuy, btnLuu, btnDienGiai;
+    Button btnButtonSave;
+    EditText edtTenHangMucChi;
+
+    static String dienDaiChi = "";
+    static int iconChi = 0;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_themhanmucchi, container, false);
-        
-        btnSaveHangMucChi = view.findViewById(R.id.btnSaveHangMucChi);
-        btnCancelHangMucChi = view.findViewById(R.id.btnHuySaveHangMucChi);
-        edtSoHanMuc = view.findViewById(R.id.edSoHanMucChi);
-        edtTenHanMuc = view.findViewById(R.id.edtenHanMucChi);
-        
-        btnCancelHangMucChi.setOnClickListener(this);
-        btnSaveHangMucChi.setOnClickListener(this);
-        
+        View view = inflater.inflate(R.layout.fragment_themhangmucchi, container, false);
+        initView(view);
         return view;
+    }
+
+    public void initView(View view){
+        btnHuy = view.findViewById(R.id.btnHuy);
+        btnLuu = view.findViewById(R.id.btnLuu);
+        edtTenHangMucChi = view.findViewById(R.id.tenHangMucChi);
+        btnDienGiai = view.findViewById(R.id.btnDienGiai);
+        btnButtonSave = view.findViewById(R.id.idButtonSave);
+
+        btnLuu.setOnClickListener(this);
+        btnHuy.setOnClickListener(this);
+        btnDienGiai.setOnClickListener(this);
+        btnButtonSave.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btnSaveHangMucChi:
-                saveHangMucChi();
+        int id = view.getId();
+
+        switch (id){
+            case R.id.btnHuy:
+                getActivity().getSupportFragmentManager().popBackStack();
                 break;
-            case R.id.btnHuySaveHangMucChi:
-                cancelSaveHangMucChi();
-                break;
-        }
-    }
-
-    private void cancelSaveHangMucChi() {
-        FragmentManager manager = getActivity().getSupportFragmentManager();
-        FragmentTransaction transTaiKhoan = manager.beginTransaction();
-        HanMucChiActivity hanMucChiActivity = new HanMucChiActivity();
-        transTaiKhoan.replace(R.id.content_layout, hanMucChiActivity);
-        transTaiKhoan.commit();
-    }
-
-    private void saveHangMucChi() {
-        String name = edtTenHanMuc.getText().toString();
-        String soHanMuc = edtSoHanMuc.getText().toString();
-
-        if (name.equals("") || soHanMuc.equals("")){
-            Toast.makeText(getActivity(), "Bạn cần nhập đầy đủ các trường", Toast.LENGTH_SHORT).show();
-        }else {
-            if (!soHanMuc.matches("[0-9]+")){
-                Toast.makeText(getActivity(), "Số hạn mức không hợp lệ", Toast.LENGTH_SHORT).show();
-            }else {
-                HanMucChi hanMucChi =  new HanMucChi(name, Double.valueOf(soHanMuc));
-                long result = DB_HanMucChi.addHanMucChi(getActivity(), hanMucChi);
+            case R.id.btnLuu:
+            case R.id.idButtonSave:
+                long result = addHangMuc();
                 if(result > 0){
-                    edtTenHanMuc.setText("");
-                    edtSoHanMuc.setText("");
-                    Toast.makeText(getActivity(), "Thêm hạn mức chi thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Thêm hạng mục thành công", Toast.LENGTH_SHORT).show();
+                    edtTenHangMucChi.setText("");
+                    dienDaiChi = "";
+
+//                    getActivity().getSupportFragmentManager().popBackStack();
                 }else {
-                    Toast.makeText(getActivity(), "Thêm hạn mức chi không thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Thêm hạng mục không thành công", Toast.LENGTH_SHORT).show();
                 }
-            }
+                break;
+            case R.id.btnDienGiai:
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                Fragment_DienGiai dienGiai = new Fragment_DienGiai();
+                transaction.replace(R.id.content_layout, dienGiai);
+                transaction.addToBackStack(null);
+
+                transaction.commit();
+                break;
         }
+    }
+
+    private long addHangMuc() {
+        HangMuc hangMuc = new HangMuc();
+
+        hangMuc.setTenHangMuc(edtTenHangMucChi.getText().toString());
+        hangMuc.setLoaiHangMuc("chi");
+        hangMuc.setDienDai(dienDaiChi);
+        hangMuc.setIcon(iconChi);
+
+        if (hangMuc.getTenHangMuc().length() > 0) {
+            return SQLHangMuc.addHangMuc(getActivity(), hangMuc);
+        }
+        return -1;
     }
 }

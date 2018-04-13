@@ -20,7 +20,10 @@ import com.lv.vietcuong.project2.Databases.SQLHanMucChi;
 import com.lv.vietcuong.project2.Model.HanMucChi;
 import com.lv.vietcuong.project2.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Administor on 3/26/2018.
@@ -30,39 +33,19 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
     Button btnSaveHanMucChi, btnCancelHangMucChi, btnLuuHanMucChi;
     EditText edtTenHanMuc, edtSoHanMuc;
     Button btnHangMucChi, btnTaiKhoan, btnLapLai, btnNgayBatDau, btnNgayKetThuc;
-
+    static String ngayKetThuc = "";
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_themhanmucchi, container, false);
-
         initWidget(view);
-
-        btnCancelHangMucChi.setOnClickListener(this);
-        btnSaveHanMucChi.setOnClickListener(this);
-        btnLuuHanMucChi.setOnClickListener(this);
-        btnLapLai.setOnClickListener(this);
-        btnTaiKhoan.setOnClickListener(this);
-        btnNgayBatDau.setOnClickListener(this);
-        btnNgayKetThuc.setOnClickListener(this);
-        btnHangMucChi.setOnClickListener(this);
-
         getDataNgayKetThuc();
-
         return view;
     }
 
     private void getDataNgayKetThuc() {
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            String ngayKT = bundle.getString("NgayKetThuc");
-            btnNgayKetThuc.setText(ngayKT);
-            Toast.makeText(getContext(), ""+ngayKT, Toast.LENGTH_SHORT).show();
-        }
-//        else {
-//            Toast.makeText(getContext(), "null", Toast.LENGTH_SHORT).show();
-//        }
+        btnNgayKetThuc.setText(ngayKetThuc);
     }
 
     public void initWidget(View view){
@@ -76,6 +59,15 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
         btnLapLai = view.findViewById(R.id.btnLapLai);
         btnNgayBatDau = view.findViewById(R.id.btnNgayBatDau);
         btnNgayKetThuc = view.findViewById(R.id.btnNgayKetThuc);
+
+        btnCancelHangMucChi.setOnClickListener(this);
+        btnSaveHanMucChi.setOnClickListener(this);
+        btnLuuHanMucChi.setOnClickListener(this);
+        btnLapLai.setOnClickListener(this);
+        btnTaiKhoan.setOnClickListener(this);
+        btnNgayBatDau.setOnClickListener(this);
+        btnNgayKetThuc.setOnClickListener(this);
+        btnHangMucChi.setOnClickListener(this);
     }
 
     @Override
@@ -177,6 +169,10 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
     private void saveHangMucChi() {
         String name = edtTenHanMuc.getText().toString();
         String soHanMuc = edtSoHanMuc.getText().toString();
+        int soTienHanMuc = Integer.parseInt(edtSoHanMuc.getText().toString());
+        String ngayBdau = btnNgayBatDau.getText().toString();
+        String ngayKT = ngayKetThuc;
+        String lapLai = btnLapLai.getText().toString();
 
         if (name.equals("") || soHanMuc.equals("")){
             Toast.makeText(getActivity(), "Bạn cần nhập đầy đủ các trường", Toast.LENGTH_SHORT).show();
@@ -184,7 +180,15 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
             if (!soHanMuc.matches("[0-9]+")){
                 Toast.makeText(getActivity(), "Số hạn mức không hợp lệ", Toast.LENGTH_SHORT).show();
             }else {
-                HanMucChi hanMucChi =  new HanMucChi(name, Double.valueOf(soHanMuc));
+                HanMucChi hanMucChi =  new HanMucChi();
+
+                hanMucChi.setSoTien(soTienHanMuc);
+                hanMucChi.setTenHanMucChi(name);
+                hanMucChi.setLapLai(lapLai);
+                hanMucChi.setNgayBatDau(ngayBdau);
+                hanMucChi.setNgayKetThuc(ngayKT);
+                hanMucChi.setSoTien(soTienHanMuc);
+
                 long result = SQLHanMucChi.addHanMucChi(getActivity(), hanMucChi);
                 if(result > 0){
                     edtTenHanMuc.setText("");

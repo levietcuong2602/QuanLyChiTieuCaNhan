@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Databases.DataBaseManager;
+import com.lv.vietcuong.project2.Databases.SQLViTien;
 import com.lv.vietcuong.project2.Model.ViTien;
 import com.lv.vietcuong.project2.R;
 
@@ -91,7 +92,6 @@ public class Fragment_ThemTaiKhoan extends Fragment implements View.OnClickListe
         String name = edName.getText().toString();
         String balance = edBalance.getText().toString();
 
-
         if (!balance.matches("[0-9]+")){
             Toast.makeText(getActivity(), "Số tài khoản không hợp lệ", Toast.LENGTH_SHORT).show();
         }else {
@@ -102,9 +102,7 @@ public class Fragment_ThemTaiKhoan extends Fragment implements View.OnClickListe
             wallet.setLoaiVi("ViTien");
             wallet.setGhiChu(ghiChu);
 
-            long result = addWalletDataBase(wallet);
-
-
+            long result = SQLViTien.addViTien(getActivity(), wallet);
             if (result > 0) {
                 edName.setText("");
                 edBalance.setText("");

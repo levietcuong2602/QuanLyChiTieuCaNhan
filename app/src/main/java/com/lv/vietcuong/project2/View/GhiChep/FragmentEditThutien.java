@@ -3,13 +3,11 @@ package com.lv.vietcuong.project2.View.GhiChep;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +21,7 @@ import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Databases.DataBaseManager;
 import com.lv.vietcuong.project2.Databases.SQLHangMuc;
-import com.lv.vietcuong.project2.Databases.SQLWallet;
-import com.lv.vietcuong.project2.Model.ChiTien;
+import com.lv.vietcuong.project2.Databases.SQLViTien;
 import com.lv.vietcuong.project2.Model.HangMuc;
 import com.lv.vietcuong.project2.Model.ThuTien;
 import com.lv.vietcuong.project2.Model.ViTien;
@@ -35,7 +32,7 @@ import com.lv.vietcuong.project2.View.GhiChep.adapter.AdapterTaiKhoan;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ActivityEditThutien extends AppCompatActivity implements View.OnClickListener{
+public class FragmentEditThutien extends Fragment implements View.OnClickListener{
     private Button btnMucThu, btnVaoTaiKhoan, btnNgay, btnCapNhat, btnXoa;
     private EditText edtSoTien, edtDienGiai, edtThuTuAi;
     private TextView tvNgay, tvMucThu, tvVaoTaiKhoan;
@@ -46,34 +43,34 @@ public class ActivityEditThutien extends AppCompatActivity implements View.OnCli
     private int idGhiChep, soTien, idHangMucThu, idViTien;
     private String dienGiai, ngay, thuTuAi;
 
+    @Nullable
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_ghichep_thutien_edit);
-        initWidget();
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_ghichep_thutien_edit,container,false);
+        initWidget(view);
 
-        Intent intent = getIntent();
-        idGhiChep = intent.getIntExtra("idGhiChep",0);
-
+        Bundle bundle = getArguments();
+        idGhiChep = bundle.getInt("idGhiChep");
         setData();
         setEventClickViews();
 
+        return view;
     }
 
-    public void initWidget(){
-        btnMucThu = (Button) findViewById(R.id.btn_mucthu_5);
-        btnVaoTaiKhoan = (Button) findViewById(R.id.btn_vaotaikhoan_5);
-        btnNgay = (Button) findViewById(R.id.btn_ngay_5);
-        btnCapNhat = (Button) findViewById(R.id.btn_capnhat_5);
-        btnXoa = (Button) findViewById(R.id.btn_xoa_5);
+    public void initWidget(View v){
+        btnMucThu = (Button) v.findViewById(R.id.btn_mucthu_5);
+        btnVaoTaiKhoan = (Button) v.findViewById(R.id.btn_vaotaikhoan_5);
+        btnNgay = (Button) v.findViewById(R.id.btn_ngay_5);
+        btnCapNhat = (Button) v.findViewById(R.id.btn_capnhat_5);
+        btnXoa = (Button) v.findViewById(R.id.btn_xoa_5);
 
-        edtSoTien = (EditText) findViewById(R.id.edt_sotien_5);
-        edtDienGiai = (EditText) findViewById(R.id.edt_diengiai_5);
-        edtThuTuAi = (EditText) findViewById(R.id.edt_thu_tu_ai_5);
+        edtSoTien = (EditText) v.findViewById(R.id.edt_sotien_5);
+        edtDienGiai = (EditText) v.findViewById(R.id.edt_diengiai_5);
+        edtThuTuAi = (EditText) v.findViewById(R.id.edt_thu_tu_ai_5);
 
-        tvNgay = (TextView) findViewById(R.id.tv_ngay_5);
-        tvMucThu = (TextView) findViewById(R.id.tv_mucthu_5);
-        tvVaoTaiKhoan = (TextView) findViewById(R.id.tv_vaotaikhoan_5);
+        tvNgay = (TextView) v.findViewById(R.id.tv_ngay_5);
+        tvMucThu = (TextView) v.findViewById(R.id.tv_mucthu_5);
+        tvVaoTaiKhoan = (TextView) v.findViewById(R.id.tv_vaotaikhoan_5);
     }
 
     private void setEventClickViews() {
@@ -88,13 +85,13 @@ public class ActivityEditThutien extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_mucthu_5:
-                showDialogMucthu(this);
+                showDialogMucthu(getContext());
                 break;
             case R.id.btn_vaotaikhoan_5:
-                showDialogTaikhoan(this);
+                showDialogTaikhoan(getContext());
                 break;
             case R.id.btn_ngay_5:
-                Util.showDatePickerDialog(tvNgay,this);
+                Util.showDatePickerDialog(tvNgay,getActivity());
                 break;
             case R.id.btn_capnhat_5:
                 updateData();
@@ -116,7 +113,7 @@ public class ActivityEditThutien extends AppCompatActivity implements View.OnCli
     }
 
     private void setListViewMucThu(){
-        SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(this);
+        SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(getActivity());
         Cursor cursor = database.rawQuery("select * from HangMuc where loaiHangMuc = 'thu'",null);
         final ArrayList<HangMuc> dsHangMucThu = new ArrayList<>();
 
@@ -134,7 +131,7 @@ public class ActivityEditThutien extends AppCompatActivity implements View.OnCli
 
         listView = (ListView) dialog.findViewById(R.id.lv_hangmuc_thuchi);
         dialog.setTitle("Muc thu");
-        AdapterHangMuc adapterMucThu = new AdapterHangMuc(this,R.layout.item_ds_mucchi,dsHangMucThu);
+        AdapterHangMuc adapterMucThu = new AdapterHangMuc(getContext(),R.layout.item_ds_mucchi,dsHangMucThu);
         listView.setAdapter(adapterMucThu);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -158,7 +155,7 @@ public class ActivityEditThutien extends AppCompatActivity implements View.OnCli
     }
 
     private void setListViewTaikhoan(){
-        SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(this);
+        SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(getActivity());
         Cursor cursor = database.rawQuery("select * from ViTien",null);
         final ArrayList<ViTien> dsViTien = new ArrayList<>();
 
@@ -176,7 +173,7 @@ public class ActivityEditThutien extends AppCompatActivity implements View.OnCli
 
         listView = (ListView) dialog.findViewById(R.id.lv_taikhoan);
         dialog.setTitle("Ví tiền");
-        AdapterTaiKhoan adapterTaiKhoan = new AdapterTaiKhoan(this,R.layout.item_ds_mucchi,dsViTien);
+        AdapterTaiKhoan adapterTaiKhoan = new AdapterTaiKhoan(getContext(),R.layout.item_ds_mucchi,dsViTien);
         listView.setAdapter(adapterTaiKhoan);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -190,7 +187,7 @@ public class ActivityEditThutien extends AppCompatActivity implements View.OnCli
     }
 
     private void setData(){
-        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(this);
+        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(getActivity());
         Cursor cursor = db.rawQuery("select * from GhiChep where idGhiChep = "+idGhiChep,null);
         cursor.moveToFirst();
         soTien = cursor.getInt(1);
@@ -199,7 +196,7 @@ public class ActivityEditThutien extends AppCompatActivity implements View.OnCli
         ngay = cursor.getString(4);
 
         edtSoTien.setText(soTien+"");
-        tvMucThu.setText(SQLHangMuc.getTenHangMuc(this,idHangMucThu));
+        tvMucThu.setText(SQLHangMuc.getTenHangMuc(getActivity(),idHangMucThu));
         edtDienGiai.setText(dienGiai);
         tvNgay.setText(ngay);
 
@@ -209,13 +206,13 @@ public class ActivityEditThutien extends AppCompatActivity implements View.OnCli
         idViTien = cursor.getInt(3);
 
         edtThuTuAi.setText(thuTuAi);
-        tvVaoTaiKhoan.setText(SQLWallet.getTenViTien(this,idViTien));
+        tvVaoTaiKhoan.setText(SQLViTien.getTenViTien(getActivity(),idViTien));
     }
 
     private void updateData(){
         ThuTien thuTien = new ThuTien();
         if (edtSoTien.getText().toString().isEmpty()){
-            Toast.makeText(this, "Số tiền không được để trống", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Số tiền không được để trống", Toast.LENGTH_SHORT).show();
         }else {
             soTien = Integer.parseInt(edtSoTien.getText().toString());
             dienGiai = edtDienGiai.getText().toString();
@@ -229,7 +226,7 @@ public class ActivityEditThutien extends AppCompatActivity implements View.OnCli
             thuTien.setThuTuAi(thuTuAi);
             thuTien.setIdViTienThu(idViTien);
 
-            SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(this);
+            SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(getActivity());
             ContentValues cv1 = new ContentValues();
             ContentValues cv2 = new ContentValues();
             cv1.put("soTien",thuTien.getSoTien());
@@ -242,20 +239,18 @@ public class ActivityEditThutien extends AppCompatActivity implements View.OnCli
             db.update("GhiChep",cv1,"idGhiChep = "+idGhiChep,null);
             db.update("ThuTien",cv2,"idGhiChep = "+idGhiChep,null);
             db.close();
-            Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
-        //    DaGhiActivity.updateListGhiChep(this);
-            finish();
+            Toast.makeText(getContext(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+            Util.replace(R.id.content_layout,new FragmentDaGhi(),getActivity());
         }
     }
 
     private void deleteData(){
-        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(this);
+        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(getActivity());
         db.delete("GhiChep","idGhiChep = "+idGhiChep,null);
         db.delete("ThuTien","idGhiChep = "+idGhiChep,null);
         db.close();
-        Toast.makeText(this, "Xoá thành công", Toast.LENGTH_SHORT).show();
-    //    DaGhiActivity.updateListGhiChep(this);
-        finish();
+        Toast.makeText(getContext(), "Xoá thành công", Toast.LENGTH_SHORT).show();
+        Util.replace(R.id.content_layout,new FragmentDaGhi(),getActivity());
     }
 
 }
