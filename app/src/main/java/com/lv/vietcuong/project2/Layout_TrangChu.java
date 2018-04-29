@@ -1,6 +1,7 @@
 package com.lv.vietcuong.project2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Model.TaiKhoan;
+import com.lv.vietcuong.project2.View.BaoCao.FragmentBaoCao;
 import com.lv.vietcuong.project2.View.GhiChep.GhiChepActivity;
 import com.lv.vietcuong.project2.View.HanMucChi.Fragment_ThemHanMucChi;
 import com.lv.vietcuong.project2.View.HanMucChi.HanMucChiActivity;
@@ -35,7 +37,7 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
     NavigationView navigationView;
     TextView textName;
     FragmentManager manager;
-    BottomNavigationView bottomNavigationView;
+    public static BottomNavigationView bottomNavigationView;
 
     public static TaiKhoan taiKhoanDangNhap;
     @Override
@@ -69,7 +71,10 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
                 int id = item.getItemId();
                 switch (id){
                     case R.id.itemBaoCao:
-
+                        FragmentTransaction transBaoCao = manager.beginTransaction();
+                        FragmentBaoCao baoCao = new FragmentBaoCao();
+                        transBaoCao.replace(R.id.content_layout, baoCao);
+                        transBaoCao.commit();
                         item.setChecked(true);
                         break;
                     case R.id.itemGhiChep:
@@ -127,7 +132,7 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
         View headerLayout = navigationView.inflateHeaderView(R.layout.layout_header_profile);
         textName = headerLayout.findViewById(R.id.tvName);
 
-        taiKhoanDangNhap = (TaiKhoan) getIntent().getSerializableExtra("account");
+        taiKhoanDangNhap = (TaiKhoan) getIntent().getSerializableExtra("taiKhoan");
         if (taiKhoanDangNhap != null) {
             textName.setText("Xin chào: " + taiKhoanDangNhap.getUsername());
         }
@@ -167,6 +172,14 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
             case R.id.itemDangXuat:
                 Intent intent = new Intent(Layout_TrangChu.this, DangNhapActivity.class);
                 startActivity(intent);
+
+                //update information in sharepreferences file xml
+                SharedPreferences sharedPreferences = getSharedPreferences("TaiKhoan", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("username", "");
+                editor.putString("password", "");
+                editor.commit();
+
                 break;
             case R.id.itemHangMucThuChi:
                 FragmentTransaction transHangMuc = manager.beginTransaction();

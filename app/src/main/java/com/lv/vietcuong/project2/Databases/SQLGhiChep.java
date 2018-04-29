@@ -12,8 +12,10 @@ import com.lv.vietcuong.project2.Model.ChiTien;
 import com.lv.vietcuong.project2.Model.ChuyenKhoan;
 import com.lv.vietcuong.project2.Model.GhiChep;
 import com.lv.vietcuong.project2.Model.ThuTien;
+import com.lv.vietcuong.project2.View.BaoCao.adapter.ThuchiThang;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class SQLGhiChep {
 
@@ -29,7 +31,6 @@ public class SQLGhiChep {
             do {
                 GhiChep ghiChep = null;
                 String loaiGhiChep = cursor.getString(6);
-                Log.d("tag", loaiGhiChep);
                 if (loaiGhiChep.equals("chitien")) {
                     ghiChep = new ChiTien();
                 }else if (loaiGhiChep.equals("thutien")){
@@ -87,6 +88,8 @@ public class SQLGhiChep {
     }else {
         Toast.makeText(activity, "load csdl ghi chép không thành công", Toast.LENGTH_SHORT).show();
     }
+
+        Collections.sort(dsGhiChep, new GhiChep());
 
         return dsGhiChep;
     }
@@ -146,7 +149,7 @@ public class SQLGhiChep {
                             dsGhiChep.add(thuTien);
                         }
                     }else if (loaiGhiChep.equals("chuyenkhoan")){
-                        String SQLQueryChuyenKhoan = "Select * from ChuyenKhoan where idGhiChep="+ghiChep.getIdGhiChep()+" and idViTien="+idViTien;
+                        String SQLQueryChuyenKhoan = "Select * from ChuyenKhoan where idGhiChep="+ghiChep.getIdGhiChep()+" and idViTienChi="+idViTien;
                         ChuyenKhoan chuyenKhoan = (ChuyenKhoan) ghiChep;
                         Cursor cursorChuyenKhoan = db.rawQuery(SQLQueryChuyenKhoan, null);
 

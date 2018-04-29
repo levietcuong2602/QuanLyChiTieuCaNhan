@@ -1,8 +1,8 @@
 package com.lv.vietcuong.project2.Model;
 
-import java.util.Date;
+import java.util.Comparator;
 
-public class GhiChep {
+public class GhiChep implements Comparator<GhiChep>{
     private int idGhiChep;
     private int soTien;
     private String dienGiai;
@@ -68,5 +68,22 @@ public class GhiChep {
 
     public void setLoaiGhiChep(String loaiGhichep) {
         this.loaiGhiChep = loaiGhichep;
+    }
+
+    @Override
+    public int compare(GhiChep g1, GhiChep g2) {
+        if (Integer.parseInt(g1.ngay.substring(6)) > Integer.parseInt(g2.ngay.substring(6))){
+            return -1;
+        }else if (Integer.parseInt(g1.ngay.substring(6)) < Integer.parseInt(g2.ngay.substring(6))){
+            return 1;
+        }else {
+            if (Integer.parseInt(g1.ngay.substring(3,5)) > Integer.parseInt(g2.ngay.substring(3,5))) {
+                return -1;
+            } else if (Integer.parseInt(g1.ngay.substring(3,5)) < Integer.parseInt(g2.ngay.substring(3,5))) {
+                return 1;
+            } else {
+                return g2.ngay.compareTo(g1.ngay);
+            }
+        }
     }
 }

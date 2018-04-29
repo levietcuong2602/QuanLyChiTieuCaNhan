@@ -4,33 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
 
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chọn tài khoản:" />
+        <!--<TextView-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Chọn tài khoản:" />-->
 
-        <TextView
-            android:layout_weight="4"
-            android:id="@+id/tv_taikhoan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="abcxyz"
-            android:textColor="#FF0000" />
+        <!--<TextView-->
+            <!--android:layout_weight="4"-->
+            <!--android:id="@+id/tv_taikhoan"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="abcxyz"-->
+            <!--android:textColor="#FF0000" />-->
 
-        <Button
-            android:layout_weight="1"
-            android:id="@+id/btn_taikhoan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tài khoản >"
-            android:textSize="15sp" />
+        <!--<Button-->
+            <!--android:layout_weight="1"-->
+            <!--android:id="@+id/btn_taikhoan"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Tài khoản >"-->
+            <!--android:textSize="15sp" />-->
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,7 +47,7 @@
             android:id="@+id/tv_thoigian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="abcxyz"
+            android:text="Hiện tại"
             android:textColor="#FF0000" />
 
         <Button
@@ -60,16 +60,12 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_baocao"
-        android:text="báo cáo"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ListView
-        android:id="@+id/lv_tinhhinh_thuchi"
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/fragment_data"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="match_parent">
+
+    </LinearLayout>
 
 </LinearLayout>

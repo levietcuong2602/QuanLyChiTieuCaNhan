@@ -35,7 +35,7 @@ public class Fragment_ListHangMucChi extends Fragment implements AdapterView.OnI
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dshangmuc_chi, container, false);
-//        createExpandableList(view);
+        createExpandableList(view);
         createListViewHangMucChi(view);
         return view;
     }
@@ -43,7 +43,6 @@ public class Fragment_ListHangMucChi extends Fragment implements AdapterView.OnI
     private void createListViewHangMucChi(View view) {
         lvHangMucChi = view.findViewById(R.id.lvHangMuc);
         String loaiHangMuc = "chi";
-
         dsHangMuc = SQLHangMuc.getAllHangMuc(getActivity(), loaiHangMuc);
 
 //        dsHangMuc = new ArrayList<>();

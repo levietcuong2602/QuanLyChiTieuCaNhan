@@ -34,7 +34,6 @@ public class FragmentBaoCao extends Fragment {
     private void setSpinner() {
         List<String> list = new ArrayList<>();
         list.add("Tình hình thu chi");
-        list.add("Phân tích chi tiêu");
         list.add("Tài chính hiện tại");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_dropdown_item_1line,list);
@@ -51,9 +50,6 @@ public class FragmentBaoCao extends Fragment {
                         Util.replace(id, new FragmentTinhhinhThuchi(), getActivity());
                         break;
                     case 1:
-                        Util.replace(id, new FragmentPhantichChiTieu(), getActivity());
-                        break;
-                    case 2:
                         Util.replace(id, new FragmentTaichinhHientai(), getActivity());
                         break;
                 }

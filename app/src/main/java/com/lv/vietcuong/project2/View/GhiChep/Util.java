@@ -51,7 +51,15 @@ public class Util {
         DatePickerDialog.OnDateSetListener callback = new DatePickerDialog.OnDateSetListener() {
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 //Mỗi lần thay đổi ngày tháng năm thì cập nhật lại TextView Date
-                textView.setText((dayOfMonth) +"/"+(monthOfYear+1)+"/"+year);
+                if (dayOfMonth<10 && monthOfYear < 9){
+                    textView.setText("0"+(dayOfMonth) +"/0"+(monthOfYear+1)+"/"+year);
+                }else if (monthOfYear < 9){
+                    textView.setText((dayOfMonth) +"/0"+(monthOfYear+1)+"/"+year);
+                }else if (dayOfMonth < 10){
+                    textView.setText("0"+(dayOfMonth) +"/"+(monthOfYear+1)+"/"+year);
+                }else {
+                    textView.setText((dayOfMonth) +"/"+(monthOfYear+1)+"/"+year);
+                }
                 //Lưu vết lại biến ngày hoàn thành
                 // cal.set(year, monthOfYear, dayOfMonth);
                 // dateFinish = cal.getTime();

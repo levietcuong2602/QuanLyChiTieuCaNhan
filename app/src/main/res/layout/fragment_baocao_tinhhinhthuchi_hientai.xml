@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rlt_homnay"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_homnay"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:id="@+id/tv_homnay"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/img_homnay"
+            android:text="Hôm nay (dd/mm/yyyy)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_thu_1"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tv_homnay"
+            android:layout_toRightOf="@+id/img_homnay"
+            android:text="Thu: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="60dp"
+            android:layout_toRightOf="@+id/img_homnay"
+            android:text="Chi: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_thu_homnay"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tv_homnay"
+            android:text="0 đ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_chi_homnay"
+            android:layout_marginTop="60dp"
+            android:layout_alignParentRight="true"
+            android:text="0 đ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlt_thangnay"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_thangnay"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:id="@+id/tv_thangnay"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/img_thangnay"
+            android:text="Tháng này (mm/yyyy)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_thu_2"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tv_thangnay"
+            android:layout_toRightOf="@+id/img_thangnay"
+            android:text="Thu: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="60dp"
+            android:layout_toRightOf="@+id/img_thangnay"
+            android:text="Chi: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_thu_thangnay"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tv_thangnay"
+            android:text="0 đ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_chi_thangnay"
+            android:layout_marginTop="60dp"
+            android:layout_alignParentRight="true"
+            android:text="0 đ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlt_namnay"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_namnay"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:id="@+id/tv_namnay"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/img_namnay"
+            android:text="Năm nay (yyyy)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_thu_3"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tv_namnay"
+            android:layout_toRightOf="@+id/img_namnay"
+            android:text="Thu: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="60dp"
+            android:layout_toRightOf="@+id/img_namnay"
+            android:text="Chi: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_thu_namnay"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tv_namnay"
+            android:text="0 đ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_chi_namnay"
+            android:layout_marginTop="60dp"
+            android:layout_alignParentRight="true"
+            android:text="0 đ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</LinearLayout>

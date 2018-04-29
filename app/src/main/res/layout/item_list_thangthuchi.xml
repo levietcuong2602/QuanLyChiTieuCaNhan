@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_thang"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:id="@+id/tv_thang"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/img_thang"
+            android:text="Tháng (mm/yyyy)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_thu_2"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tv_thang"
+            android:layout_toRightOf="@+id/img_thang"
+            android:text="Thu: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="60dp"
+            android:layout_toRightOf="@+id/img_thang"
+            android:text="Chi: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_thu_thang"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tv_thang"
+            android:text="0 đ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_chi_thang"
+            android:layout_marginTop="60dp"
+            android:layout_alignParentRight="true"
+            android:text="0 đ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_thuchi_thang"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="90dp"
+            android:text="0 đ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginTop="90dp"
+            android:text="Thu - Chi = "
+            android:layout_toLeftOf="@+id/tv_thuchi_thang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+</LinearLayout>
