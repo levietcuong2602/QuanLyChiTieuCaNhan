@@ -1,11 +1,28 @@
-package com.lv.vietcuong.project2.Model;
+package com.lv.vietcuong.project2.Model.ObjectClass;
 
 public class HangMuc {
     private int idHangMuc;
     private String tenHangMuc;
     private String dienDai;
     private String loaiHangMuc;
-    private int icon;
+    private int idHinhAnh;
+    private int idHangMucCha;
+
+    public int getIdHinhAnh() {
+        return idHinhAnh;
+    }
+
+    public void setIdHinhAnh(int idHinhAnh) {
+        this.idHinhAnh = idHinhAnh;
+    }
+
+    public int getIdHangMucCha() {
+        return idHangMucCha;
+    }
+
+    public void setIdHangMucCha(int idHangMucCha) {
+        this.idHangMucCha = idHangMucCha;
+    }
 
     public int getIdHangMuc() {
         return idHangMuc;
@@ -39,11 +56,5 @@ public class HangMuc {
         this.loaiHangMuc = loaiHangMuc;
     }
 
-    public int getIcon() {
-        return icon;
-    }
 
-    public void setIcon(int icon) {
-        this.icon = icon;
-    }
 }

@@ -1,4 +1,4 @@
-package com.lv.vietcuong.project2.Model;
+package com.lv.vietcuong.project2.Model.ObjectClass;
 
 public class ChuyenKhoan extends GhiChep{
     private int idViTienThu;

@@ -5,10 +5,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
-import com.lv.vietcuong.project2.Model.ChiTien;
-import com.lv.vietcuong.project2.Model.ChuyenKhoan;
-import com.lv.vietcuong.project2.Model.GhiChep;
-import com.lv.vietcuong.project2.Model.ThuTien;
+import com.lv.vietcuong.project2.Model.ObjectClass.ChiTien;
+import com.lv.vietcuong.project2.Model.ObjectClass.ChuyenKhoan;
+import com.lv.vietcuong.project2.Model.ObjectClass.GhiChep;
+import com.lv.vietcuong.project2.Model.ObjectClass.ThuTien;
 
 import java.util.ArrayList;
 

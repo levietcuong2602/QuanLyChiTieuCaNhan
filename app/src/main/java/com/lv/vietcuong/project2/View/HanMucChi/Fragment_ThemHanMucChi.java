@@ -17,13 +17,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Databases.SQLHanMucChi;
-import com.lv.vietcuong.project2.Model.HanMucChi;
+import com.lv.vietcuong.project2.Model.ObjectClass.HanMucChi;
 import com.lv.vietcuong.project2.R;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by Administor on 3/26/2018.
@@ -33,7 +30,7 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
     Button btnSaveHanMucChi, btnCancelHangMucChi, btnLuuHanMucChi;
     EditText edtTenHanMuc, edtSoHanMuc;
     Button btnHangMucChi, btnTaiKhoan, btnLapLai, btnNgayBatDau, btnNgayKetThuc;
-    static String ngayKetThuc = "";
+    static String ngayKetThuc = "không xác định";
 
     @Nullable
     @Override

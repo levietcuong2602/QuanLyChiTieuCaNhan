@@ -2,8 +2,6 @@ package com.lv.vietcuong.project2.View.ViTien;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -16,8 +14,7 @@ import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Adapter.ListViTienAdapter;
 import com.lv.vietcuong.project2.Databases.SQLViTien;
-import com.lv.vietcuong.project2.Layout_TrangChu;
-import com.lv.vietcuong.project2.Model.ViTien;
+import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;

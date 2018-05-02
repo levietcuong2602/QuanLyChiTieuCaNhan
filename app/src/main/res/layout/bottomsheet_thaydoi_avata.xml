@@ -1,0 +1,75 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:background="@color/colorGray">
+
+   <TableLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <TableRow
+           android:id="@+id/row_chonanh"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@drawable/custom_multitext_top"
+           android:padding="10dp">
+           <TextView
+               android:textColor="@color/colorPrimaryDark"
+               android:text="Chọn từ thư viện"
+               android:gravity="center"
+               android:layout_weight="1"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+       </TableRow>
+
+       <TableRow
+           android:id="@+id/row_chupanh"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@drawable/custom_multitext_bottom"
+           android:padding="10dp">
+           <TextView
+               android:textColor="@color/colorPrimaryDark"
+               android:text="Chụp ảnh"
+               android:gravity="center"
+               android:layout_weight="1"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+       </TableRow>
+
+       <TableRow
+           android:id="@+id/row_xemanh"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@drawable/custom_multitext_bottom"
+           android:padding="10dp">
+           <TextView
+               android:textColor="@color/colorPrimaryDark"
+               android:text="Xem ảnh đại diện"
+               android:gravity="center"
+               android:layout_weight="1"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+       </TableRow>
+
+       <TableRow
+           android:id="@+id/row_huy"
+           android:layout_marginTop="20dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@drawable/custom_rounded_edittext"
+           android:padding="10dp">
+           <TextView
+               android:textColor="@color/colorPrimaryDark"
+               android:text="Hủy"
+               android:gravity="center"
+               android:layout_weight="1"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+       </TableRow>
+
+   </TableLayout>
+
+</LinearLayout>

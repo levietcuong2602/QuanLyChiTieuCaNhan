@@ -2,21 +2,13 @@ package com.lv.vietcuong.project2.Databases;
 
 import android.app.Activity;
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.lv.vietcuong.project2.Model.HanMucChi;
+import com.lv.vietcuong.project2.Model.ObjectClass.HanMucChi;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by Administor on 3/26/2018.

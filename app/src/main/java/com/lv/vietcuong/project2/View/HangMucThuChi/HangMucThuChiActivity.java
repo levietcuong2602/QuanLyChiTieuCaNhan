@@ -64,6 +64,7 @@ public class HangMucThuChiActivity extends Fragment implements View.OnClickListe
                    transaction.replace(R.id.content_dshangmuc, hangMucThu);
 
                    transaction.commit();
+
                }
            }
 
@@ -77,19 +78,22 @@ public class HangMucThuChiActivity extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View view) {
         //thêm hạng mục event button
-        int selectSpinner = spinnerHangMuc.getSelectedItemPosition();
-        if (selectSpinner == 0){
-            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-            Fragment_ThemHangMucChi hangMucChi = new Fragment_ThemHangMucChi();
-            transaction.replace(R.id.content_layout, hangMucChi);
-            transaction.addToBackStack("themhangmucchi");
-            transaction.commit();
-        }else if (selectSpinner == 1){
-            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-            Fragment_ThemHangMucThu hangMucThu = new Fragment_ThemHangMucThu();
-            transaction.replace(R.id.content_layout, hangMucThu);
-            transaction.addToBackStack("themhangmucthu");
-            transaction.commit();
+        int id = view.getId();
+        switch (id){
+            case R.id.btnThemHangMuc:
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                Fragment_ThemHangMuc hangMuc = new Fragment_ThemHangMuc();
+
+                if (mode == 0){
+                    hangMuc.loaiHangMuc = "chitien";
+                }else if (mode == 1){
+                    hangMuc.loaiHangMuc = "thutien";
+                }
+
+                transaction.replace(R.id.content_layout, hangMuc);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                break;
         }
     }
 

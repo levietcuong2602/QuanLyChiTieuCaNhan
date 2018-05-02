@@ -1,6 +1,7 @@
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/imageIcon"
@@ -15,6 +16,8 @@
         android:gravity="left"
         android:layout_toRightOf="@+id/imageIcon"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"/>
 
 </RelativeLayout>

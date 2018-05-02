@@ -1,4 +1,4 @@
-package com.lv.vietcuong.project2.Model;
+package com.lv.vietcuong.project2.Model.ObjectClass;
 
 import java.io.Serializable;
 
