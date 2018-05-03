@@ -74,6 +74,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_action_down"
         app:layout_anchor="@+id/bottomsheet"
-        app:layout_anchorGravity="top|end" />
+        app:layout_anchorGravity="top|end"
+        app:backgroundTint="@color/colorWhite"/>
 
 </android.support.design.widget.CoordinatorLayout>

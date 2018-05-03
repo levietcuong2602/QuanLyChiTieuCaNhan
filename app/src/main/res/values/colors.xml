@@ -3,8 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="bgToolbar">#19af5a</color>
-    <color name="bgLogo">#529459</color>
+    <!--<color name="bgToolbar">#19af5a</color>-->
+    <color name="bgToolbar">#00897B</color>
+    <!--<color name="bgLogo">#529459</color>-->
+    <color name="bgLogo">#004D40</color>
     <color name="colorGray">#CCC</color>
     <color name="colorWhite">#FFF</color>
     <color name="colorFaceBook">#4a6ea9</color>

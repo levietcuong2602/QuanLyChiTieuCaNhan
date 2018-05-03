@@ -13,7 +13,7 @@ import android.widget.ListView;
 
 import com.lv.vietcuong.project2.Adapter.ListAdapterChonViTien;
 import com.lv.vietcuong.project2.Databases.SQLViTien;
-import com.lv.vietcuong.project2.Model.ViTien;
+import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class Fragment_ChonTaiKhoan extends Fragment implements View.OnClickListe
 
         listView = view.findViewById(R.id.dsTaiKhoan);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        ArrayList<ViTien> dsViTien = SQLViTien.getAllWallet(getActivity());
+        ArrayList<ViTien> dsViTien = SQLViTien.getAllViTien(getActivity());
 
         ListAdapterChonViTien adapter = new ListAdapterChonViTien(getContext(), R.layout.item_chon_dstaikhoan, dsViTien);
         listView.setAdapter(adapter);

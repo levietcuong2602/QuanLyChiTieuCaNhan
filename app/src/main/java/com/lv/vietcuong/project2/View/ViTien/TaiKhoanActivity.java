@@ -1,4 +1,4 @@
-package com.lv.vietcuong.project2.View.ViTien;
+﻿package com.lv.vietcuong.project2.View.ViTien;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;

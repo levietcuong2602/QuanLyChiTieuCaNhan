@@ -27,16 +27,10 @@
             android:layout_alignParentBottom="true"
             android:background="@color/colorWhite"
             app:menu="@menu/menu_bottom_navigation"
+
             >
 
         </android.support.design.widget.BottomNavigationView>
-
-        <android.support.v7.widget.Toolbar
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </android.support.v7.widget.Toolbar>
 
     </RelativeLayout>
 
@@ -46,8 +40,10 @@
         android:layout_gravity="left"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:menu="@menu/menu_header_profile">
+        app:menu="@menu/menu_header_profile"
+        >
 
     </android.support.design.widget.NavigationView>
+
 
 </android.support.v4.widget.DrawerLayout>

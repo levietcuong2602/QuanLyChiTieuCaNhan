@@ -1,4 +1,4 @@
-package com.lv.vietcuong.project2.Adapter;
+﻿package com.lv.vietcuong.project2.Adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lv.vietcuong.project2.Model.ViTien;
+import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ import java.util.List;
  * Created by Administor on 3/26/2018.
  */
 
-public class ListViTienAdapter extends ArrayAdapter implements View.OnClickListener{
+public class ListViTienAdapter extends ArrayAdapter implements View.OnClickListener {
     private Context context;
     private int resource;
     private List<ViTien> arrayWallet;

@@ -1,18 +1,13 @@
-package com.lv.vietcuong.project2.Databases;
+﻿package com.lv.vietcuong.project2.Databases;
 
 import android.app.Activity;
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.lv.vietcuong.project2.Model.HanMucChi;
+import com.lv.vietcuong.project2.Model.ObjectClass.HanMucChi;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -20,6 +15,7 @@ import java.util.ArrayList;
  */
 
 public class SQLHanMucChi {
+
     public static ArrayList<HanMucChi> getAllHanMucChi(Activity activity){
         ArrayList<HanMucChi> dsWallet = new ArrayList<>();
 
@@ -62,4 +58,5 @@ public class SQLHanMucChi {
 
         return database.insert("HanMucChi", null, values);
     }
+
 }

@@ -1,125 +1,137 @@
-package com.lv.vietcuong.project2.View.HangMucThuChi;
+﻿package com.lv.vietcuong.project2.View.HangMucThuChi;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.lv.vietcuong.project2.Adapter.AdapterHangMucThuChi;
 import com.lv.vietcuong.project2.Adapter.ExpandableListViewAdapter;
 import com.lv.vietcuong.project2.Databases.SQLHangMuc;
-import com.lv.vietcuong.project2.Model.HangMuc;
+import com.lv.vietcuong.project2.Model.ObjectClass.HangMuc;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Fragment_ListHangMucThu extends Fragment implements AdapterView.OnItemLongClickListener {
+public class Fragment_ListHangMucThu extends Fragment{
     ExpandableListView expandableListView;
-    List<String> listHeader;
-    HashMap<String, List<String>> listItem;
+    List<HangMuc> listHeader;
+    HashMap<Integer, List<HangMuc>> listItem;
     ExpandableListViewAdapter adapter;
 
-    ListView lvHangMucThu;
-    AdapterHangMucThuChi adapterHangMucThuChi;
-    ArrayList<HangMuc> dsHangMuc;
+    boolean checkExpandable = false;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dshangmuc_thu, container, false);
-//        createExpandableList(view);
-        createListViewHMThu(view);
+        createExpandableList(view);
         return view;
-    }
-
-    private void createListViewHMThu(View view) {
-        lvHangMucThu = view.findViewById(R.id.lvHangMucThu);
-        String loaiHangMuc = "thu";
-        dsHangMuc = SQLHangMuc.getAllHangMuc(getActivity(), loaiHangMuc);
-
-//        dsHangMuc = new ArrayList<>();
-//        HangMuc hangMuc = new HangMuc();
-//        hangMuc.setTenHangMuc("Ăn uống");
-//        dsHangMuc.add(hangMuc);
-
-        adapterHangMucThuChi = new AdapterHangMucThuChi(getContext(), R.layout.item_hangmucchi_2, dsHangMuc);
-        lvHangMucThu.setAdapter(adapterHangMucThuChi);
-
-        lvHangMucThu.setOnItemLongClickListener(this);
     }
 
     private void createListDataExpandable() {
         listHeader = new ArrayList<>();
         listItem = new HashMap<>();
+        listHeader = SQLHangMuc.getHangMucCha(getActivity(), "thutien");
 
-        listHeader.add("Được cho/tặng");
-        listHeader.add("khác");
-        listHeader.add("Lương");
-        listHeader.add("Thưởng");
-        listHeader.add("Tiền lãi");
-
-
-        List<String> listTang = new ArrayList<>();
-        List<String> listKhac = new ArrayList<>();
-        List<String> listLuong = new ArrayList<>();
-        List<String> listTienLai = new ArrayList<>();
-        List<String> listThuong = new ArrayList<>();
-
-        listItem.put(listHeader.get(0), listTang);
-        listItem.put(listHeader.get(1), listKhac);
-        listItem.put(listHeader.get(2), listLuong);
-        listItem.put(listHeader.get(3), listThuong);
-        listItem.put(listHeader.get(4), listTienLai);
+        for (int i = 0; i < listHeader.size(); i++) {
+            HangMuc hangMucCha = listHeader.get(i);
+            listItem.put(hangMucCha.getIdHangMuc(), SQLHangMuc.getHangMucCon(getActivity(), hangMucCha.getLoaiHangMuc(), hangMucCha.getIdHangMuc()));
+        }
     }
 
     private void createExpandableList(View view) {
         expandableListView = view.findViewById(R.id.expandedHangMucThu);
 
         createListDataExpandable();
-        adapter = new ExpandableListViewAdapter(getContext(), listHeader, listItem);
+        adapter = new ExpandableListViewAdapter(getActivity(), listHeader, listItem);
         expandableListView.setAdapter(adapter);
 
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
-            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-                Toast.makeText(getActivity(), ""+listItem.get(listHeader.get(i)).get(i1), Toast.LENGTH_SHORT).show();
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int group, int child, long l) {
+
+                if (checkExpandable) {
+                    Fragment_SuaHangMuc suaHangMuc = new Fragment_SuaHangMuc();
+                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.content_layout, suaHangMuc);
+                    transaction.addToBackStack(null);
+
+                    HangMuc hangMuc = (HangMuc) adapter.getChild(group, child);
+                    writeHangMucSharePreference(hangMuc);
+
+                    transaction.commit();
+                }else {
+                    if (view.isSelected()){
+                        view.setSelected(false);
+                    }else {
+                        view.setSelected(true);
+                    }
+                }
+
                 return false;
             }
         });
+
+        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+                if (checkExpandable) {
+                    Fragment_SuaHangMuc suaHangMuc = new Fragment_SuaHangMuc();
+                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.content_layout, suaHangMuc);
+                    transaction.addToBackStack(null);
+
+                    HangMuc hangMuc = (HangMuc) adapter.getGroup(i);
+                    writeHangMucSharePreference(hangMuc);
+                    transaction.commit();
+                }else {
+                    if (view.isSelected()){
+                        view.setSelected(false);
+                    }else {
+                        view.setSelected(true);
+                    }
+                }
+                return false;
+            }
+        });
+
+        expandableListView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if(motionEvent.getX() > 60) {
+                    checkExpandable = true;
+                }else{
+                    checkExpandable = false;
+                    if (view.isSelected()){
+                        view.setSelected(false);
+                    }else {
+                        view.setSelected(true);
+                    }
+                }
+                return false;
+            }
+        });
+
     }
 
-    @Override
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-        HangMuc hangMuc = adapterHangMucThuChi.getItem(i);
-        long result = SQLHangMuc.deleteHangMuc(getActivity(), hangMuc.getIdHangMuc());
-        if (result > 0){
-            Toast.makeText(getContext(), "xóa hạng mục chi thành công", Toast.LENGTH_SHORT).show();
-            dsHangMuc.clear();
-            dsHangMuc.addAll(SQLHangMuc.getAllHangMuc(getActivity(), "thu"));
-            setAdapter();
-        }else {
-            Toast.makeText(getContext(), "xóa hạng mục chi thất bại", Toast.LENGTH_SHORT).show();
-        }
-
-        return false;
-    }
-
-    public void setAdapter(){
-        if (adapterHangMucThuChi == null){
-            adapterHangMucThuChi = new AdapterHangMucThuChi(getContext(), R.layout.item_hangmucchi_2, dsHangMuc);
-            adapterHangMucThuChi.notifyDataSetChanged();
-            lvHangMucThu.setAdapter(adapterHangMucThuChi);
-        }else {
-            adapterHangMucThuChi.notifyDataSetChanged();
-            lvHangMucThu.setSelection(adapterHangMucThuChi.getCount()-1);
-        }
+    public void writeHangMucSharePreference(HangMuc hangMuc){
+        SharedPreferences preferences = getActivity().getSharedPreferences("hangmuc", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("idHangMuc", hangMuc.getIdHangMuc());
+        editor.putString("tenHangMuc", hangMuc.getTenHangMuc());
+        editor.putString("dienGiai", hangMuc.getDienDai());
+        editor.putString("loaiHangMuc", hangMuc.getLoaiHangMuc());
+        editor.putInt("idHinhAnh", hangMuc.getIdHinhAnh());
+        editor.putInt("idHangMucCha", hangMuc.getIdHangMucCha());
+        editor.commit();
     }
 }

@@ -17,8 +17,8 @@ import android.widget.TextView;
 import com.lv.vietcuong.project2.Adapter.AdapterListGhiChep;
 import com.lv.vietcuong.project2.Databases.SQLGhiChep;
 import com.lv.vietcuong.project2.Layout_TrangChu;
-import com.lv.vietcuong.project2.Model.GhiChep;
-import com.lv.vietcuong.project2.Model.ViTien;
+import com.lv.vietcuong.project2.Model.ObjectClass.GhiChep;
+import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
 import com.lv.vietcuong.project2.R;
 import com.lv.vietcuong.project2.View.GhiChep.GhiChepActivity;
 
@@ -48,7 +48,7 @@ public class Fragment_ThongTinGhiChepViTien extends Fragment implements View.OnC
         Bundle bundle = getArguments();
         if (bundle != null){
             viTien = (ViTien) bundle.getSerializable("ViTien");
-            tvSoTienBanDau.setText(viTien.getSoDu()+"");
+            tvSoTienHienTai.setText(viTien.getSoDu()+"");
         }
     }
 

@@ -6,6 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.text.InputType;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.widget.EditText;
 
 import com.lv.vietcuong.project2.R;
 

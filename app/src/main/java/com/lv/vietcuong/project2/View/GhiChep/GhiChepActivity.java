@@ -1,4 +1,4 @@
-package com.lv.vietcuong.project2.View.GhiChep;
+﻿package com.lv.vietcuong.project2.View.GhiChep;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;

@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.lv.vietcuong.project2.Model.GhiChep;
+import com.lv.vietcuong.project2.Model.ObjectClass.GhiChep;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;

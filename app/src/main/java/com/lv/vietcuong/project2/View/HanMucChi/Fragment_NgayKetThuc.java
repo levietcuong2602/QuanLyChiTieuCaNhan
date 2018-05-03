@@ -1,4 +1,4 @@
-package com.lv.vietcuong.project2.View.HanMucChi;
+﻿package com.lv.vietcuong.project2.View.HanMucChi;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -94,7 +94,7 @@ public class Fragment_NgayKetThuc extends Fragment implements View.OnClickListen
                 getActivity().getSupportFragmentManager().popBackStack();
                 break;
             case R.id.btnSave:
-                Fragment_ThemHanMucChi.ngayKetThuc = textViewNgayKT.getText().toString();
+               Fragment_ThemHanMucChi.ngayKetThuc = textViewNgayKT.getText().toString();
                 getActivity().getSupportFragmentManager().popBackStack();
                 break;
         }

@@ -31,7 +31,9 @@
         android:layout_below="@+id/toolBarTaiKhoan"
         android:background="@color/colorGray"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
         <RadioGroup
             android:id="@+id/radioGroup"
             android:orientation="horizontal"

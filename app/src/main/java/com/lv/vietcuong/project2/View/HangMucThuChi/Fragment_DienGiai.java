@@ -1,5 +1,7 @@
 package com.lv.vietcuong.project2.View.HangMucThuChi;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,15 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.lv.vietcuong.project2.R;
-import com.lv.vietcuong.project2.View.HangMucThuChi.Fragment_ThemHangMucChi;
-import com.lv.vietcuong.project2.View.HangMucThuChi.Fragment_ThemHangMucThu;
-import com.lv.vietcuong.project2.View.HangMucThuChi.HangMucThuChiActivity;
 
 public class Fragment_DienGiai extends Fragment implements View.OnClickListener {
     Button btnHuy, btnLuu;
-    EditText edtDienGiai;
+    public EditText edtDienGiai;
 
-
+    public String loaiDienDai = "";
+    public String dienGiaiCu = "";
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -34,6 +34,8 @@ public class Fragment_DienGiai extends Fragment implements View.OnClickListener 
 
         btnLuu.setOnClickListener(this);
         btnHuy.setOnClickListener(this);
+
+        edtDienGiai.setText(dienGiaiCu);
     }
 
     @Override
@@ -51,12 +53,17 @@ public class Fragment_DienGiai extends Fragment implements View.OnClickListener 
     }
 
     public void saveHangMuc(){
-        if (HangMucThuChiActivity.mode == 0) {
-            Fragment_ThemHangMucChi.dienDaiChi = edtDienGiai.getText().toString();
+        if (loaiDienDai.equals("suahangmuc")){
+            SharedPreferences preferences = getActivity().getSharedPreferences("hangmuc", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("dienGiai", edtDienGiai.getText().toString());
+            editor.commit();
+
             getActivity().getSupportFragmentManager().popBackStack();
-        }else if (HangMucThuChiActivity.mode == 1){
-            Fragment_ThemHangMucThu.dienDaiThu = edtDienGiai.getText().toString();
+        }else {
+            Fragment_ThemHangMuc.dienGiai = edtDienGiai.getText().toString();
             getActivity().getSupportFragmentManager().popBackStack();
         }
+
     }
 }

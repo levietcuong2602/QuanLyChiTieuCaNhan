@@ -1,4 +1,4 @@
-package com.lv.vietcuong.project2.Databases;
+﻿package com.lv.vietcuong.project2.Databases;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.lv.vietcuong.project2.Model.ViTien;
+import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class SQLViTien {
     private static final String TABLE_NAME = "ViTien";
 
-    public static ArrayList<ViTien> getAllWallet(Activity activity){
+    public static ArrayList<ViTien> getAllViTien(Activity activity){
         ArrayList<ViTien> dsWallet = new ArrayList<>();
 
         String SQLQuery = "SELECT * FROM ViTien";
@@ -71,16 +71,5 @@ public class SQLViTien {
     public static long deleteViTien(Activity activity, int idViTien){
         SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(activity);
         return db.delete("ViTien", "idViTien=?", new String[]{idViTien+""});
-    }
-
-    public static String getTenViTien(Activity activity, int idViTien){
-        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(activity);
-        Cursor cursor = db.rawQuery("select tenViTien from ViTien where idViTien = " +idViTien,null);
-        cursor.moveToFirst();
-        if (cursor.getCount() != 0){
-            String tenViTien = cursor.getString(0);
-            db.close();
-            return tenViTien;
-        }else return null;
     }
 }

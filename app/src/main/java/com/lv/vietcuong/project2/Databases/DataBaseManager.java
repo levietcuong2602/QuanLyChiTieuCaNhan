@@ -1,4 +1,4 @@
-package com.lv.vietcuong.project2.Databases;
+﻿package com.lv.vietcuong.project2.Databases;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,10 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-
-/**
- * Created by Administor on 3/24/2018.
- */
 
 public class DataBaseManager {
     private static final String DB_NAME="QuanLyChiTieuCaNhan.sqlite";
@@ -45,6 +41,4 @@ public class DataBaseManager {
 
         return activity.openOrCreateDatabase(DB_NAME, Context.MODE_PRIVATE, null);
     }
-
-
 }

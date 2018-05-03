@@ -1,9 +1,7 @@
-package com.lv.vietcuong.project2.View.ViTien;
+﻿package com.lv.vietcuong.project2.View.ViTien;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -16,8 +14,7 @@ import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Adapter.ListViTienAdapter;
 import com.lv.vietcuong.project2.Databases.SQLViTien;
-import com.lv.vietcuong.project2.Layout_TrangChu;
-import com.lv.vietcuong.project2.Model.ViTien;
+import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
@@ -47,7 +44,7 @@ public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.O
 
 
     private void initListViewDanhSachViTien(View view) {
-        dsViTien = SQLViTien.getAllWallet(getActivity());
+        dsViTien = SQLViTien.getAllViTien(getActivity());
         adapter = new ListViTienAdapter(getActivity(), R.layout.item_list_vitien, dsViTien);
         adapter.notifyDataSetChanged();
         listTaiKhoan.setAdapter(adapter);
@@ -92,7 +89,7 @@ public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.O
             Toast.makeText(getContext(), "delete ví tiền thành công", Toast.LENGTH_SHORT).show();
 
             dsViTien.clear();
-            dsViTien.addAll(SQLViTien.getAllWallet(getActivity()));
+            dsViTien.addAll(SQLViTien.getAllViTien(getActivity()));
             adapter.notifyDataSetChanged();
             setAdapter();
         }else {

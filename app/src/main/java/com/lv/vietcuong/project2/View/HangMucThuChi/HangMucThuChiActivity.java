@@ -1,4 +1,4 @@
-package com.lv.vietcuong.project2.View.HangMucThuChi;
+﻿package com.lv.vietcuong.project2.View.HangMucThuChi;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,9 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-
 import com.lv.vietcuong.project2.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,50 +46,54 @@ public class HangMucThuChiActivity extends Fragment implements View.OnClickListe
         spinnerHangMuc.setAdapter(adapter);
         spinnerHangMuc.setSelection(0);
 
-        spinnerHangMuc.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 0) {
-                    mode = 0;
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    Fragment_ListHangMucChi hangMucChi = new Fragment_ListHangMucChi();
-                    transaction.replace(R.id.content_dshangmuc, hangMucChi);
+       spinnerHangMuc.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+           @Override
+           public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+               if (i == 0) {
+                   mode = 0;
+                   FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                   Fragment_ListHangMucChi hangMucChi = new Fragment_ListHangMucChi();
+                   transaction.replace(R.id.content_dshangmuc, hangMucChi);
 
-                    transaction.commit();
-                }else if (i == 1){
-                    mode = 1;
+                   transaction.commit();
+               }else if (i == 1){
+                   mode = 1;
 
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    Fragment_ListHangMucThu hangMucThu = new Fragment_ListHangMucThu();
-                    transaction.replace(R.id.content_dshangmuc, hangMucThu);
+                   FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                   Fragment_ListHangMucThu hangMucThu = new Fragment_ListHangMucThu();
+                   transaction.replace(R.id.content_dshangmuc, hangMucThu);
 
-                    transaction.commit();
-                }
-            }
+                   transaction.commit();
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+               }
+           }
 
-            }
-        });
+           @Override
+           public void onNothingSelected(AdapterView<?> adapterView) {
+
+           }
+       });
     }
 
     @Override
     public void onClick(View view) {
         //thêm hạng mục event button
-        int selectSpinner = spinnerHangMuc.getSelectedItemPosition();
-        if (selectSpinner == 0){
-            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-            Fragment_ThemHangMucChi hangMucChi = new Fragment_ThemHangMucChi();
-            transaction.replace(R.id.content_layout, hangMucChi);
-            transaction.addToBackStack("themhangmucchi");
-            transaction.commit();
-        }else if (selectSpinner == 1){
-            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-            Fragment_ThemHangMucThu hangMucThu = new Fragment_ThemHangMucThu();
-            transaction.replace(R.id.content_layout, hangMucThu);
-            transaction.addToBackStack("themhangmucthu");
-            transaction.commit();
+        int id = view.getId();
+        switch (id){
+            case R.id.btnThemHangMuc:
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                Fragment_ThemHangMuc hangMuc = new Fragment_ThemHangMuc();
+
+                if (mode == 0){
+                    hangMuc.loaiHangMuc = "chitien";
+                }else if (mode == 1){
+                    hangMuc.loaiHangMuc = "thutien";
+                }
+
+                transaction.replace(R.id.content_layout, hangMuc);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                break;
         }
     }
 

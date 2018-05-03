@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.FragmentActivity;
 
-import com.lv.vietcuong.project2.Model.TaiKhoan;
+import com.lv.vietcuong.project2.Model.ObjectClass.TaiKhoan;
 
 import java.util.ArrayList;
 
