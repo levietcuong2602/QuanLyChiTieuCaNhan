@@ -63,14 +63,14 @@ public class Fragment_DangNhap extends Fragment implements View.OnClickListener,
 
     @Override
     public void onClick(View view) {
-       int id = view.getId();
-       switch (id){
-           case R.id.btnDangNhap:
-               String username = edtTaiKhoan.getText().toString();
-               String password = edtMatKhau.getText().toString();
-               presenterDangNhap.ThucHienDangNhap(username, password);
-               break;
-       }
+        int id = view.getId();
+        switch (id){
+            case R.id.btnDangNhap:
+                String username = edtTaiKhoan.getText().toString();
+                String password = edtMatKhau.getText().toString();
+                presenterDangNhap.ThucHienDangNhap(username, password);
+                break;
+        }
     }
 
     @Override

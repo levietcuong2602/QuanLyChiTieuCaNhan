@@ -44,7 +44,7 @@ public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.O
 
 
     private void initListViewDanhSachViTien(View view) {
-        dsViTien = SQLViTien.getAllViTien(getActivity());
+        dsViTien = SQLViTien.getAllWallet(getActivity());
         adapter = new ListViTienAdapter(getActivity(), R.layout.item_list_vitien, dsViTien);
         adapter.notifyDataSetChanged();
         listTaiKhoan.setAdapter(adapter);
@@ -89,7 +89,7 @@ public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.O
             Toast.makeText(getContext(), "delete ví tiền thành công", Toast.LENGTH_SHORT).show();
 
             dsViTien.clear();
-            dsViTien.addAll(SQLViTien.getAllViTien(getActivity()));
+            dsViTien.addAll(SQLViTien.getAllWallet(getActivity()));
             adapter.notifyDataSetChanged();
             setAdapter();
         }else {

@@ -111,7 +111,7 @@ public class Fragment_ListHangMucChi extends Fragment {
                 if(motionEvent.getX() > 60) {
                     checkExpandable = true;
                 }else{
-                   checkExpandable = false;
+                    checkExpandable = false;
                     if (view.isSelected()){
                         view.setSelected(false);
                     }else {

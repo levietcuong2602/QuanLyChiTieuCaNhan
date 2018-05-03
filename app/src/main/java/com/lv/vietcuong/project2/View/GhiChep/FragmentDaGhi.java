@@ -11,10 +11,6 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.lv.vietcuong.project2.Databases.SQLGhiChep;
-import com.lv.vietcuong.project2.Model.ChiTien;
-import com.lv.vietcuong.project2.Model.ChuyenKhoan;
-import com.lv.vietcuong.project2.Model.GhiChep;
-import com.lv.vietcuong.project2.Model.ThuTien;
 import com.lv.vietcuong.project2.R;
 import com.lv.vietcuong.project2.View.GhiChep.adapter.AdapterGhiChep;
 

@@ -31,7 +31,7 @@ public class Fragment_ChonTaiKhoan extends Fragment implements View.OnClickListe
 
         listView = view.findViewById(R.id.dsTaiKhoan);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        ArrayList<ViTien> dsViTien = SQLViTien.getAllViTien(getActivity());
+        ArrayList<ViTien> dsViTien = SQLViTien.getAllWallet(getActivity());
 
         ListAdapterChonViTien adapter = new ListAdapterChonViTien(getContext(), R.layout.item_chon_dstaikhoan, dsViTien);
         listView.setAdapter(adapter);

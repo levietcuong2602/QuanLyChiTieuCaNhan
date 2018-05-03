@@ -75,7 +75,7 @@ public class Fragment_DoiMatKhau extends Fragment implements View.OnClickListene
                     String matkhaumoi = edNewPass.getText().toString();
 //                    long result = SQLTaiKhoan.updatedAccount(getActivity(), taiKhoan);
 //                    if (result>0) {
-                        presenterTaiKhoan.ThucHienCapNhap(taiKhoan.getUsername(), matkhaumoi);
+                    presenterTaiKhoan.ThucHienCapNhap(taiKhoan.getUsername(), matkhaumoi);
 //                    }else {
 //                        Toast.makeText(getContext(), "đổi mật khẩu không thành công", Toast.LENGTH_SHORT).show();
 //                    }

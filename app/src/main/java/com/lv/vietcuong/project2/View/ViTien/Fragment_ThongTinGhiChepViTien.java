@@ -48,7 +48,7 @@ public class Fragment_ThongTinGhiChepViTien extends Fragment implements View.OnC
         Bundle bundle = getArguments();
         if (bundle != null){
             viTien = (ViTien) bundle.getSerializable("ViTien");
-            tvSoTienHienTai.setText(viTien.getSoDu()+"");
+            tvSoTienBanDau.setText(viTien.getSoDu()+"");
         }
     }
 

@@ -10,7 +10,6 @@ import android.widget.Toast;
 import com.lv.vietcuong.project2.Model.ObjectClass.HangMuc;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class SQLHangMuc {
     public static ArrayList<HangMuc> getAllHangMuc(Activity activity, String loaiHangMuc) {
@@ -42,54 +41,13 @@ public class SQLHangMuc {
         return dsHangMuc;
     }
 
-    public static ArrayList<HangMuc> getHangMucCha(Activity activity, String loaiHangMuc){
-        ArrayList<HangMuc> dsHangMuc = getAllHangMuc(activity, loaiHangMuc);
-        ArrayList<HangMuc> lsResult = new ArrayList<>();
-        Iterator<HangMuc> itr = dsHangMuc.iterator();
-        while (itr.hasNext()){
-            HangMuc hangMuc = itr.next();
-            if (hangMuc.getIdHangMucCha() == -1){
-                lsResult.add(hangMuc);
-            }
-        }
-
-        return lsResult;
-    }
-
-    public static ArrayList<HangMuc> getHangMucCon(Activity activity, String loaiHangMuc, int idHangMucCha){
-        ArrayList<HangMuc> dsHangMuc = getAllHangMuc(activity, loaiHangMuc);
-        ArrayList<HangMuc> lsResult = new ArrayList<>();
-        Iterator<HangMuc> itr = dsHangMuc.iterator();
-        while (itr.hasNext()){
-            HangMuc hangMuc = itr.next();
-            if (hangMuc.getIdHangMucCha() == idHangMucCha){
-                lsResult.add(hangMuc);
-            }
-        }
-
-        return lsResult;
-    }
-
-    public static HangMuc getHangMuc(Activity activity, String loaiHangMuc, int idHangMuc){
-        ArrayList<HangMuc> dsHangMuc = getAllHangMuc(activity, loaiHangMuc);
-        Iterator<HangMuc> iterator = dsHangMuc.iterator();
-        while (iterator.hasNext()){
-            HangMuc hangMuc = iterator.next();
-            if (hangMuc.getIdHangMuc() == idHangMuc){
-                return hangMuc;
-            }
-        }
-        return null;
-    }
-
     public static long addHangMuc(Activity activity, HangMuc hangMuc){
         SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(activity);
         ContentValues values = new ContentValues();
         values.put("tenHangMuc", hangMuc.getTenHangMuc());
         values.put("dienDai", hangMuc.getDienDai());
-        values.put("icon", hangMuc.getIdHinhAnh());
+        values.put("icon", hangMuc.getIcon());
         values.put("loaiHangMuc", hangMuc.getLoaiHangMuc());
-        values.put("idHangMucCha", hangMuc.getIdHangMucCha());
 
         return db.insert("HangMuc", null, values);
     }
@@ -110,4 +68,15 @@ public class SQLHangMuc {
 
         return db.update("HangMuc", values, "idHangMuc=?", new String[]{hangMuc.getIdHangMuc()+""});
     }
+
+    public static String getTenHangMuc(Activity activity, int idHangMuc){
+        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(activity);
+        Cursor cursor = db.rawQuery("select tenHangMuc from HangMuc where idHangMuc = " +idHangMuc,null);
+        cursor.moveToFirst();
+        String tenHangMuc = cursor.getString(0);
+        db.close();
+        return tenHangMuc;
+    }
+
+
 }

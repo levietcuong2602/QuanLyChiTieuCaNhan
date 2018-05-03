@@ -141,7 +141,7 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
         final String[]arr = {"không lặp", "hàng tháng", "hàng quý","hàng năm"};
 
         final AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
-        
+
         dialog.setTitle("Lặp lại");
         dialog.setItems(arr, new DialogInterface.OnClickListener() {
             @Override

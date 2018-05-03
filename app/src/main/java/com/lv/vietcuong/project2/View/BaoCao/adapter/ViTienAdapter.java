@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.lv.vietcuong.project2.Model.ViTien;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
