@@ -1,4 +1,4 @@
-﻿package com.lv.vietcuong.project2.View.HanMucChi;
+package com.lv.vietcuong.project2.View.HanMucChi;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;

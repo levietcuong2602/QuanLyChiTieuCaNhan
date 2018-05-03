@@ -1,4 +1,4 @@
-﻿package com.lv.vietcuong.project2.View.HangMucThuChi;
+package com.lv.vietcuong.project2.View.HangMucThuChi;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

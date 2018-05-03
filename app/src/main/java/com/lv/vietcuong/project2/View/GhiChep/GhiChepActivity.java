@@ -1,4 +1,4 @@
-﻿package com.lv.vietcuong.project2.View.GhiChep;
+package com.lv.vietcuong.project2.View.GhiChep;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

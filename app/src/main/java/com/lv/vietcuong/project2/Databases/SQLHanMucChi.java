@@ -1,4 +1,4 @@
-﻿package com.lv.vietcuong.project2.Databases;
+package com.lv.vietcuong.project2.Databases;
 
 import android.app.Activity;
 import android.content.ContentValues;

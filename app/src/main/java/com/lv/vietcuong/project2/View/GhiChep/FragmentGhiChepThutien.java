@@ -19,8 +19,8 @@ import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Databases.DataBaseManager;
 import com.lv.vietcuong.project2.Layout_TrangChu;
-import com.lv.vietcuong.project2.Model.HangMuc;
-import com.lv.vietcuong.project2.Model.ViTien;
+import com.lv.vietcuong.project2.Model.ObjectClass.HangMuc;
+import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
 import com.lv.vietcuong.project2.R;
 import com.lv.vietcuong.project2.View.GhiChep.adapter.AdapterHangMuc;
 import com.lv.vietcuong.project2.View.GhiChep.adapter.AdapterTaiKhoan;

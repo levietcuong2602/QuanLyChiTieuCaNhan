@@ -17,6 +17,9 @@ public class ViTien implements Serializable{
     public ViTien() {
     }
 
+    public ViTien(int id, String tenViTien, String loaiViTien, int soDu, String ghiChu, String username) {
+    }
+
     public String getTenViTien() {
         return tenViTien;
     }

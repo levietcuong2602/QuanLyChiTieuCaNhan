@@ -1,4 +1,4 @@
-﻿package com.lv.vietcuong.project2.View.Profile;
+package com.lv.vietcuong.project2.View.Profile;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

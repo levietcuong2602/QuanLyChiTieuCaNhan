@@ -1,4 +1,4 @@
-﻿package com.lv.vietcuong.project2.View.Fragment_Login_Logout;
+package com.lv.vietcuong.project2.View.Fragment_Login_Logout;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

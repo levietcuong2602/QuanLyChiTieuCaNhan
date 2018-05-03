@@ -1,4 +1,4 @@
-﻿package com.lv.vietcuong.project2.View.ViTien;
+package com.lv.vietcuong.project2.View.ViTien;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

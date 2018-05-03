@@ -1,4 +1,4 @@
-﻿package com.lv.vietcuong.project2.View.HanMucChi;
+package com.lv.vietcuong.project2.View.HanMucChi;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,6 +16,7 @@ import android.widget.ListView;
 
 import com.lv.vietcuong.project2.Adapter.AdapterHanMucChi;
 import com.lv.vietcuong.project2.Databases.SQLHanMucChi;
+import com.lv.vietcuong.project2.Model.ObjectClass.HanMucChi;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;

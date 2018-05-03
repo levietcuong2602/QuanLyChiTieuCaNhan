@@ -1,4 +1,4 @@
-﻿package com.lv.vietcuong.project2.View.ViTien;
+package com.lv.vietcuong.project2.View.ViTien;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;

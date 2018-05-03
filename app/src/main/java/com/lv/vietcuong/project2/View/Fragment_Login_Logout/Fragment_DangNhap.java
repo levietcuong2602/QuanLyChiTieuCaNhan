@@ -1,4 +1,4 @@
-﻿package com.lv.vietcuong.project2.View.Fragment_Login_Logout;
+package com.lv.vietcuong.project2.View.Fragment_Login_Logout;
 
 import android.content.Context;
 import android.content.Intent;

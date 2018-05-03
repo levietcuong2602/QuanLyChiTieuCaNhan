@@ -8,6 +8,13 @@ public class HangMuc {
     private int idHinhAnh;
     private int idHangMucCha;
 
+    public HangMuc(int id, String tenHangMuc, String dienDai, String loaiHangMuc, int icon) {
+    }
+
+    public HangMuc() {
+
+    }
+
     public int getIdHinhAnh() {
         return idHinhAnh;
     }

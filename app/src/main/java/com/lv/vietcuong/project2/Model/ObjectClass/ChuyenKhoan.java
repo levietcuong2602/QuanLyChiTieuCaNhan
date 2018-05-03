@@ -3,7 +3,7 @@ package com.lv.vietcuong.project2.Model.ObjectClass;
 public class ChuyenKhoan extends GhiChep{
     private int idViTienThu;
     private int idViTienChi;
-
+    private String dienGiai;
     public int getIdViTienThu() {
         return idViTienThu;
     }
@@ -18,5 +18,13 @@ public class ChuyenKhoan extends GhiChep{
 
     public void setIdViTienChi(int idViTienChi) {
         this.idViTienChi = idViTienChi;
+    }
+
+    public void setDienGiai(String dienGiai) {
+        this.dienGiai = dienGiai;
+    }
+
+    public String getDienGiai() {
+        return dienGiai;
     }
 }

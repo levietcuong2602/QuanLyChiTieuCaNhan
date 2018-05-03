@@ -9,10 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.lv.vietcuong.project2.Model.HangMuc;
+import com.lv.vietcuong.project2.Model.ObjectClass.HangMuc;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
+
 
 public class AdapterHangMuc extends ArrayAdapter {
     private Context context;

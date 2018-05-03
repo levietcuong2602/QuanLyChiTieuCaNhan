@@ -1,4 +1,4 @@
-﻿package com.lv.vietcuong.project2;
+package com.lv.vietcuong.project2;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lv.vietcuong.project2.Model.ObjectClass.TaiKhoan;
 import com.lv.vietcuong.project2.View.BaoCao.FragmentBaoCao;
 import com.lv.vietcuong.project2.View.GhiChep.GhiChepActivity;
 import com.lv.vietcuong.project2.View.HanMucChi.Fragment_ThemHanMucChi;

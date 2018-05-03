@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Databases.SQLHangMuc;
-import com.lv.vietcuong.project2.Model.HangMuc;
+import com.lv.vietcuong.project2.Model.ObjectClass.HangMuc;
 import com.lv.vietcuong.project2.R;
 
 public class Fragment_ThemHangMucThu extends Fragment implements View.OnClickListener {
@@ -78,7 +78,7 @@ public class Fragment_ThemHangMucThu extends Fragment implements View.OnClickLis
         hangMuc.setTenHangMuc(edtTenHangMucThu.getText().toString());
         hangMuc.setLoaiHangMuc("thu");
         hangMuc.setDienDai(dienDaiThu);
-        hangMuc.setIcon(iconThu);
+        hangMuc.setIdHinhAnh(iconThu);
 
         if (hangMuc.getTenHangMuc().length() > 0) {
             return SQLHangMuc.addHangMuc(getActivity(), hangMuc);

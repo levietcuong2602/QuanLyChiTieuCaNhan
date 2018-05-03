@@ -20,8 +20,8 @@ import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Databases.DataBaseManager;
 import com.lv.vietcuong.project2.Databases.SQLViTien;
-import com.lv.vietcuong.project2.Model.ChuyenKhoan;
-import com.lv.vietcuong.project2.Model.ViTien;
+import com.lv.vietcuong.project2.Model.ObjectClass.ChuyenKhoan;
+import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
 import com.lv.vietcuong.project2.R;
 import com.lv.vietcuong.project2.View.GhiChep.adapter.AdapterTaiKhoan;
 
