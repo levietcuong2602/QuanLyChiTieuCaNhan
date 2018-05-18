@@ -53,7 +53,7 @@ public class Fragment_ListHangMucChi extends Fragment {
         expandableListView = view.findViewById(R.id.expandedHangMuc);
 
         createListDataExpandable();
-        adapter = new ExpandableListViewAdapter(getActivity(), listHeader, listItem);
+        adapter = new ExpandableListViewAdapter(getActivity(), listHeader, listItem, false);
         expandableListView.setAdapter(adapter);
 
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
@@ -73,6 +73,7 @@ public class Fragment_ListHangMucChi extends Fragment {
                 }else {
                     if (view.isSelected()){
                         view.setSelected(false);
+
                     }else {
                         view.setSelected(true);
                     }
@@ -108,10 +109,13 @@ public class Fragment_ListHangMucChi extends Fragment {
         expandableListView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if(motionEvent.getX() > 60) {
+                if(motionEvent.getX() > 60 && motionEvent.getX() < view.getWidth() - 60) {
                     checkExpandable = true;
+//                    view.setSelected(true);
                 }else{
                     checkExpandable = false;
+//                    view.setSelected(false);
+
                     if (view.isSelected()){
                         view.setSelected(false);
                     }else {

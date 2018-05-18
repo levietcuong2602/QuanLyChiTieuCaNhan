@@ -125,7 +125,7 @@ public class Fragment_DangKy extends Fragment implements View.OnClickListener, V
 
                     String chuoi = ((EditText) view).getText().toString();
 
-                    if (chuoi.trim().equals("") || chuoi.equals(null)) {
+                    if (chuoi.equals("") || chuoi.equals(null)) {
                         input_matkhau.setErrorEnabled(true);
                         input_matkhau.setError("Bạn chưa nhận mục này !");
                         kiemtrathongtin = false;
@@ -145,7 +145,7 @@ public class Fragment_DangKy extends Fragment implements View.OnClickListener, V
 
                     if (chuoi.trim().equals("") || chuoi.equals(null)) {
                         input_matkhau.setErrorEnabled(true);
-                        input_matkhau.setError("Bạn chưa nhận mục này !");
+                        input_matkhau.setError("Bạn chưa nhập mục này !");
                         kiemtrathongtin = false;
                     } else {
                         input_taikhoan.setErrorEnabled(false);

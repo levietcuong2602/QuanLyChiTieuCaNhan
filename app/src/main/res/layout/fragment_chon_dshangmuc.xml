@@ -18,7 +18,7 @@
         <TextView
             android:layout_gravity="center"
             android:textColor="@color/colorWhite"
-            android:text="Danh sách tài khoản"
+            android:text="Danh sách hạng mục"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"/>
 
         <Switch
-            android:id="@+id/switchTK"
+            android:id="@+id/switchHangMuc"
             android:layout_gravity="center_vertical"
             android:checked="true"
             android:layout_weight="1"
@@ -57,13 +57,14 @@
 
     </TableRow>
 
-    <ListView
-        android:id="@+id/dsTaiKhoan"
+    <ExpandableListView
+        android:id="@+id/dsHangMuc"
         android:layout_marginTop="10dp"
         android:choiceMode="multipleChoice"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:groupIndicator="@null">
 
-    </ListView>
+    </ExpandableListView>
 
 </LinearLayout>

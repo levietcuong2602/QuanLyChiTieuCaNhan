@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Model.ObjectClass.TaiKhoan;
+import com.lv.vietcuong.project2.Model.TaiKhoan.ModelTaiKhoan;
 import com.lv.vietcuong.project2.View.BaoCao.FragmentBaoCao;
 import com.lv.vietcuong.project2.View.GhiChep.GhiChepActivity;
 import com.lv.vietcuong.project2.View.HanMucChi.Fragment_ThemHanMucChi;
@@ -37,6 +38,8 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
     NavigationView navigationView;
     TextView textName;
     FragmentManager manager;
+    ModelTaiKhoan modelTaiKhoan;
+
     public static BottomNavigationView bottomNavigationView;
 
     public static TaiKhoan taiKhoanDangNhap;
@@ -49,6 +52,8 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        modelTaiKhoan = new ModelTaiKhoan();
 
         setHeaderNavigation();
 //        setSupportActionBar(toolbar);
@@ -132,7 +137,8 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
         View headerLayout = navigationView.inflateHeaderView(R.layout.layout_header_profile);
         textName = headerLayout.findViewById(R.id.tvName);
 
-        taiKhoanDangNhap = (TaiKhoan) getIntent().getSerializableExtra("taiKhoan");
+
+        taiKhoanDangNhap = modelTaiKhoan.getCacheTaiKhoan(this);
         if (taiKhoanDangNhap != null) {
             textName.setText("Xin chào: " + taiKhoanDangNhap.getUsername());
         }

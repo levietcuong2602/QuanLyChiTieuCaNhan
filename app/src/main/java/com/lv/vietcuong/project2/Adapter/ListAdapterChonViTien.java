@@ -19,11 +19,14 @@ public class ListAdapterChonViTien extends ArrayAdapter {
     int resource;
     ArrayList<ViTien> dsWallet;
 
+
     public ListAdapterChonViTien(@NonNull Context context, int resource, @NonNull ArrayList<ViTien> objects) {
         super(context, resource, objects);
         this.context = context;
         this.resource = resource;
         this.dsWallet = objects;
+
+
     }
 
     public class ViewHolder{
@@ -46,8 +49,8 @@ public class ListAdapterChonViTien extends ArrayAdapter {
 
         ViTien wallet = dsWallet.get(position);
         holder.textView.setText(wallet.getTenViTien());
-        holder.textView.setChecked(true);
 
+        holder.textView.setChecked(true);
 
         return convertView;
     }

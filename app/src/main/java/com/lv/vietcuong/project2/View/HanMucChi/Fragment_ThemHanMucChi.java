@@ -97,6 +97,13 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
 
     private void showHangMucChi() {
         //danh sách hạng mục thu/chi
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        Fragment_ChonHangMucChi hangMucChi = new Fragment_ChonHangMucChi();
+        transaction.replace(R.id.content_layout, hangMucChi);
+        transaction.addToBackStack(null);
+
+        transaction.commit();
     }
 
     private void showOptionNgayKetThuc() {

@@ -52,7 +52,7 @@ public class Fragment_ListHangMucThu extends Fragment{
         expandableListView = view.findViewById(R.id.expandedHangMucThu);
 
         createListDataExpandable();
-        adapter = new ExpandableListViewAdapter(getActivity(), listHeader, listItem);
+        adapter = new ExpandableListViewAdapter(getActivity(), listHeader, listItem, false);
         expandableListView.setAdapter(adapter);
 
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {

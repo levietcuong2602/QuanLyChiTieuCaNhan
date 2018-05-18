@@ -3,11 +3,14 @@ package com.lv.vietcuong.project2.Adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.CheckBox;
+import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,11 +25,13 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
     private Activity context;
     private List<HangMuc> listHeader;
     private HashMap<Integer, List<HangMuc>> listItem;
+    private boolean check = false;
 
-    public ExpandableListViewAdapter(Activity context, List<HangMuc> listHeader, HashMap<Integer, List<HangMuc>> listItem) {
+    public ExpandableListViewAdapter(Activity context, List<HangMuc> listHeader, HashMap<Integer, List<HangMuc>> listItem, boolean check) {
         this.context = context;
         this.listHeader = listHeader;
         this.listItem = listItem;
+        this.check = check;
     }
 
     @Override
@@ -64,10 +69,11 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
         return false;
     }
 
-    class ViewHolderCha{
-        ImageView imgIndicator;
-        ImageView imgIconHangMuc;
-        TextView textView;
+    public class ViewHolderCha{
+        public ImageView imgIndicator;
+        public ImageView imgIconHangMuc;
+        public TextView textView;
+        public CheckedTextView checkBox;
     }
 
     @Override
@@ -83,6 +89,7 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
             viewHolderCha.imgIndicator = view.findViewById(R.id.imIndicator);
             viewHolderCha.imgIconHangMuc = view.findViewById(R.id.imageIconHangMuc);
             viewHolderCha.textView = view.findViewById(R.id.tvHeader);
+            viewHolderCha.checkBox = view.findViewById(R.id.checkboxParent);
 
             view.setTag(viewHolderCha);
         }
@@ -102,26 +109,43 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
             viewHolderCha.imgIndicator.setImageResource(R.drawable.icon_up);
         }
 
-        view.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if(motionEvent.getX() < 60 && motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    if (view.isSelected()){
-                        view.setSelected(false);
-                    }else {
-                        view.setSelected(true);
-                    }
-                }
-                return false;
-            }
-        });
+        if (check){
+            viewHolderCha.checkBox.setVisibility(View.VISIBLE);
+        }else{
+            viewHolderCha.checkBox.setVisibility(View.GONE);
+        }
+
+//        final ViewHolderCha finalViewHolderCha = viewHolderCha;
+//        view.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+////                if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
+//////                    if (view.isSelected()){
+//////                        view.setSelected(false);
+//////                    }else {
+//////                        view.setSelected(true);
+//////                    }
+//////                }
+//
+//                if (motionEvent.getX() > view.getWidth() - 60 && motionEvent.getAction() == MotionEvent.ACTION_UP){
+//                    Log.d("expandable", motionEvent.getX()+"");
+//                    if(finalViewHolderCha.checkBox.isChecked()){
+//                        finalViewHolderCha.checkBox.setChecked(false);
+//                    }else {
+//                        finalViewHolderCha.checkBox.setChecked(true);
+//                    }
+//                }
+//                return false;
+//            }
+//        });
 
         return view;
     }
 
-    class ViewHolderCon{
+    public class ViewHolderCon{
         ImageView imgIconHangMuc;
         TextView textView;
+        public CheckedTextView checkedTextView2;
     }
 
     @Override
@@ -136,7 +160,7 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
             view = layoutInflater.inflate(R.layout.item_item_expandable, null);
             holderCon.textView = view.findViewById(R.id.tvItem);
             holderCon.imgIconHangMuc = view.findViewById(R.id.imageIcon);
-
+            holderCon.checkedTextView2 = view.findViewById(R.id.checkboxChild);
             view.setTag(holderCon);
         }
 
@@ -146,6 +170,12 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
         Bitmap bitmap = SQLHinhAnh.getImage(context, hangMuc.getIdHinhAnh());
         if (bitmap != null){
             holderCon.imgIconHangMuc.setImageBitmap(bitmap);
+        }
+
+        if (check){
+            holderCon.checkedTextView2.setVisibility(View.VISIBLE);
+        }else{
+            holderCon.checkedTextView2.setVisibility(View.GONE);
         }
 
         return view;
