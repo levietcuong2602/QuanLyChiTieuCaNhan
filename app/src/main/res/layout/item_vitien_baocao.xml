@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iconViTien"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/wallet" />
+
+    <TextView
+        android:id="@+id/tv_ten_vitien"
+        android:text="Ví tiền"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
+        android:gravity="left"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/iconViTien"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginLeft="170dp"
+        android:text="Số dư ban đầu:"
+        android:textColor="@color/colorBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/tv_sodu_bandau"
+        android:textColor="@color/colorBlack"
+        android:layout_toLeftOf="@+id/tv_d"
+        android:text="100 000 000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_d"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/colorBlack"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="đ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/idCon"
+        android:layout_below="@+id/tv_ten_vitien"
+        android:layout_toRightOf="@+id/iconViTien"
+        android:text="Còn lại:"
+        android:textColor="@color/colorBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_sotien_con"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_ten_vitien"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/idCon"
+        android:gravity="left"
+        android:text="500.000"
+        android:textColor="@color/colorBlack" />
+
+    <TextView
+        android:textColor="@color/colorBlack"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/tv_ten_vitien"
+        android:layout_toRightOf="@+id/tv_sotien_con"
+        android:text="đ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>

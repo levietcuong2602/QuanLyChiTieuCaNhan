@@ -1,0 +1,148 @@
+<android.support.v4.widget.NestedScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:textColor="@color/colorBlack"
+        android:text="Bạn cần điền tất cả các mục"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_tentaikhoan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <com.lv.vietcuong.project2.CustomView.ClearEditText
+            android:id="@+id/edUsername"
+            android:hint="Nhập tài khoản"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_rounded_edittext"
+            android:padding="5dp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:textColor="@color/colorBlack"
+        android:layout_marginLeft="10dp"
+        android:text="mật khẩu phải lớn hơn 4 kí tự"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_matkhau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <com.lv.vietcuong.project2.CustomView.ClearEditText
+            android:id="@+id/edPassword"
+            android:hint="Nhập mật khẩu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_rounded_edittext"
+            android:padding="5dp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:textColor="@color/colorBlack"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Cần nhập đúng mật khẩu vừa nhập"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_nhaplaimatkhau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <com.lv.vietcuong.project2.CustomView.ClearEditText
+            android:id="@+id/edRePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập lại mật khẩu"
+            android:background="@drawable/custom_rounded_edittext"
+            android:padding="5dp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/colorBlack"
+        android:text="Hãu nhập đầy đủ họ và tên của bạn:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_hoten"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <com.lv.vietcuong.project2.CustomView.ClearEditText
+            android:id="@+id/edHoTen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập họ tên"
+            android:background="@drawable/custom_rounded_edittext"
+            android:padding="5dp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/colorBlack"
+        android:text="Bạn là:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rdbThanhVien"
+                android:text="Thành viên"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/rdbChuTaiChinh"
+                android:text="Chủ tài chính"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnDangKy"
+        android:text="Đăng kí"
+        android:textColor="@color/colorWhite"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bgLogo"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

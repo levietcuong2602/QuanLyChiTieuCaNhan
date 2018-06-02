@@ -1,0 +1,259 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorGray">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBarThemHanMucChi"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/bgToolbar">
+
+        <Button
+            android:id="@+id/btnHuySaveHanMucChi"
+            android:layout_gravity="left"
+            android:textColor="@color/colorWhite"
+            android:text="Hủy"
+            android:background="@color/bgToolbar"
+            android:layout_width="55dp"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:textColor="@color/colorWhite"
+            android:text="Thêm hạn mức chi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnLuuHanMucChi"
+            android:layout_gravity="right"
+            android:textColor="@color/colorWhite"
+            android:text="Lưu"
+            android:background="@color/bgToolbar"
+            android:layout_width="55dp"
+            android:layout_height="50dp" />
+
+    </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGray">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TableRow
+                android:padding="5dp"
+                android:background="@drawable/custom_rounded_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+                <TextView
+                    android:textColor="@color/colorBlack"
+                    android:paddingLeft="3dp"
+                    android:text="Tên"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <EditText
+                    android:id="@+id/edtenHanMucChi"
+                    android:gravity="center"
+                    android:hint="Tên hạn mức chi"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_edittext"/>
+            </TableRow>
+
+            <TableRow
+                android:padding="3dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/custom_rounded_edittext">
+
+                <EditText
+                    android:id="@+id/edSoHanMucChi"
+                    android:background="@drawable/custom_edittext"
+                    android:gravity="right"
+                    android:textSize="30sp"
+                    android:hint="Số tiền"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_span="2"
+                    android:paddingRight="10dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@color/colorGray"
+                    android:textSize="22sp"
+                    android:text="đ"
+                    android:layout_weight="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/colorBlack"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/custom_linebottom"
+
+                >
+
+                <TextView
+                    android:textColor="@color/colorBlack"
+                    android:paddingLeft="5dp"
+                    android:text="Hạng mục chi"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/btnHangMucChi"
+                    android:text="Tất cả"
+                    android:gravity="right|center"
+                    android:background="@drawable/custom_button_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_action_right"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/custom_linebottom"
+                >
+
+                <TextView
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/colorBlack"
+                    android:text="Tài khoản"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/btnTaiKhoan"
+                    android:text="Tất cả"
+                    android:gravity="right|center"
+                    android:background="@drawable/custom_button_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_action_right"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/custom_multitext_top">
+
+                <TextView
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/colorBlack"
+                    android:text="Lặp lại"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/btnLapLai"
+                    android:text="Hàng tháng̉"
+                    android:background="@drawable/custom_button_right"
+                    android:gravity="right|center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_action_right"/>
+
+            </TableRow>
+
+            <TableRow
+                android:background="@drawable/custom_multitext_bottom"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:textColor="@color/colorBlack"
+                    android:paddingLeft="5dp"
+                    android:text="Ngày bắt đàu"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/btnNgayBatDau"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_button_right"
+                    android:drawableRight="@drawable/ic_action_right"
+                    android:gravity="right|center"
+                    android:text="01/03/2018" />
+
+            </TableRow>
+
+            <TableRow
+                android:background="@drawable/custom_multitext_bottom"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:textColor="@color/colorBlack"
+                    android:paddingLeft="5dp"
+                    android:text="Ngày kết thúc"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/btnNgayKetThuc"
+                    android:text="Không xác định̉"
+                    android:gravity="right|center"
+                    android:background="@drawable/custom_button_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_action_right"/>
+
+            </TableRow>
+
+
+            <TableRow android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <Button
+                    android:id="@+id/btnSaveHanMucChi"
+                    android:layout_weight="1"
+                    android:background="@color/bgToolbar"
+                    android:text="Lưu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </TableRow>
+
+        </TableLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

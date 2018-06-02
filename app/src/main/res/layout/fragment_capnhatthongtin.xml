@@ -1,0 +1,90 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorGray">
+
+    <android.support.v7.widget.Toolbar
+        android:background="@color/bgToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_gravity="center"
+            android:textColor="@color/colorWhite"
+            android:text="Đổi họ tên"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <TableRow
+            android:background="@drawable/custom_multitext_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <TextView
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:text="Họ tên"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/editHoTenCu"
+                android:background="@drawable/custom_edittext"
+                android:hint="Họ tên cũ"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+            android:background="@drawable/custom_multitext_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <TextView
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:text="Họ tên mới"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/editHoTenMoi"
+                android:background="@drawable/custom_edittext"
+                android:hint="Họ tên mới"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnLuuHoTen"
+                android:textColor="@color/colorWhite"
+                android:text="Lưu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/bgToolbar"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>

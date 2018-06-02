@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <CheckBox
+        android:layout_gravity="right"
+        android:id="@+id/cb_check_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tất cả tài khoản" />
+
+
+    <ListView
+        android:id="@+id/lv_taikhoan_tinhhinhthuchi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <Button
+        android:layout_gravity="right"
+        android:id="@+id/btn_xong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xong" />
+
+
+</LinearLayout>

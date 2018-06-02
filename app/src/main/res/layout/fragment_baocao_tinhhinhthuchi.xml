@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow
+        android:background="@drawable/custom_multitext_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:paddingLeft="8dp"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xem theo:" />
+
+        <TextView
+            android:id="@+id/tv_thoigian"
+            android:text="Hiện tại"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/bgToolbar" />
+
+        <Button
+            android:id="@+id/btn_thoigian"
+            android:drawableRight="@drawable/ic_action_right"
+            android:background="@drawable/custom_button_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </TableRow>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/fragment_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </LinearLayout>
+
+</LinearLayout>

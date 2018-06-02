@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@color/colorGray"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow
+        android:padding="8dp"
+        android:background="@drawable/custom_multitext_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edt_sotien_3"
+            android:hint="Nhập số tiền"
+            android:layout_weight="5"
+            android:background="@drawable/custom_edittext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+        <TextView
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/bgToolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đồng"
+            android:textSize="20sp"  />
+    </TableRow>
+
+    <TableRow
+        android:background="@drawable/custom_multitext_top"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Từ tài khoản:"
+            android:paddingLeft="8dp"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_tutaikhoan_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="Chọn ví"
+            android:textColor="@color/bgToolbar"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_tutaikhoan_3"
+            android:drawableRight="@drawable/ic_action_right"
+            android:background="@drawable/custom_button_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </TableRow>
+
+    <TableRow
+        android:background="@drawable/custom_multitext_top"
+        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:paddingLeft="8dp"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vào tài khoản:" />
+
+        <TextView
+            android:id="@+id/tv_vaotaikhoan_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="Chọn ví"
+            android:textColor="@color/bgToolbar"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_vaotaikhoan_3"
+            android:drawableRight="@drawable/ic_action_right"
+            android:background="@drawable/custom_button_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </TableRow>
+
+    <TableRow
+        android:padding="8dp"
+        android:background="@drawable/custom_multitext_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edt_diengiai_3"
+            android:background="@drawable/custom_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Diễn giải" />
+    </TableRow>
+
+    <TableRow
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_multitext_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:paddingLeft="8dp"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngày chuyển:" />
+
+        <TextView
+            android:id="@+id/tv_ngay_3"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dd/mm/yyyy"
+            android:textSize="20sp"
+            android:textColor="@color/bgToolbar" />
+
+        <Button
+            android:id="@+id/btn_ngay_3"
+            android:drawableRight="@drawable/ic_action_right"
+            android:background="@drawable/custom_button_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_ghi_3"
+            android:textColor="@color/colorWhite"
+            android:background="@color/bgToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Ghi" />
+
+    </TableRow>
+
+</LinearLayout>

@@ -1,0 +1,49 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:background="@drawable/quanlychitieu">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_tentaikhoan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <com.lv.vietcuong.project2.CustomView.ClearEditText
+            android:id="@+id/edTaiKhoan"
+            android:hint="Tên tài khoản"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_rounded_edittext"
+            android:padding="10dp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_matkhau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <com.lv.vietcuong.project2.CustomView.PasswordEditText
+            android:id="@+id/edMatKhau"
+            android:hint="Mật khẩu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:useStrike="true"
+            android:background="@drawable/custom_rounded_edittext"
+            android:padding="10dp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnDangNhap"
+        android:text="Đăng nhập"
+        android:textColor="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button_dangnhap"
+        android:layout_margin="10dp"/>
+
+</LinearLayout>
