@@ -16,13 +16,13 @@ import com.lv.vietcuong.project2.View.BaoCao.FragmentQuanlyThanhVien;
  */
 
 public class DangNhapActivity extends AppCompatActivity {
-
+    public static String HOST = "http://192.168.0.108/quanlychitieu/";
 
     TabLayout tabDangNhap;
     ViewPager viewPagerDangNhap;
     Toolbar toolbar;
 
-    public static final String SERVER_NAME ="http://"+ FragmentQuanlyThanhVien.HOST+"/quanlychitieu-server/taikhoan.php";
+    public static final String SERVER_NAME = HOST + "taikhoan.php";
     boolean result = false;;
 
     @Override

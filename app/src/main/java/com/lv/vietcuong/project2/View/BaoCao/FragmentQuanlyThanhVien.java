@@ -39,12 +39,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FragmentQuanlyThanhVien extends Fragment {
-    public static String HOST = "192.168.0.108";
+import static com.lv.vietcuong.project2.View.DangNhap.DangNhapActivity.HOST;
 
-    String urlGetThanhVien = "http://"+HOST+"/quanlychitieu-server/thanhvien/getThanhvien.php";
-    String urlXoaThanhVien = "http://"+HOST+"/quanlychitieu-server/thanhvien/deleteThanhvien.php";
-    String urlThemThanhVien = "http://"+HOST+"/quanlychitieu-server/thanhvien/addThanhvien.php";
+public class FragmentQuanlyThanhVien extends Fragment {
+
+
+    String urlGetThanhVien = HOST + "thanhvien/getThanhvien.php";
+    String urlXoaThanhVien = HOST + "thanhvien/deleteThanhvien.php";
+    String urlThemThanhVien = HOST + "thanhvien/addThanhvien.php";
 
     Button btnThemThanhvien, btnThem, btnHuy;
     EditText edtUsername;
