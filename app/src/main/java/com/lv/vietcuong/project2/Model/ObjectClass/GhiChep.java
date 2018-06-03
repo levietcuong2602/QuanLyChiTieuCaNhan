@@ -11,6 +11,7 @@ public class GhiChep implements Comparator<GhiChep> {
     private String diaDiem;
     private int idHangMuc;
     private String loaiGhiChep;
+    private int trangThai;
 
     public String getLoaiGhiChep() {
         return loaiGhiChep;
@@ -74,6 +75,14 @@ public class GhiChep implements Comparator<GhiChep> {
 
     public void setIdHangMuc(int idHangMuc) {
         this.idHangMuc = idHangMuc;
+    }
+
+    public int getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(int trangThai) {
+        this.trangThai = trangThai;
     }
 
     //thêm

@@ -1,6 +1,7 @@
 package com.lv.vietcuong.project2.View.GhiChep;
 
 import android.app.Dialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -163,27 +164,41 @@ public class FragmentGhichepChitien extends android.support.v4.app.Fragment impl
 
         String chiChoAi = edtChiChoAi.getText().toString();
         int idViTienChi = idViTien;
+        int trangThai = 0;
 
         if (idHangMuc == 0 || edtSoTien.getText().toString().isEmpty() || idViTienChi == 0) {
             Toast.makeText(getActivity(), "Hạng mục hoặc số tiền hoặc ví tiền không được để trống!", Toast.LENGTH_SHORT).show();
         } else {
             int soTien = Integer.parseInt(edtSoTien.getText().toString());
 
-            if (SQLGhiChep.getSotienchi(getActivity(), idViTienChi) + soTien > SQLHanMucChi.getSotienHanmucChi(getActivity(), idViTienChi)){
+            if ((SQLHanMucChi.getSotienHanmucChi(getActivity(), idViTienChi) != -1) && (SQLGhiChep.getSotienchi(getActivity(), idViTienChi) + soTien > SQLHanMucChi.getSotienHanmucChi(getActivity(), idViTienChi))){
                 Toast.makeText(getActivity(), "Đã vượt quá hạn mức chi của ví tiền!!!", Toast.LENGTH_SHORT).show();
             }else {
                 SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(getActivity());
-                database.execSQL("Insert into GhiChep(soTien, dienDai, username, ngay, idHangMuc, loaiGhiChep) values (" +
-                        soTien + ", '" + dienGiai + "', '" + username + "', '" + ngay + "', " + idHangMuc + ", '" + loaiGhiChep + "')");
+
+                ContentValues cv1 = new ContentValues();
+                cv1.put("soTien",soTien);
+                cv1.put("dienDai",dienGiai);
+                cv1.put("username",username);
+                cv1.put("ngay",ngay);
+                cv1.put("idHangMuc",idHangMuc);
+                cv1.put("loaiGhiChep",loaiGhiChep);
+                cv1.put("trangThai",trangThai);
+                database.insert("GhiChep", null, cv1);
 
                 Cursor cursor = database.rawQuery("select Max(idGhiChep) from GhiChep", null);
                 cursor.moveToFirst();
                 int idGhiChep = cursor.getInt(0);
 
-                database.execSQL("Insert into ChiTien(chiChoAi, idGhiChep, idViTienChi, username) values ('" +
-                        chiChoAi + "', " + idGhiChep + ", " + idViTienChi + ", '" + username + "')");
+                ContentValues cv2 = new ContentValues();
+                cv2.put("chiChoAi",chiChoAi);
+                cv2.put("idGhiChep",idGhiChep);
+                cv2.put("idViTienChi",idViTienChi);
+                cv2.put("username",username);
+                database.insert("ChiTien", null, cv2);
 
                 Toast.makeText(getActivity(), "Thêm ghi chép thành công!", Toast.LENGTH_SHORT).show();
+                database.close();
             }
         }
     }

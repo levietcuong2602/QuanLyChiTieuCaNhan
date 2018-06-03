@@ -41,7 +41,7 @@ public class FragmentEditChitien extends Fragment implements View.OnClickListene
     private ListView listView;
     private Dialog dialog;
 
-    private int idGhiChep, soTien, idHangMucChi, idViTien;
+    private int idGhiChep, soTien, soTienBanDau, idHangMucChi, idViTien;
     private String dienGiai, ngay, chiChoAi;
 
 
@@ -99,7 +99,8 @@ public class FragmentEditChitien extends Fragment implements View.OnClickListene
                 updateData();
                 break;
             case R.id.btn_xoa_4:
-                deleteData();
+                //update trang thai = 2
+                SQLGhiChep.xoaTamThoiGhichep(getActivity(), idGhiChep);
                 break;
         }
     }
@@ -160,12 +161,12 @@ public class FragmentEditChitien extends Fragment implements View.OnClickListene
         SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(getActivity());
         Cursor cursor = db.rawQuery("select * from GhiChep where idGhiChep = "+idGhiChep,null);
         cursor.moveToFirst();
-        soTien = cursor.getInt(1);
+        soTienBanDau = cursor.getInt(1);
         idHangMucChi = cursor.getInt(6);
         dienGiai = cursor.getString(2);
         ngay = cursor.getString(4);
 
-        edtSoTien.setText(soTien+"");
+        edtSoTien.setText(soTienBanDau+"");
         tvMucChi.setText(SQLHangMuc.getTenHangMuc(getActivity(),idHangMucChi));
         edtDienGiai.setText(dienGiai);
         tvNgay.setText(ngay);
@@ -189,7 +190,7 @@ public class FragmentEditChitien extends Fragment implements View.OnClickListene
             ngay = ngay = tvNgay.getText().toString();
             chiChoAi = edtChiChoAi.getText().toString();
 
-            if (SQLGhiChep.getSotienchi(getActivity(), idViTien) + soTien > SQLHanMucChi.getSotienHanmucChi(getActivity(),idViTien)){
+            if ((SQLHanMucChi.getSotienHanmucChi(getActivity(),idViTien) != -1) && (SQLGhiChep.getSotienchi(getActivity(), idViTien) + soTien - soTienBanDau > SQLHanMucChi.getSotienHanmucChi(getActivity(),idViTien))){
                 Toast.makeText(getActivity(), "Đã vượt quá hạn mức chi của ví tiền!!!", Toast.LENGTH_SHORT).show();
             }else {
                 chiTien.setSoTien(soTien);
@@ -206,6 +207,8 @@ public class FragmentEditChitien extends Fragment implements View.OnClickListene
                 cv1.put("dienDai",chiTien.getDienGiai());
                 cv1.put("ngay",chiTien.getNgay());
                 cv1.put("idHangMuc",chiTien.getIdHangMuc());
+                cv1.put("trangThai", 3);
+
                 cv2.put("chiChoAi",chiTien.getChiChoAi());
                 cv2.put("idViTienChi",chiTien.getIdViTienChi());
 
@@ -216,14 +219,5 @@ public class FragmentEditChitien extends Fragment implements View.OnClickListene
                 Util.replace(R.id.content_layout,new FragmentDaGhi(),getActivity());
             }
         }
-    }
-
-    private void deleteData(){
-        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(getActivity());
-        db.delete("GhiChep","idGhiChep = "+idGhiChep,null);
-        db.delete("ChiTien","idGhiChep = "+idGhiChep,null);
-        db.close();
-        Toast.makeText(getContext(), "Xoá thành công", Toast.LENGTH_SHORT).show();
-        Util.replace(R.id.content_layout,new FragmentDaGhi(),getActivity());
     }
 }

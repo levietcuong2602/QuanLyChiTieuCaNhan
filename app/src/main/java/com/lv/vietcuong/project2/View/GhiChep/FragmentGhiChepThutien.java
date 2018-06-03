@@ -1,6 +1,7 @@
 package com.lv.vietcuong.project2.View.GhiChep;
 
 import android.app.Dialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -158,6 +159,7 @@ public class FragmentGhiChepThutien extends android.support.v4.app.Fragment impl
 
         String thuTuAi = edtThuTuAi.getText().toString();
         int idViTienThu = idViTien;
+        int trangThai = 0;
 
         if (idHangMuc == 0 || edtSoTien.getText().toString().isEmpty() || idViTienThu == 0) {
             Toast.makeText(getActivity(), "Hạng mục hoặc số tiền hoặc ví tiền không được để trống!", Toast.LENGTH_SHORT).show();
@@ -165,17 +167,29 @@ public class FragmentGhiChepThutien extends android.support.v4.app.Fragment impl
             int soTien = Integer.parseInt(edtSoTien.getText().toString());
 
             SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(getActivity());
-            database.execSQL("Insert into GhiChep(soTien, dienDai, username, ngay, idHangMuc, loaiGhiChep) values (" +
-                    soTien + ", '" + dienGiai + "', '" + username + "', '" + ngay + "', " + idHangMuc + ", '" + loaiGhiChep + "')");
+            ContentValues cv1 = new ContentValues();
+            cv1.put("soTien",soTien);
+            cv1.put("dienDai",dienGiai);
+            cv1.put("username",username);
+            cv1.put("ngay",ngay);
+            cv1.put("idHangMuc",idHangMuc);
+            cv1.put("loaiGhiChep",loaiGhiChep);
+            cv1.put("trangThai",trangThai);
+            database.insert("GhiChep", null, cv1);
 
             Cursor cursor = database.rawQuery("select Max(idGhiChep) from GhiChep", null);
             cursor.moveToFirst();
             int idGhiChep = cursor.getInt(0);
 
-            database.execSQL("Insert into ThuTien(thuTuAi, idGhiChep, idViTienThu, username) values ('" +
-                    thuTuAi + "', " + idGhiChep + ", " + idViTienThu + ", '" + username + "')");
+            ContentValues cv2 = new ContentValues();
+            cv2.put("thuTuAi",thuTuAi);
+            cv2.put("idGhiChep",idGhiChep);
+            cv2.put("idViTienThu",idViTienThu);
+            cv2.put("username",username);
+            database.insert("ThuTien", null, cv2);
 
             Toast.makeText(getActivity(), "Thêm ghi chép thành công!", Toast.LENGTH_SHORT).show();
+            database.close();
         }
     }
 

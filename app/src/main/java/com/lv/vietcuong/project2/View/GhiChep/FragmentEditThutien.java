@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Adapter.AdapterHangMucThuChi;
 import com.lv.vietcuong.project2.Databases.DataBaseManager;
+import com.lv.vietcuong.project2.Databases.SQLGhiChep;
 import com.lv.vietcuong.project2.Databases.SQLHangMuc;
 import com.lv.vietcuong.project2.Databases.SQLViTien;
 import com.lv.vietcuong.project2.Model.ObjectClass.HangMuc;
@@ -97,7 +98,8 @@ public class FragmentEditThutien extends Fragment implements View.OnClickListene
                 updateData();
                 break;
             case R.id.btn_xoa_5:
-                deleteData();
+                //update trang thai = 2
+                SQLGhiChep.xoaTamThoiGhichep(getActivity(), idGhiChep);
                 break;
         }
     }
@@ -199,6 +201,8 @@ public class FragmentEditThutien extends Fragment implements View.OnClickListene
             cv1.put("dienDai",thuTien.getDienGiai());
             cv1.put("ngay",thuTien.getNgay());
             cv1.put("idHangMuc",thuTien.getIdHangMuc());
+            cv1.put("trangThai", 3);
+
             cv2.put("thuTuAi",thuTien.getThuTuAi());
             cv2.put("idViTienThu",thuTien.getIdViTienThu());
 
@@ -208,15 +212,6 @@ public class FragmentEditThutien extends Fragment implements View.OnClickListene
             Toast.makeText(getContext(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
             Util.replace(R.id.content_layout,new FragmentDaGhi(),getActivity());
         }
-    }
-
-    private void deleteData(){
-        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(getActivity());
-        db.delete("GhiChep","idGhiChep = "+idGhiChep,null);
-        db.delete("ThuTien","idGhiChep = "+idGhiChep,null);
-        db.close();
-        Toast.makeText(getContext(), "Xoá thành công", Toast.LENGTH_SHORT).show();
-        Util.replace(R.id.content_layout,new FragmentDaGhi(),getActivity());
     }
 
 }

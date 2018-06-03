@@ -71,7 +71,7 @@ public class SQLHanMucChi {
         }
 
         int idHanmucChi = 0;
-        int soTien = 0;
+        int soTien = -1;
         Cursor cursor1 = database.rawQuery(SQLQuery1, null);
         if (cursor1.moveToFirst()){
             idHanmucChi = cursor1.getInt(1);
@@ -79,7 +79,7 @@ public class SQLHanMucChi {
 
         String SQLQuery2 = "SELECT * FROM HanMucChi WHERE idHanMucChi = " + idHanmucChi;
         Cursor cursor2 = database.rawQuery(SQLQuery2, null);
-        if (cursor1.moveToFirst()){
+        if (cursor2.moveToFirst()){
              soTien = cursor1.getInt(5);
         }
 

@@ -20,7 +20,7 @@ public class ModelDangNhap {
     public void CapNhapCacheDangNhap(Context context, TaiKhoan taiKhoan){
         SharedPreferences preferences = context.getSharedPreferences("TaiKhoan", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("username", taiKhoan.getHoTen());
+        editor.putString("username", taiKhoan.getUsername());
         editor.putString("password", taiKhoan.getPassword());
         editor.putString("hoten", taiKhoan.getHoTen());
         editor.putString("loaitaikhoan", taiKhoan.getLoaiTaiKhoan());

@@ -40,7 +40,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FragmentQuanlyThanhVien extends Fragment {
-    public static String HOST = "192.168.1.125";
+    public static String HOST = "192.168.0.108";
 
     String urlGetThanhVien = "http://"+HOST+"/quanlychitieu-server/thanhvien/getThanhvien.php";
     String urlXoaThanhVien = "http://"+HOST+"/quanlychitieu-server/thanhvien/deleteThanhvien.php";
