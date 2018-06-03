@@ -11,6 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lv.vietcuong.project2.Model.ObjectClass.GhiChep;
+<<<<<<< HEAD
+=======
+import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
@@ -19,12 +23,22 @@ public class AdapterListGhiChep extends ArrayAdapter<GhiChep> {
     private Context context;
     private int resource;
     private ArrayList<GhiChep> dsGhiChep;
+<<<<<<< HEAD
 
     public AdapterListGhiChep(@NonNull Context context, int resource, @NonNull ArrayList<GhiChep> objects) {
+=======
+    private ViTien viTien;
+    public int soTienTemp;
+    public AdapterListGhiChep(@NonNull Context context, int resource, @NonNull ArrayList<GhiChep> objects, ViTien viTien) {
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         super(context, resource, objects);
         this.context = context;
         this.resource = resource;
         this.dsGhiChep = objects;
+<<<<<<< HEAD
+=======
+        this.viTien = viTien;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     }
 
     public class ViewHolder{
@@ -60,6 +74,15 @@ public class AdapterListGhiChep extends ArrayAdapter<GhiChep> {
         viewHolder.tvTenHangMuc.setText(ghiChep.getIdHangMuc()+"");
         viewHolder.tvSoTien.setText(ghiChep.getSoTien()+"");
 
+<<<<<<< HEAD
+=======
+        if (position == 0){
+            soTienTemp = viTien.getSoDu();
+        }else{
+            soTienTemp += dsGhiChep.get(position-1).getSoTien();
+        }
+        viewHolder.tvSoTienConLai.setText(soTienTemp+"");
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
         return convertView;
     }

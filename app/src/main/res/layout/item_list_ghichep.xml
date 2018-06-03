@@ -6,8 +6,13 @@
 
         <ImageView
             android:id="@+id/img_icon_hangmuc"
+<<<<<<< HEAD
             android:layout_width="35dp"
             android:layout_height="35dp"
+=======
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
             android:src="@drawable/ic_action_ghichep"/>
 
         <TextView

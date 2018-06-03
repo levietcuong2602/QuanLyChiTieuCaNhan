@@ -9,7 +9,11 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 
 public class DataBaseManager {
+<<<<<<< HEAD
     private static final String DB_NAME="QuanLyChiTieuCaNhan.sqlite";
+=======
+    public static final String DB_NAME="QuanLyChiTieuCaNhan.sqlite";
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     public static SQLiteDatabase initDataBaseQlyThuChi(Activity activity){
         String fileURL = activity.getApplicationInfo().dataDir+"/databases/"+DB_NAME;
         String folderURL = activity.getApplicationInfo().dataDir+"/databases";

@@ -17,6 +17,7 @@
         <attr name="useStrike" format="boolean"/>
     </declare-styleable>
 
+<<<<<<< HEAD
     <style name="tv1">
         <item name="android:layout_marginLeft">5dp</item>
         <item name="android:layout_width">wrap_content</item>
@@ -32,4 +33,6 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 </resources>

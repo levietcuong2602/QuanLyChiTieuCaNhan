@@ -19,7 +19,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Databases.DataBaseManager;
+<<<<<<< HEAD
 import com.lv.vietcuong.project2.Databases.SQLGhiChep;
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 import com.lv.vietcuong.project2.Databases.SQLViTien;
 import com.lv.vietcuong.project2.Model.ObjectClass.ChuyenKhoan;
 import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
@@ -93,25 +96,56 @@ public class FragmentEditChuyenkhoan extends Fragment implements View.OnClickLis
                 updateData();
                 break;
             case R.id.btn_xoa_6:
+<<<<<<< HEAD
                 //update trang thai = 2
                 SQLGhiChep.xoaTamThoiGhichep(getActivity(), idGhiChep);
+=======
+                deleteData();
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
                 break;
         }
     }
 
     private void showDialogTaikhoanChi(Context context) {
         dialog = new Dialog(context);
+<<<<<<< HEAD
         dialog.setContentView(R.layout.dialog_taikhoan);
+=======
+        dialog.setTitle("Tài khoản chi");
+        dialog.setContentView(R.layout.dialog_taikhoan);
+        dialog.setCancelable(false);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         setListViewTaikhoanChi();
 
         dialog.show();
     }
 
     private void setListViewTaikhoanChi(){
+<<<<<<< HEAD
         final ArrayList<ViTien> dsViTien = SQLViTien.getAllWallet(getActivity());;
 
         listView = (ListView) dialog.findViewById(R.id.lv_taikhoan);
         AdapterTaiKhoan adapterTaiKhoan = new AdapterTaiKhoan(getContext(),R.layout.item_ds_mucchi, dsViTien);
+=======
+        SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(getActivity());
+        Cursor cursor = database.rawQuery("select * from ViTien",null);
+        final ArrayList<ViTien> dsViTien = new ArrayList<>();
+
+        for(int i = 0; i < cursor.getCount(); i++){
+            cursor.moveToPosition(i);
+            int id = cursor.getInt(0);
+            String tenViTien = cursor.getString(1);
+            String loaiViTien = cursor.getString(2);
+            int soDu = cursor.getInt(3);
+            String ghiChu = cursor.getString(4);
+            String username = cursor.getString(5);
+            ViTien viTien = new ViTien(id,tenViTien,loaiViTien,soDu,ghiChu,username);
+            dsViTien.add(viTien);
+        }
+
+        listView = (ListView) dialog.findViewById(R.id.lv_taikhoan);
+        AdapterTaiKhoan adapterTaiKhoan = new AdapterTaiKhoan(getContext(),R.layout.item_ds_mucchi,dsViTien);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         listView.setAdapter(adapterTaiKhoan);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -126,17 +160,44 @@ public class FragmentEditChuyenkhoan extends Fragment implements View.OnClickLis
 
     private void showDialogTaikhoanThu(Context context) {
         dialog = new Dialog(context);
+<<<<<<< HEAD
         dialog.setContentView(R.layout.dialog_taikhoan);
+=======
+        dialog.setTitle("Tài khoản thu");
+        dialog.setContentView(R.layout.dialog_taikhoan);
+        dialog.setCancelable(false);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         setListViewTaikhoanThu();
 
         dialog.show();
     }
 
     private void setListViewTaikhoanThu(){
+<<<<<<< HEAD
         final ArrayList<ViTien> dsViTien = SQLViTien.getAllWallet(getActivity());;
 
         listView = (ListView) dialog.findViewById(R.id.lv_taikhoan);
         AdapterTaiKhoan adapterTaiKhoan = new AdapterTaiKhoan(getContext(),R.layout.item_ds_mucchi, dsViTien);
+=======
+        SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(getActivity());
+        Cursor cursor = database.rawQuery("select * from ViTien",null);
+        final ArrayList<ViTien> dsViTien = new ArrayList<>();
+
+        for(int i = 0; i < cursor.getCount(); i++){
+            cursor.moveToPosition(i);
+            int id = cursor.getInt(0);
+            String tenViTien = cursor.getString(1);
+            String loaiViTien = cursor.getString(2);
+            int soDu = cursor.getInt(3);
+            String ghiChu = cursor.getString(4);
+            String username = cursor.getString(5);
+            ViTien viTien = new ViTien(id,tenViTien,loaiViTien,soDu,ghiChu,username);
+            dsViTien.add(viTien);
+        }
+
+        listView = (ListView) dialog.findViewById(R.id.lv_taikhoan);
+        AdapterTaiKhoan adapterTaiKhoan = new AdapterTaiKhoan(getContext(),R.layout.item_ds_mucchi,dsViTien);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         listView.setAdapter(adapterTaiKhoan);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -191,7 +252,10 @@ public class FragmentEditChuyenkhoan extends Fragment implements View.OnClickLis
             cv1.put("soTien",chuyenKhoan.getSoTien());
             cv1.put("dienDai",chuyenKhoan.getDienGiai());
             cv1.put("ngay",chuyenKhoan.getNgay());
+<<<<<<< HEAD
             cv1.put("trangThai", 3);
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
             cv2.put("idViTienChi",chuyenKhoan.getIdViTienChi());
             cv2.put("idViTienThu",chuyenKhoan.getIdViTienThu());
@@ -203,4 +267,18 @@ public class FragmentEditChuyenkhoan extends Fragment implements View.OnClickLis
             Util.replace(R.id.content_layout,new FragmentDaGhi(),getActivity());
         }
     }
+<<<<<<< HEAD
+=======
+
+    private void deleteData(){
+        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(getActivity());
+        db.delete("GhiChep","idGhiChep = "+idGhiChep,null);
+        db.delete("ChuyenKhoan","idGhiChep = "+idGhiChep,null);
+        db.close();
+        Toast.makeText(getContext(), "Xoá thành công", Toast.LENGTH_SHORT).show();
+        Util.replace(R.id.content_layout,new FragmentDaGhi(),getActivity());
+    }
+
+
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 }

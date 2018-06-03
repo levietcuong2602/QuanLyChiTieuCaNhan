@@ -9,23 +9,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+<<<<<<< HEAD
         <TextView
             android:id="@+id/img_thang"
             style="@style/thoigian" />
+=======
+        <ImageView
+            android:id="@+id/img_thang"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp" />
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
         <TextView
             android:id="@+id/tv_thang"
             android:textStyle="bold"
             android:layout_toRightOf="@+id/img_thang"
             android:text="Tháng (mm/yyyy)"
+<<<<<<< HEAD
             style="@style/tv1" />
         <TextView
             android:id="@+id/tv_thu_2"
             android:textColor="@color/bgToolbar"
+=======
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_thu_2"
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
             android:layout_marginTop="10dp"
             android:layout_below="@+id/tv_thang"
             android:layout_toRightOf="@+id/img_thang"
             android:text="Thu: "
+<<<<<<< HEAD
             style="@style/tv1" />
 
         <TextView
@@ -38,6 +54,19 @@
         <TextView
             android:id="@+id/tv_thu_thang"
             android:textColor="@color/bgToolbar"
+=======
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="60dp"
+            android:layout_toRightOf="@+id/img_thang"
+            android:text="Chi: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_thu_thang"
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/tv_thang"
@@ -47,12 +76,20 @@
 
         <TextView
             android:id="@+id/tv_chi_thang"
+<<<<<<< HEAD
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginTop="60dp"
             android:text="0 đ"
             android:textColor="@android:color/holo_orange_dark" />
+=======
+            android:layout_marginTop="60dp"
+            android:layout_alignParentRight="true"
+            android:text="0 đ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
         <TextView
             android:id="@+id/tv_thuchi_thang"

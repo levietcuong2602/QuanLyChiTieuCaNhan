@@ -75,6 +75,7 @@
                     android:layout_height="wrap_content"
                     />
             </TableRow>
+<<<<<<< HEAD
 
             <ListView
                 android:id="@+id/lstViewGhiChep"
@@ -82,6 +83,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             </ListView>
+=======
+            <TableRow android:layout_width="match_parent"
+                android:layout_height="400dp">
+                <ListView
+                    android:id="@+id/lstViewGhiChep"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ListView>
+
+            </TableRow>
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
             <TableRow
                 android:background="@drawable/custom_multitext_top"

@@ -18,12 +18,24 @@ public class ListAdapterChonViTien extends ArrayAdapter {
     Context context;
     int resource;
     ArrayList<ViTien> dsWallet;
+<<<<<<< HEAD
+=======
+    public boolean check[];
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
     public ListAdapterChonViTien(@NonNull Context context, int resource, @NonNull ArrayList<ViTien> objects) {
         super(context, resource, objects);
         this.context = context;
         this.resource = resource;
         this.dsWallet = objects;
+<<<<<<< HEAD
+=======
+
+        this.check = new boolean[dsWallet.size()];
+        for (int i = 0; i < dsWallet.size(); i++){
+            check[i] = true;
+        }
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     }
 
     public class ViewHolder{
@@ -46,8 +58,13 @@ public class ListAdapterChonViTien extends ArrayAdapter {
 
         ViTien wallet = dsWallet.get(position);
         holder.textView.setText(wallet.getTenViTien());
+<<<<<<< HEAD
         holder.textView.setChecked(true);
 
+=======
+
+        holder.textView.setChecked(check[position]);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
         return convertView;
     }

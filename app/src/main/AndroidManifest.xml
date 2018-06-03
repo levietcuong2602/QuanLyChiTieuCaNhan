@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lv.vietcuong.project2">
 
+<<<<<<< HEAD
+=======
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -24,6 +28,15 @@
         <activity
             android:name=".Layout_TrangChu"
             android:label="" />
+<<<<<<< HEAD
+=======
+
+        <receiver android:name=".ConnectInternet.NetWorkStateChecker">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     </application>
 
 </manifest>

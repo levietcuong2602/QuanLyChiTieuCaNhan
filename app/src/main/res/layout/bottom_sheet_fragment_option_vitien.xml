@@ -3,6 +3,7 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
     
+<<<<<<< HEAD
     <LinearLayout
         android:id="@+id/item_chuyenkhoan"
         android:foreground="?attr/selectableItemBackground"
@@ -23,6 +24,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
+=======
+    <!--<LinearLayout-->
+        <!--android:id="@+id/item_chuyenkhoan"-->
+        <!--android:foreground="?attr/selectableItemBackground"-->
+        <!--android:clickable="true"-->
+        <!--android:background="@drawable/custom_item_bottom_sheet"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<ImageView-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:src="@drawable/tranfer"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+        <!---->
+        <!--<TextView-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:text="Chuyển khoản"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+    <!--</LinearLayout>-->
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
     <LinearLayout
         android:id="@+id/item_hanmucchi"

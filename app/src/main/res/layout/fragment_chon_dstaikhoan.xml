@@ -47,6 +47,10 @@
             android:layout_height="wrap_content"/>
 
         <Switch
+<<<<<<< HEAD
+=======
+            android:id="@+id/switchTK"
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
             android:layout_gravity="center_vertical"
             android:checked="true"
             android:layout_weight="1"

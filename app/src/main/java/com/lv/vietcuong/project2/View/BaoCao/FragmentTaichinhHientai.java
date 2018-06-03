@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+<<<<<<< HEAD
 import com.lv.vietcuong.project2.Databases.SQLGhiChep;
 import com.lv.vietcuong.project2.Databases.SQLViTien;
 import com.lv.vietcuong.project2.Model.ObjectClass.ChiTien;
@@ -18,6 +19,10 @@ import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
 import com.lv.vietcuong.project2.R;
 import com.lv.vietcuong.project2.View.BaoCao.adapter.HangmucThongkeAdapter;
 import com.lv.vietcuong.project2.View.BaoCao.adapter.ViTienAdapter;
+=======
+import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
+import com.lv.vietcuong.project2.R;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
 import java.util.ArrayList;
 
@@ -25,7 +30,10 @@ public class FragmentTaichinhHientai extends Fragment {
     private TextView tvTongSoTien;
     private ListView lvViTien;
     private ArrayList<ViTien> dsViTien;
+<<<<<<< HEAD
     private ViTienAdapter viTienAdapter;
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
     @Nullable
     @Override
@@ -33,10 +41,13 @@ public class FragmentTaichinhHientai extends Fragment {
         View view = inflater.inflate(R.layout.fragment_taichinh_hientai,container,false);
         initWidget(view);
 
+<<<<<<< HEAD
         dsViTien = SQLViTien.getAllWallet(getActivity());
         setAdapter();
         setTvTongSoTien();
 
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         return view;
     }
 
@@ -45,6 +56,7 @@ public class FragmentTaichinhHientai extends Fragment {
         lvViTien = (ListView) v.findViewById(R.id.lv_vitien);
     }
 
+<<<<<<< HEAD
     private void setAdapter(){
         if (viTienAdapter == null){
             viTienAdapter = new ViTienAdapter(getActivity(), R.layout.item_vitien_baocao, dsViTien);
@@ -64,4 +76,11 @@ public class FragmentTaichinhHientai extends Fragment {
 
         tvTongSoTien.setText(tongSoTien + " đ");
     }
+=======
+    private void getAllViTien(){
+
+    }
+
+
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 }

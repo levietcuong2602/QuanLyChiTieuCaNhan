@@ -2,10 +2,15 @@ package com.lv.vietcuong.project2.View.GhiChep.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+<<<<<<< HEAD
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
+=======
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +19,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lv.vietcuong.project2.Databases.SQLHangMuc;
+<<<<<<< HEAD
 import com.lv.vietcuong.project2.Databases.SQLHinhAnh;
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 import com.lv.vietcuong.project2.Databases.SQLViTien;
 import com.lv.vietcuong.project2.Model.ObjectClass.ChiTien;
 import com.lv.vietcuong.project2.Model.ObjectClass.ChuyenKhoan;
 import com.lv.vietcuong.project2.Model.ObjectClass.GhiChep;
 
+<<<<<<< HEAD
 import com.lv.vietcuong.project2.Model.ObjectClass.HangMuc;
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 import com.lv.vietcuong.project2.Model.ObjectClass.ThuTien;
 import com.lv.vietcuong.project2.R;
 
@@ -73,6 +84,7 @@ public class AdapterGhiChep extends ArrayAdapter{
             viewHolderGhiChep.tvTenViTien.setText(SQLViTien.getTenViTien(activity, thuTien.getIdViTienThu()));
             viewHolderGhiChep.tvLoaiGhiChep.setText("Thu: ");
             viewHolderGhiChep.tvHangMuc.setText(SQLHangMuc.getTenHangMuc(activity,ghiChep.getIdHangMuc()));
+<<<<<<< HEAD
 
             HangMuc hangMuc = SQLHangMuc.getHangMuc(activity, "thutien", ghiChep.getIdHangMuc());
             Bitmap bitmap = SQLHinhAnh.getImage(activity, hangMuc.getIdHinhAnh());
@@ -80,25 +92,33 @@ public class AdapterGhiChep extends ArrayAdapter{
                     viewHolderGhiChep.imgIconHangMuc.setImageBitmap(bitmap);
             }
 
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         }
         if (ghiChep instanceof ChiTien){
             ChiTien chiTien = (ChiTien) ghiChep;
             viewHolderGhiChep.tvTenViTien.setText(SQLViTien.getTenViTien(activity, chiTien.getIdViTienChi()));
             viewHolderGhiChep.tvLoaiGhiChep.setText("Chi: ");
             viewHolderGhiChep.tvHangMuc.setText(SQLHangMuc.getTenHangMuc(activity,ghiChep.getIdHangMuc()));
+<<<<<<< HEAD
 
             HangMuc hangMuc = SQLHangMuc.getHangMuc(activity, "chitien", ghiChep.getIdHangMuc());
             Bitmap bitmap = SQLHinhAnh.getImage(activity, hangMuc.getIdHinhAnh());
             if (bitmap != null) {
                 viewHolderGhiChep.imgIconHangMuc.setImageBitmap(bitmap);
             }
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         }
         if (ghiChep instanceof ChuyenKhoan){
             ChuyenKhoan chuyenKhoan = (ChuyenKhoan) ghiChep;
             viewHolderGhiChep.tvTenViTien.setText(SQLViTien.getTenViTien(activity, chuyenKhoan.getIdViTienChi()));
             viewHolderGhiChep.tvLoaiGhiChep.setText("Chuyển tới: ");
             viewHolderGhiChep.tvHangMuc.setText(SQLViTien.getTenViTien(activity, chuyenKhoan.getIdViTienThu()));
+<<<<<<< HEAD
             Log.d("tag9", chuyenKhoan.getIdViTienThu()+"");
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         }
 
         return convertView;

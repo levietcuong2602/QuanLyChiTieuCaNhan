@@ -42,7 +42,11 @@ public class Fragment_ListHangMucChi extends Fragment {
         listHeader = new ArrayList<>();
         listItem = new HashMap<>();
 
+<<<<<<< HEAD
         listHeader = SQLHangMuc.getHangMucCha(getActivity(), "chitien");
+=======
+        listHeader = SQLHangMuc.getHangMucCha(getActivity(), "chi");
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         for (int i = 0; i < listHeader.size(); i++) {
             HangMuc hangMucCha = listHeader.get(i);
             listItem.put(hangMucCha.getIdHangMuc(), SQLHangMuc.getHangMucCon(getActivity(), hangMucCha.getLoaiHangMuc(), hangMucCha.getIdHangMuc()));
@@ -53,7 +57,11 @@ public class Fragment_ListHangMucChi extends Fragment {
         expandableListView = view.findViewById(R.id.expandedHangMuc);
 
         createListDataExpandable();
+<<<<<<< HEAD
         adapter = new ExpandableListViewAdapter(getActivity(), listHeader, listItem);
+=======
+        adapter = new ExpandableListViewAdapter(getActivity(), listHeader, listItem, false);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         expandableListView.setAdapter(adapter);
 
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
@@ -73,6 +81,10 @@ public class Fragment_ListHangMucChi extends Fragment {
                 }else {
                     if (view.isSelected()){
                         view.setSelected(false);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
                     }else {
                         view.setSelected(true);
                     }
@@ -108,10 +120,20 @@ public class Fragment_ListHangMucChi extends Fragment {
         expandableListView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
+<<<<<<< HEAD
                 if(motionEvent.getX() > 60) {
                     checkExpandable = true;
                 }else{
                     checkExpandable = false;
+=======
+                if(motionEvent.getX() > 60 && motionEvent.getX() < view.getWidth() - 60) {
+                    checkExpandable = true;
+//                    view.setSelected(true);
+                }else{
+                    checkExpandable = false;
+//                    view.setSelected(false);
+
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
                     if (view.isSelected()){
                         view.setSelected(false);
                     }else {

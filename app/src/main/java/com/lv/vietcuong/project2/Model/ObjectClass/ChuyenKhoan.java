@@ -4,7 +4,10 @@ public class ChuyenKhoan extends GhiChep{
     private int idViTienThu;
     private int idViTienChi;
     private String dienGiai;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     public int getIdViTienThu() {
         return idViTienThu;
     }

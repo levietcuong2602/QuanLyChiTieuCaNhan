@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/build.gradle" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/Adapter/AdapterHangMucThuChi.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/Adapter/ListViTienAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/Databases/DataBaseManager.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/Databases/SQLGhiChep.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/Databases/SQLHanMucChi.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/Databases/SQLHangMuc.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/Databases/SQLViTien.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/Layout_TrangChu.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/View/Fragment_Login_Logout/Fragment_DangKy.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/View/Fragment_Login_Logout/Fragment_DangNhap.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/View/GhiChep/GhiChepActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/View/HanMucChi/Fragment_NgayKetThuc.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/View/HanMucChi/Fragment_ThemHanMucChi.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/View/HanMucChi/HanMucChiFragment.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/View/HangMucThuChi/Fragment_ListHangMucChi.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/View/HangMucThuChi/Fragment_ListHangMucThu.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/View/HangMucThuChi/HangMucThuChiActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/View/Profile/Fragment_CapNhatThongTin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/View/Profile/Fragment_DoiMatKhau.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/View/ViTien/Fragment_DanhSachTaiKhoan.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/View/ViTien/Fragment_ThemTaiKhoan.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/lv/vietcuong/project2/View/ViTien/TaiKhoanActivity.java" charset="UTF-8" />
+  </component>
+</project>

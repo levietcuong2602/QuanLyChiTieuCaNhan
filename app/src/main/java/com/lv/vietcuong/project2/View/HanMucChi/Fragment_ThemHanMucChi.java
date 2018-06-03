@@ -14,12 +14,28 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+<<<<<<< HEAD
 import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Databases.SQLHanMucChi;
 import com.lv.vietcuong.project2.Model.ObjectClass.HanMucChi;
 import com.lv.vietcuong.project2.R;
 
+=======
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.lv.vietcuong.project2.Databases.SQLHanMucChi;
+import com.lv.vietcuong.project2.Databases.SQLHangMuc;
+import com.lv.vietcuong.project2.Databases.SQLViTien;
+import com.lv.vietcuong.project2.Layout_TrangChu;
+import com.lv.vietcuong.project2.Model.ObjectClass.HanMucChi;
+import com.lv.vietcuong.project2.Model.ObjectClass.HangMuc;
+import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
+import com.lv.vietcuong.project2.R;
+
+import java.util.ArrayList;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 import java.util.Calendar;
 
 /**
@@ -28,19 +44,60 @@ import java.util.Calendar;
 
 public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickListener {
     Button btnSaveHanMucChi, btnCancelHangMucChi, btnLuuHanMucChi;
+<<<<<<< HEAD
     EditText edtTenHanMuc, edtSoHanMuc;
     Button btnHangMucChi, btnTaiKhoan, btnLapLai, btnNgayBatDau, btnNgayKetThuc;
     static String ngayKetThuc = "không xác định";
 
+=======
+    TextView txtTitle;
+    EditText edtTenHanMuc, edtSoHanMuc;
+    Button btnHangMucChi, btnTaiKhoan, btnLapLai, btnNgayBatDau, btnNgayKetThuc;
+    static String ngayKetThuc = "không xác định";
+    static int[] dsIdViTien = null;
+    static int[]dsIdHangMuc = null;
+    public ViTien vitien;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_themhanmucchi, container, false);
         initWidget(view);
         getDataNgayKetThuc();
+<<<<<<< HEAD
         return view;
     }
 
+=======
+        getIdHangMuc(); 
+        getIdTaiKhoan();
+        if(vitien != null){
+            btnTaiKhoan.setText(vitien.getTenViTien());
+            btnTaiKhoan.setEnabled(false);
+            dsIdViTien = new int[1];
+            dsIdViTien[0] = vitien.getIdViTien();
+        }
+        return view;
+    }
+
+    private void getIdTaiKhoan() {
+        ArrayList<ViTien> dsViTien = SQLViTien.getAllWallet(getActivity());
+        dsIdViTien = new int[dsViTien.size()];
+        for (int i = 0; i < dsViTien.size(); i++){
+            dsIdViTien[i] = dsViTien.get(i).getIdViTien();
+        }
+    }
+
+    private void getIdHangMuc() {
+        ArrayList<HangMuc> dsHangMuc = SQLHangMuc.getAllHangMuc(getActivity(), "chi");
+        dsIdHangMuc = new int[dsHangMuc.size()];
+        for (int i = 0; i < dsHangMuc.size(); i++){
+            dsIdHangMuc[i] = dsHangMuc.get(i).getIdHangMuc();
+        }
+    }
+
+
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     private void getDataNgayKetThuc() {
         btnNgayKetThuc.setText(ngayKetThuc);
     }
@@ -56,6 +113,10 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
         btnLapLai = view.findViewById(R.id.btnLapLai);
         btnNgayBatDau = view.findViewById(R.id.btnNgayBatDau);
         btnNgayKetThuc = view.findViewById(R.id.btnNgayKetThuc);
+<<<<<<< HEAD
+=======
+        txtTitle = view.findViewById(R.id.txtTitle);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
         btnCancelHangMucChi.setOnClickListener(this);
         btnSaveHanMucChi.setOnClickListener(this);
@@ -97,6 +158,16 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
 
     private void showHangMucChi() {
         //danh sách hạng mục thu/chi
+<<<<<<< HEAD
+=======
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        Fragment_ChonHangMucChi hangMucChi = new Fragment_ChonHangMucChi();
+        transaction.replace(R.id.content_layout, hangMucChi);
+        transaction.addToBackStack(null);
+
+        transaction.commit();
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     }
 
     private void showOptionNgayKetThuc() {
@@ -156,17 +227,24 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
     }
 
     private void cancelSaveHangMucChi() {
+<<<<<<< HEAD
         FragmentManager manager = getActivity().getSupportFragmentManager();
         FragmentTransaction transTaiKhoan = manager.beginTransaction();
         HanMucChiActivity hanMucChiActivity = new HanMucChiActivity();
         transTaiKhoan.replace(R.id.content_layout, hanMucChiActivity);
         transTaiKhoan.commit();
+=======
+      getActivity().getSupportFragmentManager().popBackStack();
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     }
 
     private void saveHangMucChi() {
         String name = edtTenHanMuc.getText().toString();
         String soHanMuc = edtSoHanMuc.getText().toString();
+<<<<<<< HEAD
         int soTienHanMuc = Integer.parseInt(edtSoHanMuc.getText().toString());
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         String ngayBdau = btnNgayBatDau.getText().toString();
         String ngayKT = ngayKetThuc;
         String lapLai = btnLapLai.getText().toString();
@@ -177,19 +255,43 @@ public class Fragment_ThemHanMucChi extends Fragment implements View.OnClickList
             if (!soHanMuc.matches("[0-9]+")){
                 Toast.makeText(getActivity(), "Số hạn mức không hợp lệ", Toast.LENGTH_SHORT).show();
             }else {
+<<<<<<< HEAD
                 HanMucChi hanMucChi =  new HanMucChi();
 
                 hanMucChi.setSoTien(soTienHanMuc);
+=======
+                int soTienHanMuc = Integer.parseInt(edtSoHanMuc.getText().toString());
+                HanMucChi hanMucChi =  new HanMucChi();
+
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
                 hanMucChi.setTenHanMucChi(name);
                 hanMucChi.setLapLai(lapLai);
                 hanMucChi.setNgayBatDau(ngayBdau);
                 hanMucChi.setNgayKetThuc(ngayKT);
                 hanMucChi.setSoTien(soTienHanMuc);
+<<<<<<< HEAD
+=======
+                hanMucChi.setTrangthai(Layout_TrangChu.NOT_SYNCED_WITH_SERVER);
+                hanMucChi.setUsername(Layout_TrangChu.taiKhoanDangNhap.getUsername());
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
                 long result = SQLHanMucChi.addHanMucChi(getActivity(), hanMucChi);
                 if(result > 0){
                     edtTenHanMuc.setText("");
                     edtSoHanMuc.setText("");
+<<<<<<< HEAD
+=======
+
+                    int id = SQLHanMucChi.getIdHanMucChiJustAdd(getActivity());
+                    //thêm chi tiết hạng mục
+                    for (int i = 0; i < dsIdHangMuc.length; i++){
+                        SQLHanMucChi.addHanMucChiHangMuc(getActivity(), id, dsIdHangMuc[i]);
+                    }
+                    //thêm chi tiết tài khoản
+                    for (int i = 0; i < dsIdViTien.length; i++){
+                        SQLHanMucChi.addHanMucChiViTien(getActivity(), id, dsIdViTien[i]);
+                    }
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
                     Toast.makeText(getActivity(), "Thêm hạn mức chi thành công", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(getActivity(), "Thêm hạn mức chi không thành công", Toast.LENGTH_SHORT).show();

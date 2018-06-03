@@ -28,6 +28,17 @@ public class Util {
         fragmentTransaction.commit();
     }
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     public static void getDefaultInfor(Calendar cal, TextView textView) {
         //lấy ngày hiện tại của hệ thống
         cal = Calendar.getInstance();

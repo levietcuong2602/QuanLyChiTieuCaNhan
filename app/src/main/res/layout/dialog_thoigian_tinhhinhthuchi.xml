@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -9,6 +10,10 @@
         android:layout_gravity="center"
         android:text="Thời gian thu chi"
         style="@style/tv2" />
+=======
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     <ListView
         android:id="@+id/lv_thoigian_tinhhinhthuchi"
         android:layout_width="match_parent"

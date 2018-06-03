@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
         android:layout_marginLeft="8dp"
+=======
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         android:id="@+id/tv_hang_muc_thang"
         android:text="Tên h.mục"
         android:textSize="20sp"
@@ -23,7 +30,11 @@
     <TextView
         android:id="@+id/phantram_thang"
         android:text="(0 %)"
+<<<<<<< HEAD
         android:layout_marginLeft="260dp"
+=======
+        android:layout_marginLeft="250dp"
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="match_parent" />

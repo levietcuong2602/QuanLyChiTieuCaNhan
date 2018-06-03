@@ -51,7 +51,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:gravity="center"
+<<<<<<< HEAD
             android:text="Chọn ví"
+=======
+            android:text="abcxyz"
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
             android:textColor="@color/bgToolbar"
             android:textSize="20sp" />
 
@@ -84,7 +88,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:gravity="center"
+<<<<<<< HEAD
             android:text="Chọn ví"
+=======
+            android:text="abcxyz"
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
             android:textColor="@color/bgToolbar"
             android:textSize="20sp" />
 

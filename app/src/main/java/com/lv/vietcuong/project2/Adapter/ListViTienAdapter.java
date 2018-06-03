@@ -23,7 +23,11 @@ import java.util.List;
  * Created by Administor on 3/26/2018.
  */
 
+<<<<<<< HEAD
 public class ListViTienAdapter extends ArrayAdapter implements View.OnClickListener {
+=======
+public class ListViTienAdapter extends ArrayAdapter {
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     private Context context;
     private int resource;
     private List<ViTien> arrayWallet;
@@ -35,6 +39,7 @@ public class ListViTienAdapter extends ArrayAdapter implements View.OnClickListe
         this.arrayWallet = arrayWallet;
     }
 
+<<<<<<< HEAD
     @Override
     public void onClick(View view) {
         int id = view.getId();
@@ -54,6 +59,8 @@ public class ListViTienAdapter extends ArrayAdapter implements View.OnClickListe
         }
     }
 
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     public class ViewHolder{
         TextView textViewNameWallet, textViewSoTien;
         ImageView imgDots;
@@ -81,6 +88,7 @@ public class ListViTienAdapter extends ArrayAdapter implements View.OnClickListe
         viewHolder.textViewSoTien.setText(viTien.getSoDu()+"");
         viewHolder.textViewNameWallet.setText(viTien.getTenViTien());
 
+<<<<<<< HEAD
         viewHolder.imgDots.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,5 +115,11 @@ public class ListViTienAdapter extends ArrayAdapter implements View.OnClickListe
 
         dialog.show();
     }
+=======
+        return convertView;
+    }
+
+
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
 }

@@ -23,6 +23,10 @@
             android:layout_height="50dp" />
 
         <TextView
+<<<<<<< HEAD
+=======
+            android:id="@+id/txtTitle"
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
             android:layout_gravity="center"
             android:textColor="@color/colorWhite"
             android:text="Thêm hạn mức chi"
@@ -148,7 +152,11 @@
                 <TextView
                     android:paddingLeft="5dp"
                     android:textColor="@color/colorBlack"
+<<<<<<< HEAD
                     android:text="Tài khoản"
+=======
+                    android:text="Ví tiền"
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>

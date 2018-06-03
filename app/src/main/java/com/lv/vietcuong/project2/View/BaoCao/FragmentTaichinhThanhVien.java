@@ -20,6 +20,7 @@ import com.android.volley.toolbox.Volley;
 import com.lv.vietcuong.project2.Model.ObjectClass.GhiChep;
 import com.lv.vietcuong.project2.R;
 import com.lv.vietcuong.project2.View.BaoCao.adapter.ThanhVien;
+import com.lv.vietcuong.project2.View.DangNhap.DangNhapActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,7 +38,7 @@ public class FragmentTaichinhThanhVien extends Fragment {
 
     ThanhVien thanhVien;
     ArrayList<GhiChep> ghiCheps = new ArrayList<>();
-    String urlGetGhichep = "http://"+FragmentQuanlyThanhVien.HOST+"/quanlychitieu-server/thanhvien/getGhichep.php";
+    String urlGetGhichep = DangNhapActivity.HOST +"thanhvien/getGhichep.php";
 
     @Nullable
     @Override

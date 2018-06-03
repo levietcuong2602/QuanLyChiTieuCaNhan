@@ -114,6 +114,7 @@ public class SQLHangMuc {
     public static String getTenHangMuc(Activity activity, int idHangMuc){
         SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(activity);
         Cursor cursor = db.rawQuery("select tenHangMuc from HangMuc where idHangMuc = " +idHangMuc,null);
+<<<<<<< HEAD
         if (cursor.moveToFirst()){
             String tenHangMuc = cursor.getString(0);
             db.close();
@@ -123,5 +124,15 @@ public class SQLHangMuc {
             return "";
         }
 
+=======
+        String tenHangMuc;
+        if (cursor.moveToFirst()) {
+            tenHangMuc = cursor.getString(0);
+        }else{
+            tenHangMuc = "";
+        }
+        db.close();
+        return tenHangMuc;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     }
 }

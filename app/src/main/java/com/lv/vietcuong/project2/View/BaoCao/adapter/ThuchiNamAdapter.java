@@ -34,7 +34,11 @@ public class ThuchiNamAdapter extends ArrayAdapter {
         if (convertView == null){
             thuchiNamViewHolder = new ThuchiNamViewHolder();
             convertView = LayoutInflater.from(context).inflate(resource, parent, false);
+<<<<<<< HEAD
             thuchiNamViewHolder.imgNam = (TextView) convertView.findViewById(R.id.img_thang);
+=======
+            thuchiNamViewHolder.imgNam = (ImageView) convertView.findViewById(R.id.img_thang);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
             thuchiNamViewHolder.tvNam = (TextView) convertView.findViewById(R.id.tv_thang);
             thuchiNamViewHolder.tvThuNam = (TextView) convertView.findViewById(R.id.tv_thu_thang);
             thuchiNamViewHolder.tvChiNam = (TextView) convertView.findViewById(R.id.tv_chi_thang);
@@ -50,13 +54,20 @@ public class ThuchiNamAdapter extends ArrayAdapter {
         thuchiNamViewHolder.tvThuNam.setText(thuchiNam.getThu()+" đ");
         thuchiNamViewHolder.tvChiNam.setText(thuchiNam.getChi()+" đ");
         thuchiNamViewHolder.tvThuChiNam.setText(thuchiNam.getThu() - thuchiNam.getChi() + " đ");
+<<<<<<< HEAD
         thuchiNamViewHolder.imgNam.setText(thuchiNam.getNam());
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
         return convertView;
     }
 
     class ThuchiNamViewHolder{
+<<<<<<< HEAD
         TextView imgNam;
+=======
+        ImageView imgNam;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         TextView tvNam, tvThuNam, tvChiNam, tvThuChiNam;
     }
 }

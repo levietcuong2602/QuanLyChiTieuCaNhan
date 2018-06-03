@@ -1,5 +1,6 @@
 package com.lv.vietcuong.project2.Model.ObjectClass;
 
+<<<<<<< HEAD
 import java.util.Comparator;
 
 public class GhiChep implements Comparator<GhiChep> {
@@ -12,6 +13,26 @@ public class GhiChep implements Comparator<GhiChep> {
     private int idHangMuc;
     private String loaiGhiChep;
     private int trangThai;
+=======
+public class GhiChep {
+    protected int idGhiChep;
+    protected int soTien;
+    protected String dienDai;
+    protected String username;
+    protected String ngay;
+    protected String diaDiem;
+    protected int idHangMuc;
+    protected String loaiGhiChep;
+    protected int trangthai;
+
+    public int getTrangthai() {
+        return trangthai;
+    }
+
+    public void setTrangthai(int trangthai) {
+        this.trangthai = trangthai;
+    }
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
     public String getLoaiGhiChep() {
         return loaiGhiChep;
@@ -76,6 +97,7 @@ public class GhiChep implements Comparator<GhiChep> {
     public void setIdHangMuc(int idHangMuc) {
         this.idHangMuc = idHangMuc;
     }
+<<<<<<< HEAD
 
     public int getTrangThai() {
         return trangThai;
@@ -102,4 +124,6 @@ public class GhiChep implements Comparator<GhiChep> {
             }
         }
     }
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 }

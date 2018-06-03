@@ -1,5 +1,9 @@
 package com.lv.vietcuong.project2.Model.ObjectClass;
 
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 import java.util.Date;
 
 /**
@@ -13,7 +17,29 @@ public class HanMucChi {
    private String ngayBatDau;
    private String ngayKetThuc;
    private int soTien;
+<<<<<<< HEAD
 
+=======
+   private String username;
+   private int trangthai;
+   private ArrayList<ViTien> dsViTien;
+
+    public int getTrangthai() {
+        return trangthai;
+    }
+
+    public void setTrangthai(int trangthai) {
+        this.trangthai = trangthai;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
     public int getSoTien() {
         return soTien;

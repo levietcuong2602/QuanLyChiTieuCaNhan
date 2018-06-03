@@ -49,7 +49,11 @@
 
         <TextView
             android:id="@+id/tv_mucchi"
+<<<<<<< HEAD
             android:text="Chọn mục chi"
+=======
+            android:text="Mục chi"
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
             android:gravity="center"
             android:textSize="20sp"
             android:layout_weight="4"
@@ -105,7 +109,11 @@
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="Chọn ví"
+=======
+            android:text="abcxyz"
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
             android:textColor="@color/bgToolbar" />
 
         <Button

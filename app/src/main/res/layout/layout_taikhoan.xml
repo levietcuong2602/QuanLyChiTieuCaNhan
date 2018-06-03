@@ -40,7 +40,12 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:padding="5dp">
+=======
+            android:padding="5dp"
+            android:visibility="gone">
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
             <RadioButton
                 android:id="@+id/rdbDanhSachTaiKhoan"
@@ -53,6 +58,10 @@
                 android:gravity="center"
                 android:background="@drawable/custom_rdbutton_taikhoan"
                 android:checked="true"
+<<<<<<< HEAD
+=======
+
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
                 />
 
             <RadioButton
@@ -64,7 +73,12 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:background="@drawable/custom_rdbutton_sotietkiem"/>
+=======
+                android:background="@drawable/custom_rdbutton_sotietkiem"
+               />
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
         </RadioGroup>
     </LinearLayout>

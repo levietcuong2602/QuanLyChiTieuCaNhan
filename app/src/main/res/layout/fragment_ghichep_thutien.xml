@@ -49,6 +49,7 @@
 
         <TextView
             android:id="@+id/tv_mucthu_2"
+<<<<<<< HEAD
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4"
@@ -56,6 +57,15 @@
             android:text="Chọn mục thu"
             android:textColor="@color/bgToolbar"
             android:textSize="20sp" />
+=======
+            android:text="Mục thu"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_weight="4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/bgToolbar" />
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
         <Button
             android:id="@+id/btn_mucthu_2"
@@ -100,6 +110,7 @@
 
         <TextView
             android:id="@+id/tv_vaotaikhoan_2"
+<<<<<<< HEAD
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4"
@@ -107,6 +118,15 @@
             android:text="Chọn ví"
             android:textColor="@color/bgToolbar"
             android:textSize="20sp" />
+=======
+            android:textSize="20sp"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="abcxyz"
+            android:textColor="@color/bgToolbar" />
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
         <Button
             android:id="@+id/btn_vaotaikhoan_2"

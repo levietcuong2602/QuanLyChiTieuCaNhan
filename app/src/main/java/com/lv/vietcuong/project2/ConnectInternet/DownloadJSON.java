@@ -24,6 +24,10 @@ public class DownloadJSON extends AsyncTask<String, Void, String>{
     private List<HashMap<String, String>> attrs;
     private boolean method = true;
 
+<<<<<<< HEAD
+=======
+    //post
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     public DownloadJSON(String duongDan, List<HashMap<String, String>> attrs) {
         this.duongDan = duongDan;
         this.attrs = attrs;
@@ -31,6 +35,10 @@ public class DownloadJSON extends AsyncTask<String, Void, String>{
         method = false;
     }
 
+<<<<<<< HEAD
+=======
+    //get
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     public DownloadJSON(String duongDan) {
         this.duongDan = duongDan;
         method = true;
@@ -54,7 +62,10 @@ public class DownloadJSON extends AsyncTask<String, Void, String>{
         } catch (IOException e) {
             e.printStackTrace();
         }
+<<<<<<< HEAD
         Log.d("dulieu",data);
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         return data;
     }
 

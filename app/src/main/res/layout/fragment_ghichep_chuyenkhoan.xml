@@ -47,6 +47,7 @@
 
         <TextView
             android:id="@+id/tv_tutaikhoan_3"
+<<<<<<< HEAD
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4"
@@ -54,6 +55,15 @@
             android:text="Chọn ví"
             android:textColor="@color/bgToolbar"
             android:textSize="20sp" />
+=======
+            android:textSize="20sp"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="abcxyz"
+            android:textColor="@color/bgToolbar"/>
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
         <Button
             android:id="@+id/btn_tutaikhoan_3"
@@ -80,6 +90,7 @@
 
         <TextView
             android:id="@+id/tv_vaotaikhoan_3"
+<<<<<<< HEAD
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4"
@@ -87,6 +98,15 @@
             android:text="Chọn ví"
             android:textColor="@color/bgToolbar"
             android:textSize="20sp" />
+=======
+            android:textSize="20sp"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="abcxyz"
+            android:textColor="@color/bgToolbar"  />
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
         <Button
             android:id="@+id/btn_vaotaikhoan_3"

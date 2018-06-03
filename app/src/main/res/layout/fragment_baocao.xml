@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<<<<<<< HEAD
     <LinearLayout
         android:background="@color/bgToolbar"
         android:layout_width="match_parent"
@@ -14,6 +15,12 @@
             android:layout_height="wrap_content"></Spinner>
     </LinearLayout>
 
+=======
+    <Spinner
+        android:id="@+id/spn_danhmuc_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Spinner>
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
     <LinearLayout
         android:id="@+id/fragment_content_baocao"

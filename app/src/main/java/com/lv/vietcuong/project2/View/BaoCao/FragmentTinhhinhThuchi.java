@@ -65,7 +65,13 @@ public class FragmentTinhhinhThuchi extends Fragment implements View.OnClickList
 
     public void showDialogThoiGian(){
         Dialog dialog = new Dialog(getContext());
+<<<<<<< HEAD
         dialog.setContentView(R.layout.dialog_thoigian_tinhhinhthuchi);
+=======
+        dialog.setTitle("Thời gian");
+        dialog.setContentView(R.layout.dialog_thoigian_tinhhinhthuchi);
+        dialog.setCancelable(false);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         setListViewThoigian(dialog);
 
         dialog.show();

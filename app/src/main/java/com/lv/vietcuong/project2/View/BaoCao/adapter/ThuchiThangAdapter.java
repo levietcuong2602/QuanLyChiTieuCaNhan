@@ -33,7 +33,11 @@ public class ThuchiThangAdapter extends ArrayAdapter{
         if (convertView == null){
             thuchiThangViewHolder = new ThuchiThangViewHolder();
             convertView = LayoutInflater.from(context).inflate(resource, parent, false);
+<<<<<<< HEAD
             thuchiThangViewHolder.imgThang = (TextView) convertView.findViewById(R.id.img_thang);
+=======
+            thuchiThangViewHolder.imgThang = (ImageView) convertView.findViewById(R.id.img_thang);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
             thuchiThangViewHolder.tvThang = (TextView) convertView.findViewById(R.id.tv_thang);
             thuchiThangViewHolder.tvThuThang = (TextView) convertView.findViewById(R.id.tv_thu_thang);
             thuchiThangViewHolder.tvChiThang = (TextView) convertView.findViewById(R.id.tv_chi_thang);
@@ -49,13 +53,20 @@ public class ThuchiThangAdapter extends ArrayAdapter{
         thuchiThangViewHolder.tvThuThang.setText(thuchiThang.getThu()+" đ");
         thuchiThangViewHolder.tvChiThang.setText(thuchiThang.getChi()+" đ");
         thuchiThangViewHolder.tvThuChiThang.setText(thuchiThang.getThu() - thuchiThang.getChi() + " đ");
+<<<<<<< HEAD
         thuchiThangViewHolder.imgThang.setText(thuchiThang.getThang().substring(0,2));
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
         return convertView;
     }
 
     class ThuchiThangViewHolder{
+<<<<<<< HEAD
         TextView imgThang;
+=======
+        ImageView imgThang;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         TextView tvThang, tvThuThang, tvChiThang, tvThuChiThang;
     }
 }

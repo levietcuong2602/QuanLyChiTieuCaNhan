@@ -35,7 +35,11 @@ public class FragmentThongkeNam extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+<<<<<<< HEAD
         View view = inflater.inflate(R.layout.fragment_thongke, container, false);
+=======
+        View view = inflater.inflate(R.layout.fragment_thongke_thang, container, false);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         lvThongkeChi = view.findViewById(R.id.lv_thongke_chi);
         lvThongkeThu = view.findViewById(R.id.lv_thongke_thu);
         tvTongChi = view.findViewById(R.id.tv_tongchi);
@@ -69,6 +73,7 @@ public class FragmentThongkeNam extends Fragment {
         if(cursor.moveToFirst()){
             do {
                 if (cursor.getString(4).substring(6).equals(nam)){
+<<<<<<< HEAD
                     if (cursor.getString(7).equals("chitien")){
                         if (getHangmucThang(cursor.getInt(6), dsHangmucThongkeChi) == null){
                             HangmucThongke hangmucThongke = new HangmucThongke();
@@ -77,6 +82,16 @@ public class FragmentThongkeNam extends Fragment {
                             dsHangmucThongkeChi.add(hangmucThongke);
                         }else {
                             HangmucThongke hangmucThongke = getHangmucThang(cursor.getInt(6), dsHangmucThongkeChi);
+=======
+                    if (cursor.getString(6).equals("chitien")){
+                        if (getHangmucThang(cursor.getInt(5), dsHangmucThongkeChi) == null){
+                            HangmucThongke hangmucThongke = new HangmucThongke();
+                            hangmucThongke.setTenHangMuc(SQLHangMuc.getTenHangMuc(getActivity(),cursor.getInt(5)));
+                            hangmucThongke.setSoTien(cursor.getInt(1));
+                            dsHangmucThongkeChi.add(hangmucThongke);
+                        }else {
+                            HangmucThongke hangmucThongke = getHangmucThang(cursor.getInt(5), dsHangmucThongkeChi);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
                             hangmucThongke.setSoTien(hangmucThongke.getSoTien() + cursor.getInt(1));
                         }
                     }
@@ -98,6 +113,7 @@ public class FragmentThongkeNam extends Fragment {
         if(cursor.moveToFirst()){
             do {
                 if (cursor.getString(4).substring(6).equals(nam)){
+<<<<<<< HEAD
                     if (cursor.getString(7).equals("thutien")){
                         if (getHangmucThang(cursor.getInt(6), dsHangmucThongkeThu) == null){
                             HangmucThongke hangmucThongke = new HangmucThongke();
@@ -106,6 +122,16 @@ public class FragmentThongkeNam extends Fragment {
                             dsHangmucThongkeThu.add(hangmucThongke);
                         }else {
                             HangmucThongke hangmucThongke = getHangmucThang(cursor.getInt(6), dsHangmucThongkeThu);
+=======
+                    if (cursor.getString(6).equals("thutien")){
+                        if (getHangmucThang(cursor.getInt(5), dsHangmucThongkeThu) == null){
+                            HangmucThongke hangmucThongke = new HangmucThongke();
+                            hangmucThongke.setTenHangMuc(SQLHangMuc.getTenHangMuc(getActivity(),cursor.getInt(5)));
+                            hangmucThongke.setSoTien(cursor.getInt(1));
+                            dsHangmucThongkeThu.add(hangmucThongke);
+                        }else {
+                            HangmucThongke hangmucThongke = getHangmucThang(cursor.getInt(5), dsHangmucThongkeThu);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
                             hangmucThongke.setSoTien(hangmucThongke.getSoTien() + cursor.getInt(1));
                         }
                     }
@@ -174,4 +200,10 @@ public class FragmentThongkeNam extends Fragment {
             lvThongkeThu.setSelection(hangmucThongkeAdapterThu.getCount()-1);
         }
     }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 }

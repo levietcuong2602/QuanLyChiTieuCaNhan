@@ -13,10 +13,16 @@ public class ViTien implements Serializable{
     private int soDu;
     private String ghiChu;
     private String username;
+<<<<<<< HEAD
+=======
+    private int trangthai;
+    private int idHangMucThu;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
     public ViTien() {
     }
 
+<<<<<<< HEAD
     public ViTien(int idViTien, String tenViTien, String loaiVi, int soDu, String ghiChu, String username) {
         this.idViTien = idViTien;
         this.tenViTien = tenViTien;
@@ -24,6 +30,26 @@ public class ViTien implements Serializable{
         this.soDu = soDu;
         this.ghiChu = ghiChu;
         this.username = username;
+=======
+
+    public ViTien(int id, String tenViTien, String loaiViTien, int soDu, String ghiChu, String username) {
+    }
+
+    public int getTrangthai() {
+        return trangthai;
+    }
+
+    public void setTrangthai(int trangthai) {
+        this.trangthai = trangthai;
+    }
+
+    public int getIdHangMucThu() {
+        return idHangMucThu;
+    }
+
+    public void setIdHangMucThu(int idHangMucThu) {
+        this.idHangMucThu = idHangMucThu;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     }
 
     public String getTenViTien() {

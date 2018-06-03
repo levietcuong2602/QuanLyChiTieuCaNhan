@@ -23,8 +23,28 @@
         </menu>
     </item>
 
+<<<<<<< HEAD
 
     <item android:id="@+id/itemDangXuat"
         android:title="Đăng xuất "/>
 
+=======
+    <item
+        android:id="@+id/item_quanly"
+        android:title="Quản lý thành viên">
+        <menu>
+            <item
+                android:id="@+id/itemThemThanhVien"
+                android:title="Danh sách hành viên"/>
+
+            <item
+                android:id="@+id/itemTinhHinhThuChi"
+                android:title="Xem tình hình thu chi"/>
+
+        </menu>
+    </item>
+
+    <item android:id="@+id/itemDangXuat"
+        android:title="Đăng xuất "/>
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 </menu>

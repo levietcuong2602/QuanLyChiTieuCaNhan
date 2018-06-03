@@ -49,20 +49,34 @@ public class FragmentTinhhinhThuchiNam extends Fragment{
             do {
                 if (getThuchiNam(cursor.getString(4).substring(6),dsThuchiNam) != null){
                     ThuchiNam thuchiNam = getThuchiNam(cursor.getString(4).substring(6),dsThuchiNam);
+<<<<<<< HEAD
                     if (cursor.getString(7).equals("thutien")){
                         thuchiNam.setThu(thuchiNam.getThu() + cursor.getInt(1));
                     }
                     if (cursor.getString(7).equals("chitien")){
+=======
+                    if (cursor.getString(6).equals("thutien")){
+                        thuchiNam.setThu(thuchiNam.getThu() + cursor.getInt(1));
+                    }
+                    if (cursor.getString(6).equals("chitien")){
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
                         thuchiNam.setChi(thuchiNam.getChi() + cursor.getInt(1));
                     }
 
                 }else {
                     ThuchiNam thuchiNam = new ThuchiNam();
                     thuchiNam.setNam(cursor.getString(4).substring(6));
+<<<<<<< HEAD
                     if (cursor.getString(7).equals("chitien")){
                         thuchiNam.setChi(cursor.getInt(1));
                     }
                     if (cursor.getString(7).equals("thutien")){
+=======
+                    if (cursor.getString(6).equals("chitien")){
+                        thuchiNam.setChi(cursor.getInt(1));
+                    }
+                    if (cursor.getString(6).equals("thutien")){
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
                         thuchiNam.setThu(cursor.getInt(1));
                     }
                     dsThuchiNam.add(thuchiNam);

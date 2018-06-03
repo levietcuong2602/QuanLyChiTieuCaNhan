@@ -5,6 +5,10 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+<<<<<<< HEAD
+=======
+import android.util.Log;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +35,10 @@ public class Fragment_ThongTinGhiChepViTien extends Fragment implements View.OnC
     TextView tvNotData, tvSoTienHienTai, tvSoTienBanDau;
     ScrollView scrollView;
     ViTien viTien;
+<<<<<<< HEAD
+=======
+    ArrayList<GhiChep> dsGhiChep = null;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
     @Nullable
     @Override
@@ -40,20 +48,44 @@ public class Fragment_ThongTinGhiChepViTien extends Fragment implements View.OnC
         initView(view);
         getViTien();
         initListViewGhiChep();
+<<<<<<< HEAD
 
         return view;
     }
 
+=======
+        setThongTinViTien();
+        return view;
+    }
+
+    private void setThongTinViTien() {
+        tvSoTienHienTai.setText(viTien.getSoDu()+"");
+        int soTienTemp = viTien.getSoDu();
+        for (int i = 0; i < dsGhiChep.size(); i++){
+            soTienTemp += dsGhiChep.get(i).getSoTien();
+        }
+        tvSoTienBanDau.setText(soTienTemp+"");
+    }
+
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     private void getViTien() {
         Bundle bundle = getArguments();
         if (bundle != null){
             viTien = (ViTien) bundle.getSerializable("ViTien");
             tvSoTienBanDau.setText(viTien.getSoDu()+"");
+<<<<<<< HEAD
+=======
+
+            Log.d("idvitien", viTien.getIdViTien()+"");
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         }
     }
 
     private void initListViewGhiChep() {
+<<<<<<< HEAD
         ArrayList<GhiChep> dsGhiChep = null;
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         if (viTien != null) {
             dsGhiChep = SQLGhiChep.getGhiChepViTien(getActivity(), viTien.getIdViTien());
         }else {
@@ -65,7 +97,11 @@ public class Fragment_ThongTinGhiChepViTien extends Fragment implements View.OnC
             scrollView.setVisibility(View.GONE);
         }
 
+<<<<<<< HEAD
         adapterListGhiChep = new AdapterListGhiChep(getContext(), R.layout.item_thongtinghichep,dsGhiChep);
+=======
+        adapterListGhiChep = new AdapterListGhiChep(getContext(), R.layout.item_thongtinghichep,dsGhiChep, viTien);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         listViewGhiChep.setAdapter(adapterListGhiChep);
     }
 

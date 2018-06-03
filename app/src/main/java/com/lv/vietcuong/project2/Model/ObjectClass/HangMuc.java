@@ -8,12 +8,16 @@ public class HangMuc {
     private int idHinhAnh;
     private int idHangMucCha;
 
+<<<<<<< HEAD
     public HangMuc(int idHangMuc, String tenHangMuc, String dienDai, String loaiHangMuc, int idHinhAnh) {
         this.idHangMuc = idHangMuc;
         this.tenHangMuc = tenHangMuc;
         this.dienDai = dienDai;
         this.loaiHangMuc = loaiHangMuc;
         this.idHinhAnh = idHinhAnh;
+=======
+    public HangMuc(int id, String tenHangMuc, String dienDai, String loaiHangMuc, int icon) {
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     }
 
     public HangMuc() {

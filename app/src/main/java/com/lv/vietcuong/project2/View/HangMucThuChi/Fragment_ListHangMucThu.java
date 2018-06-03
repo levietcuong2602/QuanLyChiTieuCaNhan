@@ -40,7 +40,11 @@ public class Fragment_ListHangMucThu extends Fragment{
     private void createListDataExpandable() {
         listHeader = new ArrayList<>();
         listItem = new HashMap<>();
+<<<<<<< HEAD
         listHeader = SQLHangMuc.getHangMucCha(getActivity(), "thutien");
+=======
+        listHeader = SQLHangMuc.getHangMucCha(getActivity(), "thu");
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
         for (int i = 0; i < listHeader.size(); i++) {
             HangMuc hangMucCha = listHeader.get(i);
@@ -52,7 +56,11 @@ public class Fragment_ListHangMucThu extends Fragment{
         expandableListView = view.findViewById(R.id.expandedHangMucThu);
 
         createListDataExpandable();
+<<<<<<< HEAD
         adapter = new ExpandableListViewAdapter(getActivity(), listHeader, listItem);
+=======
+        adapter = new ExpandableListViewAdapter(getActivity(), listHeader, listItem, false);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         expandableListView.setAdapter(adapter);
 
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {

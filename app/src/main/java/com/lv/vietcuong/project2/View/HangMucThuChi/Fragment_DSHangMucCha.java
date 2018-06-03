@@ -18,6 +18,10 @@ import com.lv.vietcuong.project2.Adapter.AdapterHangMucThuChi;
 import com.lv.vietcuong.project2.Databases.SQLHangMuc;
 import com.lv.vietcuong.project2.Model.ObjectClass.HangMuc;
 import com.lv.vietcuong.project2.R;
+<<<<<<< HEAD
+=======
+import com.lv.vietcuong.project2.View.ViTien.Fragment_ThemTaiKhoan;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
 import java.util.ArrayList;
 
@@ -31,6 +35,10 @@ public class Fragment_DSHangMucCha extends Fragment implements View.OnClickListe
 
     public String mode_hangmuccha = "";
     public String loaiHangMuc = "";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -55,6 +63,13 @@ public class Fragment_DSHangMucCha extends Fragment implements View.OnClickListe
         tvBack.setOnClickListener(this);
         lvHangMucCha.setOnItemClickListener(this);
         rdbKhongChon.setOnCheckedChangeListener(this);
+<<<<<<< HEAD
+=======
+
+        if (mode_hangmuccha.equals("dshangmucthu")){
+            rdbKhongChon.setVisibility(View.GONE);
+        }
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     }
 
     @Override
@@ -81,6 +96,12 @@ public class Fragment_DSHangMucCha extends Fragment implements View.OnClickListe
         }else if (mode_hangmuccha.equals("themhangmuc")){
             Fragment_ThemHangMuc.idHangMucCha = hangMuc.getIdHangMuc();
             getActivity().getSupportFragmentManager().popBackStack();
+<<<<<<< HEAD
+=======
+        }else if (mode_hangmuccha.equals("dshangmucthu")){
+            Fragment_ThemTaiKhoan.idHangMucThu = hangMuc.getIdHangMuc();
+            getActivity().getSupportFragmentManager().popBackStack();
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         }
     }
 

@@ -29,7 +29,11 @@ public class ModelDangNhap {
     }
 
     public boolean KiemTraDangNhap(Context context, String username, String password){
+<<<<<<< HEAD
         String links = DangNhapActivity.SERVER_NAME;
+=======
+        String links = DangNhapActivity.SERVER_TAIKHOAN;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         boolean result = false;
 
         List<HashMap<String, String>> attrs = new ArrayList<>();

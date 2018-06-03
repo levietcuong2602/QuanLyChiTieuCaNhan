@@ -12,6 +12,10 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+<<<<<<< HEAD
+=======
+import android.view.Menu;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -22,7 +26,11 @@ import com.lv.vietcuong.project2.Model.TaiKhoan.ModelTaiKhoan;
 import com.lv.vietcuong.project2.View.BaoCao.FragmentBaoCao;
 import com.lv.vietcuong.project2.View.GhiChep.GhiChepActivity;
 import com.lv.vietcuong.project2.View.HanMucChi.Fragment_ThemHanMucChi;
+<<<<<<< HEAD
 import com.lv.vietcuong.project2.View.HanMucChi.HanMucChiActivity;
+=======
+import com.lv.vietcuong.project2.View.HanMucChi.HanMucChiFragment;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 import com.lv.vietcuong.project2.View.HanMucChi.OnFragmentManager;
 import com.lv.vietcuong.project2.View.HangMucThuChi.HangMucThuChiActivity;
 import com.lv.vietcuong.project2.View.Profile.Fragment_DoiAvata;
@@ -31,13 +39,26 @@ import com.lv.vietcuong.project2.View.Profile.Fragment_CapNhatThongTin;
 import com.lv.vietcuong.project2.View.ViTien.TaiKhoanActivity;
 import com.lv.vietcuong.project2.View.DangNhap.DangNhapActivity;
 
+<<<<<<< HEAD
 public class Layout_TrangChu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnFragmentManager{
+=======
+public class Layout_TrangChu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+    public static final int SYNCED_WITH_SERVER = 1;
+    public static final int NOT_SYNCED_WITH_SERVER = 0;
+    public static final int EDIT_STATE = 3;
+    public static final int DELETE_STATE = 2;
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
     //    Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     TextView textName;
     FragmentManager manager;
+<<<<<<< HEAD
+=======
+    ModelTaiKhoan modelTaiKhoan;
+
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     public static BottomNavigationView bottomNavigationView;
 
     public static TaiKhoan taiKhoanDangNhap;
@@ -46,11 +67,28 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_trangchu);
 
+<<<<<<< HEAD
 //        toolbar = findViewById(R.id.toolBarTrangChu);
+=======
+        initView();
+        setHeaderNavigation();
+        setEvent();
+        //vào thẳng màn hình ghi chép
+        manager = getSupportFragmentManager();
+        FragmentTransaction transGhiChep = manager.beginTransaction();
+        GhiChepActivity ghiChep = new GhiChepActivity();
+        transGhiChep.replace(R.id.content_layout, ghiChep);
+        transGhiChep.commit();
+    }
+
+    public void initView(){
+        //        toolbar = findViewById(R.id.toolBarTrangChu);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
+<<<<<<< HEAD
         setHeaderNavigation();
 //        setSupportActionBar(toolbar);
 
@@ -65,6 +103,12 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
 //                drawerLayout.openDrawer(GravityCompat.START);
 //            }
 //        });
+=======
+        modelTaiKhoan = new ModelTaiKhoan();
+    }
+
+    public void setEvent(){
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         navigationView.setNavigationItemSelectedListener(this);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -89,10 +133,17 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
                         Toast.makeText(Layout_TrangChu.this, "Ghi chép", Toast.LENGTH_SHORT).show();
                         break;
 
+<<<<<<< HEAD
                         
                     case R.id.itemLimit:
                         FragmentTransaction transHanMucChi = manager.beginTransaction();
                         HanMucChiActivity hanMucChi= new HanMucChiActivity();
+=======
+
+                    case R.id.itemLimit:
+                        FragmentTransaction transHanMucChi = manager.beginTransaction();
+                        HanMucChiFragment hanMucChi= new HanMucChiFragment();
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
                         transHanMucChi.replace(R.id.content_layout, hanMucChi);
                         transHanMucChi.commit();
 
@@ -115,6 +166,7 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
                 return false;
             }
         });
+<<<<<<< HEAD
 
         //vào thẳng màn hình ghi chép
         manager = getSupportFragmentManager();
@@ -127,15 +179,29 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
 //        TaiKhoanActivity taiKhoanActivity = new TaiKhoanActivity();
 //        trans.replace(R.id.content_layout, taiKhoanActivity);
 //        trans.commit();
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
     }
 
     private void setHeaderNavigation() {
         View headerLayout = navigationView.inflateHeaderView(R.layout.layout_header_profile);
         textName = headerLayout.findViewById(R.id.tvName);
 
+<<<<<<< HEAD
         taiKhoanDangNhap = new ModelTaiKhoan().getCacheTaiKhoan(this);
         if (taiKhoanDangNhap != null) {
             textName.setText("Xin chào: " + taiKhoanDangNhap.getUsername());
+=======
+        taiKhoanDangNhap = modelTaiKhoan.getCacheTaiKhoan(this);
+        if (taiKhoanDangNhap != null) {
+            textName.setText("Xin chào: " + taiKhoanDangNhap.getHoTen());
+        }
+
+        if (taiKhoanDangNhap.getLoaiTaiKhoan().equals("thanhvien")) {
+            Menu menu = navigationView.getMenu();
+            MenuItem itemQuanLy = menu.findItem(R.id.item_quanly);
+            itemQuanLy.setVisible(false);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         }
     }
 
@@ -197,6 +263,7 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
         return false;
     }
 
+<<<<<<< HEAD
     @Override
     public void onSendDataToFragmentAddHanMuc(String data) {
         //gửi dữ liệu cho fragment thêm hạn mức chi
@@ -209,4 +276,6 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
         transaction.add(R.id.content_layout, themHanMucChi);
         transaction.commit();
     }
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 }

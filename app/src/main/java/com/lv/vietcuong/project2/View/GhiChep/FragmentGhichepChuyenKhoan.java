@@ -1,7 +1,10 @@
 package com.lv.vietcuong.project2.View.GhiChep;
 
 import android.app.Dialog;
+<<<<<<< HEAD
 import android.content.ContentValues;
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,7 +22,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Databases.DataBaseManager;
+<<<<<<< HEAD
 import com.lv.vietcuong.project2.Databases.SQLViTien;
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 import com.lv.vietcuong.project2.Layout_TrangChu;
 import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
 import com.lv.vietcuong.project2.R;
@@ -99,17 +105,44 @@ public class FragmentGhichepChuyenKhoan extends android.support.v4.app.Fragment 
 
     private void showDialogTaikhoanChi(Context context) {
         dialog = new Dialog(context);
+<<<<<<< HEAD
         dialog.setContentView(R.layout.dialog_taikhoan);
+=======
+        dialog.setTitle("Tài khoản chi");
+        dialog.setContentView(R.layout.dialog_taikhoan);
+        dialog.setCancelable(false);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         setListViewTaikhoanChi();
 
         dialog.show();
     }
 
     private void setListViewTaikhoanChi(){
+<<<<<<< HEAD
         final ArrayList<ViTien> dsViTien = SQLViTien.getAllWallet(getActivity());;
 
         listView = (ListView) dialog.findViewById(R.id.lv_taikhoan);
         AdapterTaiKhoan adapterTaiKhoan = new AdapterTaiKhoan(getContext(),R.layout.item_ds_mucchi, dsViTien);
+=======
+        SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(getActivity());
+        Cursor cursor = database.rawQuery("select * from ViTien",null);
+        final ArrayList<ViTien> dsViTien = new ArrayList<>();
+
+        for(int i = 0; i < cursor.getCount(); i++){
+            cursor.moveToPosition(i);
+            int id = cursor.getInt(0);
+            String tenViTien = cursor.getString(1);
+            String loaiViTien = cursor.getString(2);
+            int soDu = cursor.getInt(3);
+            String ghiChu = cursor.getString(4);
+            String username = cursor.getString(5);
+            ViTien viTien = new ViTien(id,tenViTien,loaiViTien,soDu,ghiChu,username);
+            dsViTien.add(viTien);
+        }
+
+        listView = (ListView) dialog.findViewById(R.id.lv_taikhoan);
+        AdapterTaiKhoan adapterTaiKhoan = new AdapterTaiKhoan(getContext(),R.layout.item_ds_mucchi,dsViTien);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         listView.setAdapter(adapterTaiKhoan);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -124,17 +157,44 @@ public class FragmentGhichepChuyenKhoan extends android.support.v4.app.Fragment 
 
     private void showDialogTaikhoanThu(Context context) {
         dialog = new Dialog(context);
+<<<<<<< HEAD
         dialog.setContentView(R.layout.dialog_taikhoan);
+=======
+        dialog.setTitle("Tài khoản thu");
+        dialog.setContentView(R.layout.dialog_taikhoan);
+        dialog.setCancelable(false);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         setListViewTaikhoanThu();
 
         dialog.show();
     }
 
     private void setListViewTaikhoanThu(){
+<<<<<<< HEAD
         final ArrayList<ViTien> dsViTien = SQLViTien.getAllWallet(getActivity());;
 
         listView = (ListView) dialog.findViewById(R.id.lv_taikhoan);
         AdapterTaiKhoan adapterTaiKhoan = new AdapterTaiKhoan(getContext(),R.layout.item_ds_mucchi, dsViTien);
+=======
+        SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(getActivity());
+        Cursor cursor = database.rawQuery("select * from ViTien",null);
+        final ArrayList<ViTien> dsViTien = new ArrayList<>();
+
+        for(int i = 0; i < cursor.getCount(); i++){
+            cursor.moveToPosition(i);
+            int id = cursor.getInt(0);
+            String tenViTien = cursor.getString(1);
+            String loaiViTien = cursor.getString(2);
+            int soDu = cursor.getInt(3);
+            String ghiChu = cursor.getString(4);
+            String username = cursor.getString(5);
+            ViTien viTien = new ViTien(id,tenViTien,loaiViTien,soDu,ghiChu,username);
+            dsViTien.add(viTien);
+        }
+
+        listView = (ListView) dialog.findViewById(R.id.lv_taikhoan);
+        AdapterTaiKhoan adapterTaiKhoan = new AdapterTaiKhoan(getContext(),R.layout.item_ds_mucchi,dsViTien);
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         listView.setAdapter(adapterTaiKhoan);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -156,7 +216,10 @@ public class FragmentGhichepChuyenKhoan extends android.support.v4.app.Fragment 
         String ngay = tvNgay.getText().toString();
         int idHangMuc = 0;
         String loaiGhiChep = "chuyenkhoan";
+<<<<<<< HEAD
         int trangThai = 0;
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
         String chiChoAi = null;
 
@@ -166,6 +229,7 @@ public class FragmentGhichepChuyenKhoan extends android.support.v4.app.Fragment 
             int soTien = Integer.parseInt(edtSoTien.getText().toString());
 
             SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(getActivity());
+<<<<<<< HEAD
 
             ContentValues cv1 = new ContentValues();
             cv1.put("soTien",soTien);
@@ -176,11 +240,16 @@ public class FragmentGhichepChuyenKhoan extends android.support.v4.app.Fragment 
             cv1.put("loaiGhiChep",loaiGhiChep);
             cv1.put("trangThai",trangThai);
             database.insert("GhiChep", null, cv1);
+=======
+            database.execSQL("Insert into GhiChep(soTien, dienDai, username, ngay, idHangMuc, loaiGhiChep) values (" +
+                    soTien + ", '" + dienGiai + "', '" + username + "', '" + ngay + "', " + idHangMuc + ", '" + loaiGhiChep + "')");
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
             Cursor cursor = database.rawQuery("select Max(idGhiChep) from GhiChep", null);
             cursor.moveToFirst();
             int idGhiChep = cursor.getInt(0);
 
+<<<<<<< HEAD
             ContentValues cv2 = new ContentValues();
             cv2.put("username",username);
             cv2.put("idViTienChi",idViTienChi);
@@ -190,6 +259,12 @@ public class FragmentGhichepChuyenKhoan extends android.support.v4.app.Fragment 
 
             Toast.makeText(getActivity(), "Thêm ghi chép thành công", Toast.LENGTH_SHORT).show();
             database.close();
+=======
+            database.execSQL("Insert into ChuyenKhoan(username, idViTienChi, idViTienThu, idGhiChep) values ('" +
+                    username + "', " + idViTienChi + ", " + idViTienThu + ", " + idGhiChep + ")");
+
+            Toast.makeText(getActivity(), "Thêm ghi chép thành công", Toast.LENGTH_SHORT).show();
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         }
     }
 

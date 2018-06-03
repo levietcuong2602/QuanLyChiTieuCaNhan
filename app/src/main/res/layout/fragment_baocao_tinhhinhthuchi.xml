@@ -4,20 +4,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<<<<<<< HEAD
     <TableRow
         android:background="@drawable/custom_multitext_top"
+=======
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<TextView-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Chọn tài khoản:" />-->
+
+        <!--<TextView-->
+            <!--android:layout_weight="4"-->
+            <!--android:id="@+id/tv_taikhoan"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="abcxyz"-->
+            <!--android:textColor="#FF0000" />-->
+
+        <!--<Button-->
+            <!--android:layout_weight="1"-->
+            <!--android:id="@+id/btn_taikhoan"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Tài khoản >"-->
+            <!--android:textSize="15sp" />-->
+
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
+<<<<<<< HEAD
             android:paddingLeft="8dp"
             android:textSize="20sp"
+=======
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Xem theo:" />
 
         <TextView
+<<<<<<< HEAD
             android:id="@+id/tv_thoigian"
             android:text="Hiện tại"
             android:layout_weight="4"
@@ -35,6 +71,24 @@
             android:layout_height="wrap_content" />
 
     </TableRow>
+=======
+            android:layout_weight="4"
+            android:id="@+id/tv_thoigian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hiện tại"
+            android:textColor="#FF0000" />
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/btn_thoigian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thời gian >"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
 
     <LinearLayout
         android:orientation="vertical"

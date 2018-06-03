@@ -51,9 +51,15 @@ public class Fragment_ThemHangMuc extends Fragment implements View.OnClickListen
 
     private void setTitleThemHangMuc() {
 
+<<<<<<< HEAD
         if (loaiHangMuc.equals("chitien")){
             textViewTitle.setText("Thêm Hạng Mục Chi");
         }else if (loaiHangMuc.equals("thutien")){
+=======
+        if (loaiHangMuc.equals("chi")){
+            textViewTitle.setText("Thêm Hạng Mục Chi");
+        }else if (loaiHangMuc.equals("thu")){
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
             textViewTitle.setText("Thêm Hạng Mục Thu");
         }
 
@@ -155,9 +161,15 @@ public class Fragment_ThemHangMuc extends Fragment implements View.OnClickListen
                 break;
             case R.id.fabOption:
                 Fragment_ListIcon listIcon = new Fragment_ListIcon();
+<<<<<<< HEAD
                 if (loaiHangMuc.equals("chitien")){
                     listIcon.mode_dsIcon = "hangmucchi";
                 }else if (loaiHangMuc.equals("thutien")){
+=======
+                if (loaiHangMuc.equals("chi")){
+                    listIcon.mode_dsIcon = "hangmucchi";
+                }else if (loaiHangMuc.equals("thu")){
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
                     listIcon.mode_dsIcon = "hangmucthu";
                 }
 
@@ -177,9 +189,15 @@ public class Fragment_ThemHangMuc extends Fragment implements View.OnClickListen
 
         int loaiHangMuc = HangMucThuChiActivity.mode;
         if (loaiHangMuc == 0) {
+<<<<<<< HEAD
             hangMuc.setLoaiHangMuc("chitien");
         }else if (loaiHangMuc == 1) {
             hangMuc.setLoaiHangMuc("thutien");
+=======
+            hangMuc.setLoaiHangMuc("chi");
+        }else if (loaiHangMuc == 1) {
+            hangMuc.setLoaiHangMuc("thu");
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
             Toast.makeText(getContext(), "thu tiền", Toast.LENGTH_SHORT).show();
         }
         hangMuc.setDienDai(dienGiai);

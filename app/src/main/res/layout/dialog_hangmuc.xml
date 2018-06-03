@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,3 +18,11 @@
     </ListView>
 
 </LinearLayout>
+=======
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/lv_hangmuc_thuchi"
+    android:layout_height="match_parent">
+
+</ListView>
+>>>>>>> 66d505f1d0f366c61803ec14acb312c4634b31e6
