@@ -18,6 +18,7 @@ import com.lv.vietcuong.project2.Databases.SQLHinhAnh;
 import com.lv.vietcuong.project2.Model.ObjectClass.HangMuc;
 import com.lv.vietcuong.project2.R;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -26,12 +27,24 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
     private List<HangMuc> listHeader;
     private HashMap<Integer, List<HangMuc>> listItem;
     private boolean check = false;
+    public boolean []checkGroup;
+    public boolean[][] checkChild;
 
     public ExpandableListViewAdapter(Activity context, List<HangMuc> listHeader, HashMap<Integer, List<HangMuc>> listItem, boolean check) {
         this.context = context;
         this.listHeader = listHeader;
         this.listItem = listItem;
         this.check = check;
+        this.checkGroup = new boolean[listHeader.size()];
+        this.checkChild = new boolean[listHeader.size()][20];
+        //intit
+        for (int i = 0; i < listHeader.size(); i++){
+            checkGroup[i] = true;
+            for (int j = 0; j < listItem.get(listHeader.get(i).getIdHangMuc()).size(); j++){
+                checkChild[i][j] = true;
+            }
+        }
+
     }
 
     @Override
@@ -115,29 +128,8 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
             viewHolderCha.checkBox.setVisibility(View.GONE);
         }
 
-//        final ViewHolderCha finalViewHolderCha = viewHolderCha;
-//        view.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-////                if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
-//////                    if (view.isSelected()){
-//////                        view.setSelected(false);
-//////                    }else {
-//////                        view.setSelected(true);
-//////                    }
-//////                }
-//
-//                if (motionEvent.getX() > view.getWidth() - 60 && motionEvent.getAction() == MotionEvent.ACTION_UP){
-//                    Log.d("expandable", motionEvent.getX()+"");
-//                    if(finalViewHolderCha.checkBox.isChecked()){
-//                        finalViewHolderCha.checkBox.setChecked(false);
-//                    }else {
-//                        finalViewHolderCha.checkBox.setChecked(true);
-//                    }
-//                }
-//                return false;
-//            }
-//        });
+        viewHolderCha.checkBox.setChecked(checkGroup[i]);
+
 
         return view;
     }
@@ -149,8 +141,8 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
-        HangMuc hangMuc = (HangMuc) getChild(i, i1);
+    public View getChildView(int groupPosition, int childPosition, boolean b, View view, ViewGroup viewGroup) {
+        HangMuc hangMuc = (HangMuc) getChild(groupPosition, childPosition);
         String titleItem = hangMuc.getTenHangMuc();
 
         ViewHolderCon holderCon;
@@ -177,6 +169,8 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
         }else{
             holderCon.checkedTextView2.setVisibility(View.GONE);
         }
+
+        holderCon.checkedTextView2.setChecked(checkChild[groupPosition][childPosition]);
 
         return view;
     }

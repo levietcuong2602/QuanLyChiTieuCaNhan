@@ -18,7 +18,7 @@ public class ListAdapterChonViTien extends ArrayAdapter {
     Context context;
     int resource;
     ArrayList<ViTien> dsWallet;
-
+    public boolean check[];
 
     public ListAdapterChonViTien(@NonNull Context context, int resource, @NonNull ArrayList<ViTien> objects) {
         super(context, resource, objects);
@@ -26,7 +26,10 @@ public class ListAdapterChonViTien extends ArrayAdapter {
         this.resource = resource;
         this.dsWallet = objects;
 
-
+        this.check = new boolean[dsWallet.size()];
+        for (int i = 0; i < dsWallet.size(); i++){
+            check[i] = true;
+        }
     }
 
     public class ViewHolder{
@@ -50,7 +53,7 @@ public class ListAdapterChonViTien extends ArrayAdapter {
         ViTien wallet = dsWallet.get(position);
         holder.textView.setText(wallet.getTenViTien());
 
-        holder.textView.setChecked(true);
+        holder.textView.setChecked(check[position]);
 
         return convertView;
     }

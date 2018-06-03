@@ -1,5 +1,6 @@
 package com.lv.vietcuong.project2.Model.ObjectClass;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -13,7 +14,25 @@ public class HanMucChi {
    private String ngayBatDau;
    private String ngayKetThuc;
    private int soTien;
+   private String username;
+   private int trangthai;
+   private ArrayList<ViTien> dsViTien;
 
+    public int getTrangthai() {
+        return trangthai;
+    }
+
+    public void setTrangthai(int trangthai) {
+        this.trangthai = trangthai;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public int getSoTien() {
         return soTien;

@@ -5,6 +5,8 @@ public class ThuTien extends GhiChep{
     private int idViTienThu;
     private String dienGiai;
 
+    public void init(GhiChep ghiChep){}
+
     public String getThuTuAi() {
         return thuTuAi;
     }

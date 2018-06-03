@@ -21,10 +21,12 @@
                 android:layout_height="30dp" />
 
             <TextView
+                android:id="@+id/tvTitle"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textColor="@color/colorWhite"
-                android:text="Thêm tài khoản"
+                android:text="Thêm ví tiền"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -127,6 +129,35 @@
                 <Button
                     android:gravity="center"
                     android:text="VNĐ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button_right"
+                    android:drawableRight="@drawable/ic_action_right"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_multitext_bottom"
+                >
+
+                <TextView
+                    android:textColor="@color/colorBlack"
+                    android:gravity="left"
+                    android:text="Liên kết hạng mục thu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+
+                <Button
+                    android:id="@+id/btnHangMucThu"
+                    android:gravity="center"
+                    android:text="Hạng mục thu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

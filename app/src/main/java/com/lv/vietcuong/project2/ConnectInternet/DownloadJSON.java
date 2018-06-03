@@ -24,6 +24,7 @@ public class DownloadJSON extends AsyncTask<String, Void, String>{
     private List<HashMap<String, String>> attrs;
     private boolean method = true;
 
+    //post
     public DownloadJSON(String duongDan, List<HashMap<String, String>> attrs) {
         this.duongDan = duongDan;
         this.attrs = attrs;
@@ -31,6 +32,7 @@ public class DownloadJSON extends AsyncTask<String, Void, String>{
         method = false;
     }
 
+    //get
     public DownloadJSON(String duongDan) {
         this.duongDan = duongDan;
         method = true;

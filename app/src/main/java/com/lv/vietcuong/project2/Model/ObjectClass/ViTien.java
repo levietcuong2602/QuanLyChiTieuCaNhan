@@ -13,11 +13,30 @@ public class ViTien implements Serializable{
     private int soDu;
     private String ghiChu;
     private String username;
+    private int trangthai;
+    private int idHangMucThu;
 
     public ViTien() {
     }
 
+
     public ViTien(int id, String tenViTien, String loaiViTien, int soDu, String ghiChu, String username) {
+    }
+
+    public int getTrangthai() {
+        return trangthai;
+    }
+
+    public void setTrangthai(int trangthai) {
+        this.trangthai = trangthai;
+    }
+
+    public int getIdHangMucThu() {
+        return idHangMucThu;
+    }
+
+    public void setIdHangMucThu(int idHangMucThu) {
+        this.idHangMucThu = idHangMucThu;
     }
 
     public String getTenViTien() {

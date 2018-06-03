@@ -21,8 +21,13 @@ public class DangNhapActivity extends AppCompatActivity {
     ViewPager viewPagerDangNhap;
     Toolbar toolbar;
 
-    public static final String SERVER_NAME ="http://192.168.1.76/quanlychitieu/taikhoan.php";
-    boolean result = false;;
+    public static final String SERVER ="http://192.168.1.76/quanlychitieu/";
+    public static final String SERVER_TAIKHOAN = SERVER+"taikhoan.php";
+    public static final String SERVER_VITIEN = SERVER +"vitien.php";
+    public static final String SERVER_HANMUCCHI = SERVER +"hanmucchi.php";
+    public static final String SERVER_GHICHEP = SERVER +"ghichep.php";
+
+    boolean result = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

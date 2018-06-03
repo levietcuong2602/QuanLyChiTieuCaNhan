@@ -1,13 +1,20 @@
 package com.lv.vietcuong.project2.View.ViTien;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,14 +23,17 @@ import com.lv.vietcuong.project2.Adapter.ListViTienAdapter;
 import com.lv.vietcuong.project2.Databases.SQLViTien;
 import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
 import com.lv.vietcuong.project2.R;
+import com.lv.vietcuong.project2.View.HanMucChi.Fragment_ThemHanMucChi;
 
 import java.util.ArrayList;
 
-public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
+public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, View.OnClickListener {
     ListView listTaiKhoan;
     ArrayList<ViTien> dsViTien;
     TextView textViewTongTien;
     ListViTienAdapter adapter;
+    int position;
+    BottomSheetDialog dialog;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,10 +72,45 @@ public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.O
 
         textViewTongTien.setText(tong+"");
     }
+    public void showBottomSheetDialog(){
+        dialog = new BottomSheetDialog(getContext());
+        dialog.setContentView(R.layout.bottom_sheet_fragment_option_vitien);
 
+//        LinearLayout layoutChuyenKhoan = dialog.findViewById(R.id.item_chuyenkhoan);
+        LinearLayout layoutHanMucChi = dialog.findViewById(R.id.item_hanmucchi);
+        LinearLayout layoutEdit = dialog.findViewById(R.id.item_edit);
+        LinearLayout layoutNgungSuDung = dialog.findViewById(R.id.item_ngungsudung);
+
+        layoutEdit.setOnClickListener(this);
+        layoutHanMucChi.setOnClickListener(this);
+        layoutNgungSuDung.setOnClickListener(this);
+
+        dialog.show();
+    }
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        ViTien viTien = (ViTien) adapterView.getItemAtPosition(i);
+        position = i;
+        view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getX() < v.getWidth()-40){
+                    showThongTinViTien(position);
+                }
+                return false;
+            }
+        });
+
+        ImageView imageView = view.findViewById(R.id.imgDot);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showBottomSheetDialog();
+            }
+        });
+    }
+
+    public void showThongTinViTien(int i){
+        ViTien viTien = (ViTien) dsViTien.get(i);
 
         Fragment_ThongTinGhiChepViTien thongTinViTien = new Fragment_ThongTinGhiChepViTien();
 
@@ -109,4 +154,29 @@ public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.O
         }
     }
 
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch (id){
+            case R.id.item_hanmucchi:
+                ViTien viTien = dsViTien.get(position);
+                Fragment_ThemHanMucChi themHanMucChi = new Fragment_ThemHanMucChi();
+                themHanMucChi.vitien = viTien;
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.content_layout, themHanMucChi);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                dialog.hide();
+                break;
+            case R.id.item_edit:
+
+                break;
+
+            case R.id.item_ngungsudung:
+                break;
+
+        }
+    }
 }

@@ -3,7 +3,6 @@ package com.lv.vietcuong.project2.View.HanMucChi;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,8 +21,11 @@ import java.util.ArrayList;
 
 public class Fragment_ChonTaiKhoan extends Fragment implements View.OnClickListener {
     ListView listView;
+    ListAdapterChonViTien adapter;
     Button btnBack, btnXong;
     Switch aSwitch;
+
+    ArrayList<ViTien> dsViTien;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,9 +43,9 @@ public class Fragment_ChonTaiKhoan extends Fragment implements View.OnClickListe
 
         listView = view.findViewById(R.id.dsTaiKhoan);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        final ArrayList<ViTien> dsViTien = SQLViTien.getAllWallet(getActivity());
+        dsViTien = SQLViTien.getAllWallet(getActivity());
 
-        ListAdapterChonViTien adapter = new ListAdapterChonViTien(getContext(), R.layout.item_chon_dstaikhoan, dsViTien);
+        adapter = new ListAdapterChonViTien(getContext(), R.layout.item_chon_dstaikhoan, dsViTien);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -53,17 +55,24 @@ public class Fragment_ChonTaiKhoan extends Fragment implements View.OnClickListe
                 if (checkedTextView.isChecked()){
                     checkedTextView.setChecked(false);
                     aSwitch.setChecked(false);
+                    adapter.check[i] = false;
                 }else {
                     checkedTextView.setChecked(true);
+                    adapter.check[i] = true;
 
-                    boolean check = true;
+                    //kiểm tra ds tai khoản
+                    boolean check = false;
                     for (int index = 0; index < dsViTien.size(); index++){
-                        CheckedTextView checkedText = listView.getChildAt(i).findViewById(R.id.tenViTien);
-                        if (!checkedText.isChecked()){
+//                        CheckedTextView checkedText = listView.getChildAt(i).findViewById(R.id.tenViTien);
+                        if (adapter.check[index]){
+                            check = true;
+                        }else{
                             check = false;
                             break;
                         }
+
                     }
+                    adapter.notifyDataSetChanged();
                     aSwitch.setChecked(check);
                 }
 
@@ -78,7 +87,9 @@ public class Fragment_ChonTaiKhoan extends Fragment implements View.OnClickListe
                 for (int i = 0; i < count; i++){
                     CheckedTextView checkedTextView = listView.getChildAt(i).findViewById(R.id.tenViTien);
                     checkedTextView.setChecked(check);
+                    adapter.check[i] = check;
                 }
+                adapter.notifyDataSetChanged();
 
             }
         });
@@ -93,7 +104,21 @@ public class Fragment_ChonTaiKhoan extends Fragment implements View.OnClickListe
         int id = view.getId();
         switch (id){
             case R.id.btnBack:
+                getActivity().getSupportFragmentManager().popBackStack();
+                break;
             case R.id.btnXong:
+                ArrayList<Integer> dsId = new ArrayList<>();
+                for (int i = 0; i < dsViTien.size(); i++){
+                    if (adapter.check[i]){
+                        dsId.add(dsViTien.get(i).getIdViTien());
+                    }
+                }
+
+                Fragment_ThemHanMucChi.dsIdViTien = new int[dsId.size()];
+                for (int i = 0; i < dsId.size(); i++){
+                    Fragment_ThemHanMucChi.dsIdViTien[i] = dsId.get(i);
+                }
+
                 getActivity().getSupportFragmentManager().popBackStack();
                 break;
 

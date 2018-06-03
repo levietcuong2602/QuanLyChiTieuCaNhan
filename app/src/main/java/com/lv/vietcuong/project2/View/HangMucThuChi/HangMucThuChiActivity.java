@@ -85,9 +85,9 @@ public class HangMucThuChiActivity extends Fragment implements View.OnClickListe
                 Fragment_ThemHangMuc hangMuc = new Fragment_ThemHangMuc();
 
                 if (mode == 0){
-                    hangMuc.loaiHangMuc = "chitien";
+                    hangMuc.loaiHangMuc = "chi";
                 }else if (mode == 1){
-                    hangMuc.loaiHangMuc = "thutien";
+                    hangMuc.loaiHangMuc = "thu";
                 }
 
                 transaction.replace(R.id.content_layout, hangMuc);

@@ -1,14 +1,8 @@
 package com.lv.vietcuong.project2.Model.DangNhap_DangKy;
 
-import android.app.Activity;
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
 import com.lv.vietcuong.project2.ConnectInternet.DownloadJSON;
-import com.lv.vietcuong.project2.Databases.DataBaseManager;
 import com.lv.vietcuong.project2.Model.ObjectClass.TaiKhoan;
 import com.lv.vietcuong.project2.View.DangNhap.DangNhapActivity;
 
@@ -24,7 +18,7 @@ public class ModelDangKy {
 
     //thuc hien chusc nang voi csdl
     public boolean DangKyTaiKhoan(TaiKhoan taiKhoan){
-        String links = DangNhapActivity.SERVER_NAME;
+        String links = DangNhapActivity.SERVER_TAIKHOAN;
         boolean result = false;
 
         List<HashMap<String, String>> attrs = new ArrayList<>();

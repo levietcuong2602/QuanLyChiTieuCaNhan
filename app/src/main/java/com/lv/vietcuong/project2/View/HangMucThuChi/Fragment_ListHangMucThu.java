@@ -40,7 +40,7 @@ public class Fragment_ListHangMucThu extends Fragment{
     private void createListDataExpandable() {
         listHeader = new ArrayList<>();
         listItem = new HashMap<>();
-        listHeader = SQLHangMuc.getHangMucCha(getActivity(), "thutien");
+        listHeader = SQLHangMuc.getHangMucCha(getActivity(), "thu");
 
         for (int i = 0; i < listHeader.size(); i++) {
             HangMuc hangMucCha = listHeader.get(i);

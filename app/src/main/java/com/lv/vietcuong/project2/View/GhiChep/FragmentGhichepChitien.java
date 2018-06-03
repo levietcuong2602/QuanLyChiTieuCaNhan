@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Databases.DataBaseManager;
+import com.lv.vietcuong.project2.Databases.SQLHangMuc;
+import com.lv.vietcuong.project2.Databases.SQLViTien;
 import com.lv.vietcuong.project2.Layout_TrangChu;
 import com.lv.vietcuong.project2.Model.ObjectClass.HangMuc;
 import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
@@ -44,7 +46,8 @@ public class FragmentGhichepChitien extends android.support.v4.app.Fragment impl
 
     private int idHangMucChi;
     private int idViTien;
-
+    ArrayList<HangMuc> dsHangMucChi;
+    ArrayList<ViTien> dsViTien;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -110,18 +113,19 @@ public class FragmentGhichepChitien extends android.support.v4.app.Fragment impl
     private void setListViewMucChi(){
         SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(getActivity());
         Cursor cursor = database.rawQuery("select * from HangMuc where loaiHangMuc = 'chi'",null);
-        final ArrayList<HangMuc> dsHangMucChi = new ArrayList<>();
+        dsHangMucChi = new ArrayList<>();
 
-        for(int i = 0; i < cursor.getCount(); i++){
-            cursor.moveToPosition(i);
-            int id = cursor.getInt(0);
-            String tenHangMuc = cursor.getString(1);
-            String dienDai = cursor.getString(2);
-            int icon = cursor.getInt(3);
-            String loaiHangMuc = cursor.getString(4);
-            HangMuc hangMucChi = new HangMuc(id,tenHangMuc,dienDai,loaiHangMuc,icon);
-            dsHangMucChi.add(hangMucChi);
-        }
+//        for(int i = 0; i < cursor.getCount(); i++){
+//            cursor.moveToPosition(i);
+//            int id = cursor.getInt(0);
+//            String tenHangMuc = cursor.getString(1);
+//            String dienDai = cursor.getString(2);
+//            int icon = cursor.getInt(3);
+//            String loaiHangMuc = cursor.getString(4);
+//            HangMuc hangMucChi = new HangMuc(id,tenHangMuc,dienDai,loaiHangMuc,icon);
+//            dsHangMucChi.add(hangMucChi);
+//        }
+        dsHangMucChi = SQLHangMuc.getAllHangMuc(getActivity(), "chi");
 
         listView = (ListView) dialog.findViewById(R.id.lv_hangmuc_thuchi);
         dialog.setTitle("Muc chi");
@@ -142,7 +146,7 @@ public class FragmentGhichepChitien extends android.support.v4.app.Fragment impl
         dialog = new Dialog(context);
         dialog.setTitle("Tài khoản");
         dialog.setContentView(R.layout.dialog_taikhoan);
-        dialog.setCancelable(false);
+//        dialog.setCancelable(false);
         setListViewTaikhoan();
 
         dialog.show();
@@ -151,19 +155,21 @@ public class FragmentGhichepChitien extends android.support.v4.app.Fragment impl
     private void setListViewTaikhoan(){
         SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(getActivity());
         Cursor cursor = database.rawQuery("select * from ViTien",null);
-        final ArrayList<ViTien> dsViTien = new ArrayList<>();
+        dsViTien = new ArrayList<>();
 
-        for(int i = 0; i < cursor.getCount(); i++){
-            cursor.moveToPosition(i);
-            int id = cursor.getInt(0);
-            String tenViTien = cursor.getString(1);
-            String loaiViTien = cursor.getString(2);
-            int soDu = cursor.getInt(3);
-            String ghiChu = cursor.getString(4);
-            String username = cursor.getString(5);
-            ViTien viTien = new ViTien(id,tenViTien,loaiViTien,soDu,ghiChu,username);
-            dsViTien.add(viTien);
-        }
+//        for(int i = 0; i < cursor.getCount(); i++){
+//            cursor.moveToPosition(i);
+//            int id = cursor.getInt(0);
+//            String tenViTien = cursor.getString(1);
+//            String loaiViTien = cursor.getString(2);
+//            int soDu = cursor.getInt(3);
+//            String ghiChu = cursor.getString(4);
+//            String username = cursor.getString(5);
+//            ViTien viTien = new ViTien(id,tenViTien,loaiViTien,soDu,ghiChu,username);
+//            dsViTien.add(viTien);
+//        }
+        dsViTien = SQLViTien.getAllWallet(getActivity());
+
 
         listView = (ListView) dialog.findViewById(R.id.lv_taikhoan);
         dialog.setTitle("Ví tiền");
@@ -188,7 +194,7 @@ public class FragmentGhichepChitien extends android.support.v4.app.Fragment impl
         String username = Layout_TrangChu.taiKhoanDangNhap.getUsername();
         String ngay = tvNgay.getText().toString();
         int idHangMuc = idHangMucChi;
-        String loaiGhiChep = "chitien";
+        String loaiGhiChep = "chi";
 
         String chiChoAi = edtChiChoAi.getText().toString();
         int idViTienChi = idViTien;
@@ -199,8 +205,8 @@ public class FragmentGhichepChitien extends android.support.v4.app.Fragment impl
             int soTien = Integer.parseInt(edtSoTien.getText().toString());
 
             SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(getActivity());
-            database.execSQL("Insert into GhiChep(soTien, dienDai, username, ngay, idHangMuc, loaiGhiChep) values (" +
-                    soTien + ", '" + dienGiai + "', '" + username + "', '" + ngay + "', " + idHangMuc + ", '" + loaiGhiChep + "')");
+            database.execSQL("Insert into GhiChep(soTien, dienDai, username, ngay, idHangMuc, loaiGhiChep, trangthai) values (" +
+                    soTien + ", '" + dienGiai + "', '" + username + "', '" + ngay + "', " + idHangMuc + ", '" + loaiGhiChep + "', "+Layout_TrangChu.NOT_SYNCED_WITH_SERVER+")");
 
             Cursor cursor = database.rawQuery("select Max(idGhiChep) from GhiChep", null);
             cursor.moveToFirst();

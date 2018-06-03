@@ -42,7 +42,7 @@ public class Fragment_ListHangMucChi extends Fragment {
         listHeader = new ArrayList<>();
         listItem = new HashMap<>();
 
-        listHeader = SQLHangMuc.getHangMucCha(getActivity(), "chitien");
+        listHeader = SQLHangMuc.getHangMucCha(getActivity(), "chi");
         for (int i = 0; i < listHeader.size(); i++) {
             HangMuc hangMucCha = listHeader.get(i);
             listItem.put(hangMucCha.getIdHangMuc(), SQLHangMuc.getHangMucCon(getActivity(), hangMucCha.getLoaiHangMuc(), hangMucCha.getIdHangMuc()));

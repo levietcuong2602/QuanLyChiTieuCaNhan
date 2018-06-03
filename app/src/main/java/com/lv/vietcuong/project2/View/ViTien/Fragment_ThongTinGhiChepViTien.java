@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ public class Fragment_ThongTinGhiChepViTien extends Fragment implements View.OnC
     TextView tvNotData, tvSoTienHienTai, tvSoTienBanDau;
     ScrollView scrollView;
     ViTien viTien;
+    ArrayList<GhiChep> dsGhiChep = null;
 
     @Nullable
     @Override
@@ -40,8 +42,17 @@ public class Fragment_ThongTinGhiChepViTien extends Fragment implements View.OnC
         initView(view);
         getViTien();
         initListViewGhiChep();
-
+        setThongTinViTien();
         return view;
+    }
+
+    private void setThongTinViTien() {
+        tvSoTienHienTai.setText(viTien.getSoDu()+"");
+        int soTienTemp = viTien.getSoDu();
+        for (int i = 0; i < dsGhiChep.size(); i++){
+            soTienTemp += dsGhiChep.get(i).getSoTien();
+        }
+        tvSoTienBanDau.setText(soTienTemp+"");
     }
 
     private void getViTien() {
@@ -49,13 +60,14 @@ public class Fragment_ThongTinGhiChepViTien extends Fragment implements View.OnC
         if (bundle != null){
             viTien = (ViTien) bundle.getSerializable("ViTien");
             tvSoTienBanDau.setText(viTien.getSoDu()+"");
+
+            Log.d("idvitien", viTien.getIdViTien()+"");
         }
     }
 
     private void initListViewGhiChep() {
-        ArrayList<GhiChep> dsGhiChep = null;
         if (viTien != null) {
-            dsGhiChep = SQLGhiChep.getGhiChepViTien(getActivity(), viTien.getIdViTien() + "");
+            dsGhiChep = SQLGhiChep.getGhiChepViTien(getActivity(), viTien.getIdViTien());
         }else {
             dsGhiChep = new ArrayList<>();
         }
@@ -65,7 +77,7 @@ public class Fragment_ThongTinGhiChepViTien extends Fragment implements View.OnC
             scrollView.setVisibility(View.GONE);
         }
 
-        adapterListGhiChep = new AdapterListGhiChep(getContext(), R.layout.item_thongtinghichep,dsGhiChep);
+        adapterListGhiChep = new AdapterListGhiChep(getContext(), R.layout.item_thongtinghichep,dsGhiChep, viTien);
         listViewGhiChep.setAdapter(adapterListGhiChep);
     }
 

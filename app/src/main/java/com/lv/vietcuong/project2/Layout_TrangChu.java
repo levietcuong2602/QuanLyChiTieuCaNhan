@@ -12,6 +12,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -22,7 +23,7 @@ import com.lv.vietcuong.project2.Model.TaiKhoan.ModelTaiKhoan;
 import com.lv.vietcuong.project2.View.BaoCao.FragmentBaoCao;
 import com.lv.vietcuong.project2.View.GhiChep.GhiChepActivity;
 import com.lv.vietcuong.project2.View.HanMucChi.Fragment_ThemHanMucChi;
-import com.lv.vietcuong.project2.View.HanMucChi.HanMucChiActivity;
+import com.lv.vietcuong.project2.View.HanMucChi.HanMucChiFragment;
 import com.lv.vietcuong.project2.View.HanMucChi.OnFragmentManager;
 import com.lv.vietcuong.project2.View.HangMucThuChi.HangMucThuChiActivity;
 import com.lv.vietcuong.project2.View.Profile.Fragment_DoiAvata;
@@ -31,8 +32,9 @@ import com.lv.vietcuong.project2.View.Profile.Fragment_CapNhatThongTin;
 import com.lv.vietcuong.project2.View.ViTien.TaiKhoanActivity;
 import com.lv.vietcuong.project2.View.DangNhap.DangNhapActivity;
 
-public class Layout_TrangChu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnFragmentManager{
-
+public class Layout_TrangChu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+    public static final int SYNCED_WITH_SERVER = 1;
+    public static final int NOT_SYNCED_WITH_SERVER = 0;
     //    Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -48,27 +50,27 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_trangchu);
 
-//        toolbar = findViewById(R.id.toolBarTrangChu);
+        initView();
+        setHeaderNavigation();
+        setEvent();
+        //vào thẳng màn hình ghi chép
+        manager = getSupportFragmentManager();
+        FragmentTransaction transGhiChep = manager.beginTransaction();
+        GhiChepActivity ghiChep = new GhiChepActivity();
+        transGhiChep.replace(R.id.content_layout, ghiChep);
+        transGhiChep.commit();
+    }
+
+    public void initView(){
+        //        toolbar = findViewById(R.id.toolBarTrangChu);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         modelTaiKhoan = new ModelTaiKhoan();
+    }
 
-        setHeaderNavigation();
-//        setSupportActionBar(toolbar);
-
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(Layout_TrangChu.this, drawerLayout, R.string.open, R.string.close);
-//        drawerToggle.syncState();
-//
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View view) {
-//                drawerLayout.openDrawer(GravityCompat.START);
-//            }
-//        });
+    public void setEvent(){
         navigationView.setNavigationItemSelectedListener(this);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -93,10 +95,10 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
                         Toast.makeText(Layout_TrangChu.this, "Ghi chép", Toast.LENGTH_SHORT).show();
                         break;
 
-                        
+
                     case R.id.itemLimit:
                         FragmentTransaction transHanMucChi = manager.beginTransaction();
-                        HanMucChiActivity hanMucChi= new HanMucChiActivity();
+                        HanMucChiFragment hanMucChi= new HanMucChiFragment();
                         transHanMucChi.replace(R.id.content_layout, hanMucChi);
                         transHanMucChi.commit();
 
@@ -119,28 +121,21 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
                 return false;
             }
         });
-
-        //vào thẳng màn hình ghi chép
-        manager = getSupportFragmentManager();
-        FragmentTransaction transGhiChep = manager.beginTransaction();
-        GhiChepActivity ghiChep = new GhiChepActivity();
-        transGhiChep.replace(R.id.content_layout, ghiChep);
-        transGhiChep.commit();
-
-//        FragmentTransaction trans = manager.beginTransaction();
-//        TaiKhoanActivity taiKhoanActivity = new TaiKhoanActivity();
-//        trans.replace(R.id.content_layout, taiKhoanActivity);
-//        trans.commit();
     }
 
     private void setHeaderNavigation() {
         View headerLayout = navigationView.inflateHeaderView(R.layout.layout_header_profile);
         textName = headerLayout.findViewById(R.id.tvName);
 
-
         taiKhoanDangNhap = modelTaiKhoan.getCacheTaiKhoan(this);
         if (taiKhoanDangNhap != null) {
-            textName.setText("Xin chào: " + taiKhoanDangNhap.getUsername());
+            textName.setText("Xin chào: " + taiKhoanDangNhap.getHoTen());
+        }
+
+        if (taiKhoanDangNhap.getLoaiTaiKhoan().equals("thanhvien")) {
+            Menu menu = navigationView.getMenu();
+            MenuItem itemQuanLy = menu.findItem(R.id.item_quanly);
+            itemQuanLy.setVisible(false);
         }
     }
 
@@ -202,16 +197,4 @@ public class Layout_TrangChu extends AppCompatActivity implements NavigationView
         return false;
     }
 
-    @Override
-    public void onSendDataToFragmentAddHanMuc(String data) {
-        //gửi dữ liệu cho fragment thêm hạn mức chi
-        Bundle bundle = new Bundle();
-        bundle.putString("NgayKetThuc", data);
-        Fragment_ThemHanMucChi themHanMucChi = new Fragment_ThemHanMucChi();
-        themHanMucChi.setArguments(bundle);
-
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.content_layout, themHanMucChi);
-        transaction.commit();
-    }
 }

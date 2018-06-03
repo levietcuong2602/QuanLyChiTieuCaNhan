@@ -39,7 +39,8 @@ public class FragmentEditChitien extends Fragment implements View.OnClickListene
     private ListView listView;
     private Dialog dialog;
 
-    private int idGhiChep, soTien, idHangMucChi, idViTien;
+    public int idGhiChep;
+    private int soTien, idHangMucChi, idViTien;
     private String dienGiai, ngay, chiChoAi;
 
 

@@ -20,7 +20,7 @@ public class ModelDangNhap {
     public void CapNhapCacheDangNhap(Context context, TaiKhoan taiKhoan){
         SharedPreferences preferences = context.getSharedPreferences("TaiKhoan", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("username", taiKhoan.getHoTen());
+        editor.putString("username", taiKhoan.getUsername());
         editor.putString("password", taiKhoan.getPassword());
         editor.putString("hoten", taiKhoan.getHoTen());
         editor.putString("loaitaikhoan", taiKhoan.getLoaiTaiKhoan());
@@ -29,7 +29,7 @@ public class ModelDangNhap {
     }
 
     public boolean KiemTraDangNhap(Context context, String username, String password){
-        String links = DangNhapActivity.SERVER_NAME;
+        String links = DangNhapActivity.SERVER_TAIKHOAN;
         boolean result = false;
 
         List<HashMap<String, String>> attrs = new ArrayList<>();

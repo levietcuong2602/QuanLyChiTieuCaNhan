@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lv.vietcuong.project2.Model.ObjectClass.GhiChep;
+import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
 import com.lv.vietcuong.project2.R;
 
 import java.util.ArrayList;
@@ -19,12 +20,14 @@ public class AdapterListGhiChep extends ArrayAdapter<GhiChep> {
     private Context context;
     private int resource;
     private ArrayList<GhiChep> dsGhiChep;
-
-    public AdapterListGhiChep(@NonNull Context context, int resource, @NonNull ArrayList<GhiChep> objects) {
+    private ViTien viTien;
+    public int soTienTemp;
+    public AdapterListGhiChep(@NonNull Context context, int resource, @NonNull ArrayList<GhiChep> objects, ViTien viTien) {
         super(context, resource, objects);
         this.context = context;
         this.resource = resource;
         this.dsGhiChep = objects;
+        this.viTien = viTien;
     }
 
     public class ViewHolder{
@@ -60,6 +63,12 @@ public class AdapterListGhiChep extends ArrayAdapter<GhiChep> {
         viewHolder.tvTenHangMuc.setText(ghiChep.getIdHangMuc()+"");
         viewHolder.tvSoTien.setText(ghiChep.getSoTien()+"");
 
+        if (position == 0){
+            soTienTemp = viTien.getSoDu();
+        }else{
+            soTienTemp += dsGhiChep.get(position-1).getSoTien();
+        }
+        viewHolder.tvSoTienConLai.setText(soTienTemp+"");
 
         return convertView;
     }

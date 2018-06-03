@@ -23,7 +23,7 @@ import java.util.List;
  * Created by Administor on 3/26/2018.
  */
 
-public class ListViTienAdapter extends ArrayAdapter implements View.OnClickListener {
+public class ListViTienAdapter extends ArrayAdapter {
     private Context context;
     private int resource;
     private List<ViTien> arrayWallet;
@@ -33,25 +33,6 @@ public class ListViTienAdapter extends ArrayAdapter implements View.OnClickListe
         this.context = context;
         this.resource = resource;
         this.arrayWallet = arrayWallet;
-    }
-
-    @Override
-    public void onClick(View view) {
-        int id = view.getId();
-        switch (id){
-            case R.id.item_chuyenkhoan:
-                Toast.makeText(context, "chuyển khoản", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.item_edit:
-                Toast.makeText(context, "chỉnh sửa", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.item_hanmucchi:
-                Toast.makeText(context, "đặt hạn mức chi", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.item_ngungsudung:
-                Toast.makeText(context, "ngừng sủ dụng", Toast.LENGTH_SHORT).show();
-                break;
-        }
     }
 
     public class ViewHolder{
@@ -81,31 +62,9 @@ public class ListViTienAdapter extends ArrayAdapter implements View.OnClickListe
         viewHolder.textViewSoTien.setText(viTien.getSoDu()+"");
         viewHolder.textViewNameWallet.setText(viTien.getTenViTien());
 
-        viewHolder.imgDots.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showBottomSheetDialog();
-            }
-        });
-
         return convertView;
     }
 
-    public void showBottomSheetDialog(){
-        BottomSheetDialog dialog = new BottomSheetDialog(context);
-        dialog.setContentView(R.layout.bottom_sheet_fragment_option_vitien);
 
-        LinearLayout layoutChuyenKhoan = dialog.findViewById(R.id.item_chuyenkhoan);
-        LinearLayout layoutHanMucChi = dialog.findViewById(R.id.item_hanmucchi);
-        LinearLayout layoutEdit = dialog.findViewById(R.id.item_edit);
-        LinearLayout layoutNgungSuDung = dialog.findViewById(R.id.item_ngungsudung);
-
-        layoutChuyenKhoan.setOnClickListener(this);
-        layoutHanMucChi.setOnClickListener(this);
-        layoutEdit.setOnClickListener(this);
-        layoutNgungSuDung.setOnClickListener(this);
-
-        dialog.show();
-    }
 
 }

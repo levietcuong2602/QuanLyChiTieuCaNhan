@@ -1,5 +1,7 @@
 package com.lv.vietcuong.project2.View.HanMucChi;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
@@ -10,14 +12,17 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Adapter.AdapterHanMucChi;
 import com.lv.vietcuong.project2.Databases.SQLHanMucChi;
 import com.lv.vietcuong.project2.Model.ObjectClass.HanMucChi;
 import com.lv.vietcuong.project2.R;
+import com.lv.vietcuong.project2.View.ViTien.Fragment_DanhSachTaiKhoan;
 
 import java.util.ArrayList;
 
@@ -25,13 +30,15 @@ import java.util.ArrayList;
  * Created by Administor on 3/26/2018.
  */
 
-public class HanMucChiActivity extends Fragment implements View.OnClickListener {
+public class HanMucChiFragment extends Fragment implements View.OnClickListener {
 
     ListView listView, listViewBottom;
     ArrayList<HanMucChi> arrayHanMucChi;
     Button btnThemHanMucChi, btnBottom;
     FloatingActionButton fab;
-
+    View bottomsheet;
+    AdapterHanMucChi adapter;
+    BottomSheetBehavior behavior;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -47,8 +54,8 @@ public class HanMucChiActivity extends Fragment implements View.OnClickListener 
     }
 
     private void createBottomSheet(View view) {
-        final View bottomsheet = view.findViewById(R.id.bottomsheet);
-        final BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomsheet);
+        bottomsheet = view.findViewById(R.id.bottomsheet);
+        behavior = BottomSheetBehavior.from(bottomsheet);
         behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         behavior.setPeekHeight(100);
 
@@ -86,9 +93,45 @@ public class HanMucChiActivity extends Fragment implements View.OnClickListener 
     private void createListViewHanMuc(View view) {
         listView = view.findViewById(R.id.listViewHanMucChi);
         arrayHanMucChi = SQLHanMucChi.getAllHanMucChi(getActivity());
-        AdapterHanMucChi adapter = new AdapterHanMucChi(getContext(), R.layout.item_list_hanmucchi, arrayHanMucChi);
+        adapter = new AdapterHanMucChi(getContext(), R.layout.item_list_hanmucchi, arrayHanMucChi);
         adapter.notifyDataSetChanged();
         listView.setAdapter(adapter);
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                final HanMucChi hanMucChi = arrayHanMucChi.get(position);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("Thông báo");
+                builder.setMessage("Bạn có chắc chắn muốn xóa hạn mức chi?");
+
+                builder.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        long result = SQLHanMucChi.deleteHanMucChi(getActivity(), hanMucChi.getIdHanMucChi());
+                        if (result > 0){
+                            Toast.makeText(getContext(), "Xóa hạn mức chi thành công.", Toast.LENGTH_SHORT).show();
+                            arrayHanMucChi.clear();
+                            arrayHanMucChi.addAll(SQLHanMucChi.getAllHanMucChi(getActivity()));
+                            adapter.notifyDataSetChanged();
+                        }else{
+                            Toast.makeText(getContext(), "Xóa hạn mức chi không thành công.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                return false;
+            }
+        });
     }
 
 
@@ -98,6 +141,7 @@ public class HanMucChiActivity extends Fragment implements View.OnClickListener 
         FragmentTransaction transaction = manager.beginTransaction();
         Fragment_ThemHanMucChi themHangMucChi = new Fragment_ThemHanMucChi();
         transaction.replace(R.id.content_layout, themHangMucChi);
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 }

@@ -1,14 +1,23 @@
 package com.lv.vietcuong.project2.Model.ObjectClass;
 
 public class GhiChep {
-    private int idGhiChep;
-    private int soTien;
-    private String dienDai;
-    private String username;
-    private String ngay;
-    private String diaDiem;
-    private int idHangMuc;
-    private String loaiGhiChep;
+    protected int idGhiChep;
+    protected int soTien;
+    protected String dienDai;
+    protected String username;
+    protected String ngay;
+    protected String diaDiem;
+    protected int idHangMuc;
+    protected String loaiGhiChep;
+    protected int trangthai;
+
+    public int getTrangthai() {
+        return trangthai;
+    }
+
+    public void setTrangthai(int trangthai) {
+        this.trangthai = trangthai;
+    }
 
     public String getLoaiGhiChep() {
         return loaiGhiChep;
