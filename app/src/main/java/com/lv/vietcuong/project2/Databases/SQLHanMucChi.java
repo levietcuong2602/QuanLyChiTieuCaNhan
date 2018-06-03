@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.test.ActivityTestCase;
 import android.util.Log;
 
+import com.lv.vietcuong.project2.Adapter.ListAdapterChonViTien;
 import com.lv.vietcuong.project2.Layout_TrangChu;
 import com.lv.vietcuong.project2.Model.ObjectClass.HanMucChi;
 
@@ -26,7 +27,10 @@ public class SQLHanMucChi {
     public static ArrayList<HanMucChi> getAllHanMucChi(Activity activity){
         ArrayList<HanMucChi> dsWallet = new ArrayList<>();
 
-        String SQLQuery = "SELECT * FROM HanMucChi";
+        String SQLQuery = "SELECT * FROM HanMucChi where trangthai in ("
+                + Layout_TrangChu.NOT_SYNCED_WITH_SERVER +", "
+                + Layout_TrangChu.SYNCED_WITH_SERVER + ", "
+                + Layout_TrangChu.EDIT_STATE +")";
         SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(activity);
         if (database != null){
             Log.d("DB", "Copy database thành công");
@@ -70,8 +74,8 @@ public class SQLHanMucChi {
         return database.insert("HanMucChi", null, values);
     }
 
-    public static long deleteHanMucChi(Activity activity, int idHanMucChi){
-        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(activity);
+    public static long deleteHanMucChi(Context context, int idHanMucChi){
+        SQLiteDatabase db = context.openOrCreateDatabase(DataBaseManager.DB_NAME, Context.MODE_PRIVATE, null);
         return db.delete("HanMucChi", "idHanMucChi=?", new String[]{idHanMucChi+""});
     }
 
@@ -99,12 +103,12 @@ public class SQLHanMucChi {
         return database.insert("TaiKhoan_HanMucChi", null, values);
     }
 
-    public static ArrayList<HanMucChi> getHanMucChiNotSync(Context context) {
+    public static ArrayList<HanMucChi> getHanMucChiNotSync(Context context, int state) {
         ArrayList<HanMucChi> dsHanMucChi = new ArrayList<>();
         String query = "select * from hanmucchi where trangthai=?";
         SQLiteDatabase db = context.openOrCreateDatabase(DataBaseManager.DB_NAME, Context.MODE_PRIVATE, null);
         if (db != null) {
-            Cursor cursor = db.rawQuery(query, new String[]{Layout_TrangChu.NOT_SYNCED_WITH_SERVER + ""});
+            Cursor cursor = db.rawQuery(query, new String[]{state + ""});
             if (cursor.moveToFirst()) {
                 do {
                     HanMucChi hanMucChi = new HanMucChi();

@@ -78,4 +78,44 @@ public class ModelHanMucChi {
 
         return ketqua;
     }
+
+    public boolean deleteHanMucChiToServer(HanMucChi hanMucChi) {
+        boolean ketqua = false;
+        List<HashMap<String, String>> attrs = new ArrayList<>();
+
+        HashMap<String, String> hsHam = new HashMap<>();
+        hsHam.put("ham", "XoaHanMucChi");
+
+        HashMap<String, String> hsIdHanMucChi = new HashMap<>();
+        hsIdHanMucChi.put("idhanmucchi", hanMucChi.getIdHanMucChi()+"");
+
+        HashMap<String, String> hsUsername = new HashMap<>();
+        hsUsername.put("username", hanMucChi.getUsername());
+
+        attrs.add(hsHam);
+        attrs.add(hsIdHanMucChi);
+        attrs.add(hsUsername);
+
+        DownloadJSON downloadJSON = new DownloadJSON(links, attrs);
+        downloadJSON.execute();
+
+        try {
+            String data = downloadJSON.get();
+            JSONObject jsonObject = new JSONObject(data);
+            String kqua = jsonObject.getString("ketqua");
+            if (kqua.equals("thanhcong")) {
+                ketqua = true;
+            } else {
+                ketqua = false;
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return ketqua;
+    }
 }

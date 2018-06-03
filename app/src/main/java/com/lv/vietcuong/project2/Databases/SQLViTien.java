@@ -25,7 +25,10 @@ public class SQLViTien {
     public static ArrayList<ViTien> getAllWallet(Activity activity){
         ArrayList<ViTien> dsWallet = new ArrayList<>();
 
-        String SQLQuery = "SELECT * FROM ViTien";
+        String SQLQuery = "SELECT * FROM ViTien where trangthai in ("
+                + Layout_TrangChu.SYNCED_WITH_SERVER +", "
+                + Layout_TrangChu.NOT_SYNCED_WITH_SERVER + ", "
+                + Layout_TrangChu.EDIT_STATE + ")";
         SQLiteDatabase database = DataBaseManager.initDataBaseQlyThuChi(activity);
         if (database != null) {
             Log.d("DB", "vừa khởi tạo được csdl.");
@@ -79,8 +82,8 @@ public class SQLViTien {
         return db.insert("ViTien", null, values);
     }
 
-    public static long deleteViTien(Activity activity, int idViTien){
-        SQLiteDatabase db = DataBaseManager.initDataBaseQlyThuChi(activity);
+    public static long deleteViTien(Context context, int idViTien){
+        SQLiteDatabase db = context.openOrCreateDatabase(DataBaseManager.DB_NAME, Context.MODE_PRIVATE, null);
         return db.delete("ViTien", "idViTien=?", new String[]{idViTien+""});
     }
 
@@ -95,11 +98,11 @@ public class SQLViTien {
         }else return null;
     }
 
-    public static ArrayList<ViTien> getViTienNotSynced(Context context){
+    public static ArrayList<ViTien> getViTienNotSynced(Context context, int state){
         ArrayList<ViTien> dsViTien = new ArrayList<>();
         SQLiteDatabase db = context.openOrCreateDatabase(DataBaseManager.DB_NAME, Context.MODE_PRIVATE, null);
         if (db != null){
-            Cursor cursor = db.rawQuery(GET_VITIEN_NOT_SYNCED, new String[]{Layout_TrangChu.NOT_SYNCED_WITH_SERVER+""});
+            Cursor cursor = db.rawQuery(GET_VITIEN_NOT_SYNCED, new String[]{state+""});
             if (cursor.moveToFirst()){
                 do {
                     ViTien viTien = new ViTien();

@@ -37,9 +37,7 @@ public class Fragment_ThemTaiKhoan extends Fragment implements View.OnClickListe
 
     public static String ghiChu;
     public static int idHangMucThu = -1;
-
-    public final int SYNCHORIED_SERVER = 1;
-    public final int NOT_SYNCHORIED_SERVER = 1;
+    public ViTien viTien = null;
 
     @Nullable
     @Override
@@ -74,6 +72,23 @@ public class Fragment_ThemTaiKhoan extends Fragment implements View.OnClickListe
             HangMuc hangMuc = SQLHangMuc.getHangMuc(getActivity(), "thu", idHangMucThu);
             btnHangMucThu.setText(hangMuc.getTenHangMuc());
         }
+
+        if (viTien != null){
+            edName.setText(viTien.getTenViTien());
+            edBalance.setText(viTien.getSoDu()+"");
+
+            String tenHangMuc = SQLHangMuc.getTenHangMuc(getActivity(), viTien.getIdHangMucThu());
+            btnHangMucThu.setText(tenHangMuc);
+            ghiChu = viTien.getGhiChu();
+        }
+    }
+
+    public ViTien getViTien() {
+        return viTien;
+    }
+
+    public void setViTien(ViTien viTien) {
+        this.viTien = viTien;
     }
 
     @Override

@@ -35,6 +35,9 @@ import com.lv.vietcuong.project2.View.DangNhap.DangNhapActivity;
 public class Layout_TrangChu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     public static final int SYNCED_WITH_SERVER = 1;
     public static final int NOT_SYNCED_WITH_SERVER = 0;
+    public static final int EDIT_STATE = 3;
+    public static final int DELETE_STATE = 2;
+
     //    Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;

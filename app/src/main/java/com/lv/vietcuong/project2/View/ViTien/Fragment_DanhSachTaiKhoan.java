@@ -1,5 +1,7 @@
 package com.lv.vietcuong.project2.View.ViTien;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,6 +23,7 @@ import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Adapter.ListViTienAdapter;
 import com.lv.vietcuong.project2.Databases.SQLViTien;
+import com.lv.vietcuong.project2.Layout_TrangChu;
 import com.lv.vietcuong.project2.Model.ObjectClass.ViTien;
 import com.lv.vietcuong.project2.R;
 import com.lv.vietcuong.project2.View.HanMucChi.Fragment_ThemHanMucChi;
@@ -126,20 +129,6 @@ public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.O
 
     @Override
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-        ViTien viTien = (ViTien) adapterView.getItemAtPosition(i);
-        long result = SQLViTien.deleteViTien(getActivity(), viTien.getIdViTien());
-
-        if (result > 0){
-            Toast.makeText(getContext(), "delete ví tiền thành công", Toast.LENGTH_SHORT).show();
-
-            dsViTien.clear();
-            dsViTien.addAll(SQLViTien.getAllWallet(getActivity()));
-            adapter.notifyDataSetChanged();
-            setAdapter();
-        }else {
-            Toast.makeText(getContext(), "delete ví tiền không thành công", Toast.LENGTH_SHORT).show();
-        }
         return false;
     }
 
@@ -171,10 +160,53 @@ public class Fragment_DanhSachTaiKhoan extends Fragment implements AdapterView.O
                 dialog.hide();
                 break;
             case R.id.item_edit:
+                ViTien viTien1 = dsViTien.get(position);
+                Fragment_ThemTaiKhoan themTaiKhoan = new Fragment_ThemTaiKhoan();
+                themTaiKhoan.setViTien(viTien1);
 
+                FragmentTransaction transaction1 = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction1.replace(R.id.content_layout, themTaiKhoan);
+                transaction1.addToBackStack(null);
+                transaction1.commit();
+
+                dialog.hide();
                 break;
 
             case R.id.item_ngungsudung:
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage("bạn có chắc chắn muốn xóa ví tiền?");
+
+                builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ViTien viTien = dsViTien.get(position);
+                        viTien.setTrangthai(Layout_TrangChu.DELETE_STATE);
+                        long result = SQLViTien.updateViTien(getActivity(), viTien);
+
+                        if (result > 0){
+                            Toast.makeText(getContext(), "delete ví tiền thành công", Toast.LENGTH_SHORT).show();
+
+                            dsViTien.clear();
+                            dsViTien.addAll(SQLViTien.getAllWallet(getActivity()));
+                            adapter.notifyDataSetChanged();
+                            setAdapter();
+                        }else {
+                            Toast.makeText(getContext(), "delete ví tiền không thành công", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+                builder.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+                dialog.hide();
                 break;
 
         }

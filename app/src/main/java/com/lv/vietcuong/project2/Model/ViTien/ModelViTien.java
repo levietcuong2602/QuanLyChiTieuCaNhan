@@ -77,4 +77,44 @@ public class ModelViTien {
 
         return ketqua;
     }
+
+    public boolean deleleViTienToServer(ViTien viTien) {
+        boolean ketqua = false;
+        List<HashMap<String, String>> attrs = new ArrayList<>();
+
+        HashMap<String, String> hsHam = new HashMap<>();
+        hsHam.put("ham", "XoaViTien");
+
+        HashMap<String, String> hsIdViTien = new HashMap<>();
+        hsIdViTien.put("idvitien", viTien.getIdViTien()+"");
+
+        HashMap<String, String> hsUsername = new HashMap<>();
+        hsUsername.put("username", viTien.getUsername());
+
+        attrs.add(hsHam);
+        attrs.add(hsIdViTien);
+        attrs.add(hsUsername);
+
+        DownloadJSON downloadJSON = new DownloadJSON(links, attrs);
+        downloadJSON.execute();
+
+        try {
+            String data = downloadJSON.get();
+            JSONObject jsonObject = new JSONObject(data);
+            String kqua = jsonObject.getString("ketqua");
+            if (kqua.equals("thanhcong")) {
+                ketqua = true;
+            } else {
+                ketqua = false;
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return ketqua;
+    }
 }

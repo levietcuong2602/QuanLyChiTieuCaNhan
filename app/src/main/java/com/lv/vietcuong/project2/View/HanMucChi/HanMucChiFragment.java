@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.lv.vietcuong.project2.Adapter.AdapterHanMucChi;
 import com.lv.vietcuong.project2.Databases.SQLHanMucChi;
+import com.lv.vietcuong.project2.Layout_TrangChu;
 import com.lv.vietcuong.project2.Model.ObjectClass.HanMucChi;
 import com.lv.vietcuong.project2.R;
 import com.lv.vietcuong.project2.View.ViTien.Fragment_DanhSachTaiKhoan;
@@ -115,7 +116,8 @@ public class HanMucChiFragment extends Fragment implements View.OnClickListener 
                 builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        long result = SQLHanMucChi.deleteHanMucChi(getActivity(), hanMucChi.getIdHanMucChi());
+                        hanMucChi.setTrangthai(Layout_TrangChu.DELETE_STATE);
+                        long result = SQLHanMucChi.updateHanMucChi(getActivity(), hanMucChi);
                         if (result > 0){
                             Toast.makeText(getContext(), "Xóa hạn mức chi thành công.", Toast.LENGTH_SHORT).show();
                             arrayHanMucChi.clear();
